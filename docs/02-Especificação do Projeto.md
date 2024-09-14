@@ -8,7 +8,25 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+Personas 
+
+
+Ivon: 
+62 Anos, Dono de Supermercado Local a +25 anos, não tem um lucro fixo de renda porem tem uma situação financeira relaxada 
+Pensa em expandir o negocio abrindo novas franquias de sua loja. Tem dois filhos que ajudam a cuidar do negocio nos dias atuais para aproveitar mais e planejar sua aposentadoria.  
+Adora passar seu tempo livre em bares bebendo com amigos e vendo jogos de futebol, aos domingos sempre passa na igreja 
+
+Angelo: 
+24 Anos, Trabalha na unimed, faz trabalhos internos e apresenta palestra sobre o sistemas do hospital, tem uma agenda bem apertada no seu dia a dia. Mudou recentemente  para o apartamento da namorada. 
+Sempre procurando um emprego melhor e atras de coisas que podem melhorar seu curriculo e seu conhecimento para o mercado de trabalho. 
+
+Brenda: 
+26 anos, trabalha numa compania eletrica  e faz faculdade na parte da noite, pretender se formar em TI para poder ter horarios melhores e um salario maior. Procura melhorar de vida pra ter uma mais tranquila e não tanto atarefada. 
+Adora ler livros no tempo livre e como não tem muito acaba demorando muito tempo para poder terminar suas leituras 
+
+Willian 
+13 anos, estuda numa escola particular e é um aluno exemplar. Tem bastante tempo livre nos seus dias e adora praticar esportes com os amigos. Ama historias antigas. 
+Não sabe ainda o que gostaria de ser quando crescer, mas gostaria de alguma forma de ajudar as pessoas, seja como bombeiro, policial, psicologo. 
 
 Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
 
