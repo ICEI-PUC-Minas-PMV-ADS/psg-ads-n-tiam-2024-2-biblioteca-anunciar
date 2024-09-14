@@ -3,7 +3,7 @@
 
 <span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
 
-Descreva aqui a metodologia de trabalho do grupo para atacar o problema. Definições sobre os ambiente de trabalho utilizados pela  equipe para desenvolver o projeto. Abrange a relação de ambientes utilizados, a estrutura para gestão do código fonte, além da definição do processo e ferramenta através dos quais a equipe se organiza (Gestão de Times).
+A metodologia escolhida pela equipe para o desenvolvimento do projeto foi o SCRUM, sendo assim, o projeto será divido em sprints. Os ambientes para produção do proejo serão dividos em dev, ambiente para desenvolvimento, e prod, ambiente em que o software será ultiziado pelos usuários. A equipe fará reuniões em sala de aula e no Discord para discutir sobre assuntos do projeto. Além disso, será utilizado o quadro Kanban para a separação de tarefas e gestão do Time.
 
 ## Relação de Ambientes de Trabalho
 
@@ -74,9 +74,9 @@ Coloque  informações sobre detalhes da implementação do Scrum seguido pelo g
 
 As ferramentas empregadas no projeto são:
 
-- Editor de código.
-- Ferramentas de comunicação
-- Ferramentas de desenho de tela (_wireframing_)
+- Editor de código: Visual Studio
+- Ferramentas de comunicação: Discord
+- Ferramentas de desenho de tela: Figma
 
 O editor de código foi escolhido porque ele possui uma integração com o sistema de versão. As ferramentas de comunicação utilizadas possuem integração semelhante e por isso foram selecionadas. Por fim, para criar diagramas utilizamos essa ferramenta por melhor captar as necessidades da nossa solução.
 
