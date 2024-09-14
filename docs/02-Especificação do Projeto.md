@@ -181,7 +181,7 @@ O processo de determinar o orçamento do projeto é uma tarefa que depende, alé
 | 2. Documentação do Projeto e Design (Alunos)      | 1 Mês    | R$0 
 | 3. Desenvolvimento e teste  (Alunos)  | 3 mêses | R$0     
 | 4.Ferramentas para o desenvolvimento | Anual |  R$ 3.000
-| **TOTAL**                  | R$3.000                
+| **TOTAL**                  | |R$3.000                
 
 
 # Estimativa de Custos
