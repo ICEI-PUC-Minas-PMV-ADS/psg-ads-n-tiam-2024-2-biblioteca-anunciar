@@ -152,20 +152,17 @@ Para garantir o sucesso no desenvolvimento do projeto, é necessário gerenciar 
 
 ## Gerenciamento de Tempo
 
-Etapa    | Atividade                                             | Tempo Estimado
--------|--------------------------------------------------------------------|------------
-RF-001 | O sistema deve permitir o cadastro e login de usuários.            | ALTA
-RF-002 | O sistema deve fornecer um catálogo de livros físicos com busca e filtros por título, autor, ou categorias. | ALTA
-RF-003 | O sistema deve permitir que os usuários façam reservas e empréstimos de livros disponíveis. | ALTA
-RF-004 | O sistema deve manter um histórico de empréstimos e devoluções por usuário. | ALTA
-RF-005 | O sistema deve enviar notificações para lembrar os usuários sobre prazos de devolução, novos livros adicionados, e atualizações importantes. | ALTA
-RF-006 | O sistema deve permitir que os usuários avaliem e comentem os livros que leram. | MÉDIA
-RF-007 | O sistema deve fornecer um painel administrativo para que os bibliotecários possam gerenciar o catálogo de livros, reservas, e empréstimos. | ALTA
-RF-008 | O sistema deve gerar relatórios sobre o número de empréstimos, livros mais e menos emprestados, histórico de empréstimos, e outros dados relevantes. | MÉDIA
-RF-009 | O sistema deve recomendar livros aos usuários com base em seus empréstimos anteriores. | MÉDIA
-RF-010 | O sistema deve organizar os livros em diversas categorias, como Religião, Estudos Bíblicos, Ficção Cristã, entre outros. | ALTA
-RF-011 | O sistema deve permitir que os usuários adicionem livros à lista de desejos para futura leitura ou reserva. | MÉDIA
-RF-012 | O sistema deve mostrar a disponibilidade dos livros em tempo real, indicando se estão emprestados ou disponíveis. | ALTA
+Etapa          | Atividade                                             | Tempo Estimado
+---------------|-------------------------------------------------------|------------
+1. Configurar Equipamentos | Configurar e instalar os equipamentos necessários em cada máquina envolvida no projeto.| 1 Semana
+2. Teste de Equipamentos | Testar se os equipamentos e ferramentas estão adequado.| 3 Dias
+3. Documentação do projeto | Elaborar uma documentação do projeto. | 2 semanas
+4. Design do sistema| Elaborar um design inicial do projeto(Wireframes). | 2 Semanas
+5. Desenvolvimento | Codificação | 3 mêses
+6. Testes | Realizar os devidos testes(unitários, integração e aceitação do usuário). | 2 semanas
+7. Implantação | Configurar o ambiente de implementação | 2 semanas
+8. Treinamento | Elaborar um treinamento prévio para usuários. | 1 semana
+9. Aceitação | Receber o retorno do Product Owner | 1 semana
 
 ## Gerenciamento de Equipe
 
