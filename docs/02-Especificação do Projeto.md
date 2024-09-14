@@ -155,8 +155,8 @@ Para garantir o sucesso no desenvolvimento do projeto, é necessário gerenciar 
 | Etapa                       | Atividade                                                            | Tempo Estimado |
 |-----------------------------|----------------------------------------------------------------------|----------------|
 | 1. Configurar Equipamentos  | Configurar e instalar os equipamentos necessários em cada máquina envolvida no projeto. | 1 semana       |
-| 2. Teste de Equipamentos    | Testar se os equipamentos e ferramentas estão adequados.             | 3 dias         |
-| 3. Documentação do Projeto  | Elaborar uma documentação do projeto.                                | 3 Mês      |
+| 2. Teste de Equipamentos    | Testar se os equipamentos e ferramentas estão adequados.             | 5 dias         |
+| 3. Documentação do Projeto  | Elaborar uma documentação do projeto.                                | 1 Mês      |
 | 4. Design do Sistema        | Elaborar um design inicial do projeto (Wireframes).                  | 1 semanas      |
 | 5. Desenvolvimento          | Codificação.                                                          | 3 mêses        |
 | 6. Testes                   | Realizar os devidos testes (unitários, integração e aceitação do usuário). | 2 semanas      |
@@ -175,13 +175,18 @@ O gerenciamento adequado de tarefas contribuirá para que o projeto alcance alto
 
 O processo de determinar o orçamento do projeto é uma tarefa que depende, além dos produtos (saídas) dos processos anteriores do gerenciamento de custos, também de produtos oferecidos por outros processos de gerenciamento, como o escopo e o tempo.
 
-![Orçamento](img/02-orcamento.png)
+| Fase / Atividade       |     Estimativa de Tempo   | Custo Estimado   
+|------------------------|--------------------------- |------------------------------|
+| 1.Configuração e teste de equpipamentos (Alunos)  | 2 semanas   | R$0 
+| 2. Documentação do Projeto e Design (Alunos)      | 1 Mês    | R$0 
+| 3. Desenvolvimento e teste  (Alunos)  | 3 mêses | R$0     
+| 4.Ferramentas para o desenvolvimento | Anual |  R$ 3.000
+| **TOTAL**                  | R$3.000                
+
 
 # Estimativa de Custos
 
 Abaixo está uma estimativa de custos para o projeto de desenvolvimento do aplicativo de gerenciamento de biblioteca para a Igreja Batista Anunciar. A estimativa inclui recursos humanos, hardware, software, redes e serviços.
-
-## Estimativa de Custos
 
 # Estimativa de Custos
 
