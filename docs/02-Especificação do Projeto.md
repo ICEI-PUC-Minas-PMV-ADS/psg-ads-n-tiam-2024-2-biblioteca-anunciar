@@ -44,16 +44,22 @@ Lembre-se que você deve ser enumerar e descrever precisamente e personalizada t
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
 
-|EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
-|--------------------|------------------------------------|----------------------------------------|
-|Ivon                | Lembrete de devolução do livro     | Que eu pare de levar multas da igreja  |
-|Ivon                | Vizualizar quais livros estão dispo| Não ir atoa buscar um livro que não tem|
-|                    | niveis                             |                                        |
-|Angelo              | Reservar o livro antes de ir buscar| Para garantir que ninguem o alugue     |
-|Brenda              | Externder o aluguel online         | para não me locomover ate la so para   |
-|                    |                                    | externder o aluguel                    |
-|Willian             | Avaliar o livro pelo aplicativo    | para os usuarios poderem ver se o livro|
-|                    |                                    | vale a pena de ler                     |
+|EU COMO..........| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
+|-----------------|------------------------------------|----------------------------------------|
+|Eu como usuario  | Lembrete de devolução do livro     | Que eu pare de levar multas da igreja  |
+|Eu como usuario  | Vizualizar quais livros estão dispo| Não ir atoa buscar um livro que não tem|
+|                 | niveis                             |                                        |
+|Eu como usuario  | Reservar o livro antes de ir buscar| Para garantir que ninguem o alugue     |
+|Eu como usuario  | Externder o aluguel online         | para não me locomover ate la so para   |
+|                 |                                    | externder o aluguel                    |
+|Eu como usuario  | Avaliar o livro pelo aplicativo    | para os usuarios poderem ver se o livro|
+|                 |                                    | vale a pena de ler                     |
+|Eu como Administ.|Gostaria de poder adiconar/remover  | para manter o app atualizado           |
+|                 |livros no aplicativo                |                                        |
+|Eu como Administ.|Gostaria de poder ver as reservas   | para organizar a entrefa do livro ao   |
+|                 |de livros feitas                    | usuario.                               |
+|Eu como Administ.|Gostaria de poder ver quem esta com | para poder cobrar o livro do usuario   |
+|                 |a devolução atrasada                |                                        |
 
 Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
 
