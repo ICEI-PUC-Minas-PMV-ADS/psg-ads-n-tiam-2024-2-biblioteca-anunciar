@@ -156,8 +156,6 @@ Abaixo está uma estimativa de custos para o projeto de desenvolvimento do aplic
 
 Abaixo está uma estimativa de custos para o desenvolvimento do aplicativo de gerenciamento de biblioteca para a Igreja Batista Anunciar. O projeto será realizado por 6 alunos, utilizando React Native e o banco de dados Mongo Atlas, durante o prazo de um semestre com a supervisão do professor.
 
-## Estimativa de Custos
-
 | Categoria          | Item                                      | Quantidade | Custo Unitário | Custo Total  |
 |--------------------|-------------------------------------------|------------|----------------|--------------|
 | **Recursos Humanos** | Desenvolvimento, documentação e desing (6 Alunos)     | 6 | R$ 1.000/mês(Desenvolvimento) + R$2.000(Documentação) |
