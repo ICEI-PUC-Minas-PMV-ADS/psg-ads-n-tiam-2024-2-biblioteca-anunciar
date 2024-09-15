@@ -160,21 +160,17 @@ Abaixo está uma estimativa de custos para o desenvolvimento do aplicativo de ge
 
 | Categoria          | Item                                      | Quantidade | Custo Unitário | Custo Total  |
 |--------------------|-------------------------------------------|------------|----------------|--------------|
-| **Recursos Humanos** | Desenvolvimento (6 Alunos)                 | 6          | R$ 1.000/mês (Estágio) | R$ 18.000         |
-|                    | Supervisão do Professor (6 meses)          | 1          | R$ 2.000/mês   | R$ 12.000    |
-| **Subtotal Recursos Humanos**                                |            |                | **R$ 30.000** |
-| **Hardware**        | Preparação de Notebooks (já existentes)     | 1          | R$ 500         | R$ 500       |
+| **Recursos Humanos** | Desenvolvimento, documentação e desing (6 Alunos)     | 6 | R$ 1.000/mês(Desenvolvimento) + R$1.000(Documentação) | R$ 19.000
+| **Subtotal Recursos Humanos**                                |            |                | **R$18.000** |
+| **Hardware**        | Preparação de Maquinas (já existentes)     | 1          | R$ 1.000         | R$ 1.000       |
 |                    | Equipamentos de Desenvolvimento (se necessário) | 0          | R$ 0           | R$ 0         |
-| **Subtotal Hardware**                                      |            |                | **R$ 500**   |
-| **Software**        | Licença Visual Studio                      | 1          | R$ 1.000       | R$ 1.000     |
-|                    | Banco de Dados Firebase (Anual)            | 1          | R$ 1.000       | R$ 1.000     |
-| **Subtotal Software**                                      |            |                | **R$ 2.000** |
-| **Redes**           | Hospedagem em Nuvem (Anual)                | 1          | R$ 600         | R$ 600       |
-|                    | Serviços de Backup e Segurança (Anual)     | 1          | R$ 400         | R$ 400       |
-| **Subtotal Redes**                                         |            |                | **R$ 1.000** |
-| **Serviços**        | Consultoria e Suporte Técnico (por demanda) | 1          | R$ 1.000       | R$ 1.000     |
-|                    | Treinamento e Capacitação (por demanda)     | 1          | R$ 500         | R$ 500       |
-| **Subtotal Serviços**                                       |            |                | **R$ 1.500** |
-| **Total Geral**                                           |            |                | **R$ 35.000** |
+| **Subtotal Hardware**                                      |            |                | **R$ 1.000**   |
+| **Software**        | Banco de Dados Mongo Atlas Free         | 1          | R$ 0       | R$ 0     |
+| **Subtotal Software**                                      |            |                | **R$ 0** |
+| **Redes**           | Hospedagem em Nuvem (Se necessário)  | 1          | $ 0.8/Hora         | $ 3.494,40       
+| **Subtotal Redes**                                         |            |                | **$ 3.494,40** |
+| **Serviços**        | Supervisão do Professor (6 meses)          | 1          | R$ 2.000/mês   | R$ 12.000    |
+| **Subtotal Serviços**                                       |            |                | **R$ 12.000** |
+| **Total Geral**                                           |            |                | **R$ 32.000** |
 
 
