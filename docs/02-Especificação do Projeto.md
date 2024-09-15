@@ -174,9 +174,9 @@ Para garantir o sucesso no desenvolvimento do projeto, é necessário gerenciar 
 |-----------------------------|----------------------------------------------------------------------|----------------|
 | 1. Configurar Equipamentos  | Configurar e instalar os equipamentos necessários em cada máquina envolvida no projeto. | 1 semana       |
 | 2. Teste de Equipamentos    | Testar se os equipamentos e ferramentas estão adequados.             | 5 dias         |
-| 3. Documentação do Projeto  | Elaborar uma documentação do projeto.                                | 1 Mês      |
+| 3. Documentação do Projeto  | Elaborar uma documentação do projeto.                                | 1 mês      |
 | 4. Design do Sistema        | Elaborar um design inicial do projeto (Wireframes).                  | 1 semanas      |
-| 5. Desenvolvimento          | Codificação.                                                          | 3 mêses        |
+| 5. Desenvolvimento          | Codificação.                                                          | 3 meses        |
 | 6. Testes                   | Realizar os devidos testes (unitários, integração e aceitação do usuário). | 2 semanas      |
 | 7. Implantação              | Configurar o ambiente de implementação.                              | 2 semanas      |
 | 8. Treinamento              | Elaborar um treinamento prévio para usuários.                        | 1 semana       |
