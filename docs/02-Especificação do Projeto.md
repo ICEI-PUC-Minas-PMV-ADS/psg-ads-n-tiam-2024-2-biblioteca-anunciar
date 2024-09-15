@@ -151,10 +151,7 @@ O processo de determinar o orçamento do projeto é uma tarefa que depende, alé
 # Estimativa de Custos
 
 Abaixo está uma estimativa de custos para o projeto de desenvolvimento do aplicativo de gerenciamento de biblioteca para a Igreja Batista Anunciar. A estimativa inclui recursos humanos, hardware, software, redes e serviços.
-
-# Estimativa de Custos
-
-Abaixo está uma estimativa de custos para o desenvolvimento do aplicativo de gerenciamento de biblioteca para a Igreja Batista Anunciar. O projeto será realizado por 6 alunos, utilizando React Native e o banco de dados Mongo Atlas, durante o prazo de um semestre com a supervisão do professor.
+O projeto será realizado por 6 alunos, utilizando React Native e o banco de dados Mongo Atlas, durante o prazo de um semestre com a supervisão do professor.
 
 | Categoria          | Item                                      | Quantidade | Custo Unitário | Custo Total  |
 |--------------------|-------------------------------------------|------------|----------------|--------------|
