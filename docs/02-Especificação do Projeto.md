@@ -195,11 +195,11 @@ O processo de determinar o orçamento do projeto é uma tarefa que depende, alé
 
 | Fase / Atividade       |     Estimativa de Tempo   | Custo Estimado   
 |------------------------|--------------------------- |------------------------------|
-| 1.Configuração e teste de equpipamentos (Alunos)  | 2 semanas   | R$0 
-| 2. Documentação do Projeto e Design (Alunos)      | 1 Mês    | R$0 
-| 3. Desenvolvimento e teste  (Alunos)  | 3 mêses | R$0     
+| 1.Configuração e teste de equpipamentos  | 2 semanas   | R$1.000
+| 2. Documentação do Projeto e Design    | 1 Mês    | R$ 1.000
+| 3. Desenvolvimento, teste e implementação  | 3 Meses | R$18.000   
 | 4.Ferramentas para o desenvolvimento | Anual |  R$ 3.000
-| **TOTAL**                  | |R$3.000                
+| **TOTAL**                  | |R$23.500                
 
 
 # Estimativa de Custos
@@ -214,9 +214,9 @@ Abaixo está uma estimativa de custos para o desenvolvimento do aplicativo de ge
 
 | Categoria          | Item                                      | Quantidade | Custo Unitário | Custo Total  |
 |--------------------|-------------------------------------------|------------|----------------|--------------|
-| **Recursos Humanos** | Desenvolvimento (6 Alunos)                 | 6          | R$ 0 (Estágio) | R$ 0         |
+| **Recursos Humanos** | Desenvolvimento (6 Alunos)                 | 6          | R$ 1.000/mês (Estágio) | R$ 18.000         |
 |                    | Supervisão do Professor (6 meses)          | 1          | R$ 2.000/mês   | R$ 12.000    |
-| **Subtotal Recursos Humanos**                                |            |                | **R$ 12.000** |
+| **Subtotal Recursos Humanos**                                |            |                | **R$ 30.000** |
 | **Hardware**        | Preparação de Notebooks (já existentes)     | 1          | R$ 500         | R$ 500       |
 |                    | Equipamentos de Desenvolvimento (se necessário) | 0          | R$ 0           | R$ 0         |
 | **Subtotal Hardware**                                      |            |                | **R$ 500**   |
@@ -229,6 +229,6 @@ Abaixo está uma estimativa de custos para o desenvolvimento do aplicativo de ge
 | **Serviços**        | Consultoria e Suporte Técnico (por demanda) | 1          | R$ 1.000       | R$ 1.000     |
 |                    | Treinamento e Capacitação (por demanda)     | 1          | R$ 500         | R$ 500       |
 | **Subtotal Serviços**                                       |            |                | **R$ 1.500** |
-| **Total Geral**                                           |            |                | **R$ 17.000** |
+| **Total Geral**                                           |            |                | **R$ 35.000** |
 
 
