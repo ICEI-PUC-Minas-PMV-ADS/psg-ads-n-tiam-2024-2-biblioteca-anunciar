@@ -11,8 +11,8 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 ## Integrantes
 
 * Arthur Henrique de Oliveira Acácio
-* Nome completo do aluno 2
-* Nome completo do aluno 3
+* Isabella Bosco
+* Vitor Hugo
 * Nome completo do aluno 4
 
 ## Orientador
