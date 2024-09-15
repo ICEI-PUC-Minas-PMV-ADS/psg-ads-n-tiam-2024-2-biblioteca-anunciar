@@ -161,7 +161,7 @@ Abaixo está uma estimativa de custos para o desenvolvimento do aplicativo de ge
 | Categoria          | Item                                      | Quantidade | Custo Unitário | Custo Total  |
 |--------------------|-------------------------------------------|------------|----------------|--------------|
 | **Recursos Humanos** | Desenvolvimento, documentação e desing (6 Alunos)     | 6 | R$ 1.000/mês(Desenvolvimento) + R$1.000(Documentação) | R$ 19.000
-| **Subtotal Recursos Humanos**                                |            |          |      | **R$18.000** |
+| **Subtotal Recursos Humanos**                                |            |          |      | **R$19.000** |
 | **Hardware**        | Preparação de Maquinas (já existentes)     | 1          | R$ 1.000         | R$ 1.000       |
 |                    | Equipamentos de Desenvolvimento (se necessário) | 0          | R$ 0           | R$ 0         |
 | **Subtotal Hardware**                                      |            |          |      | **R$ 1.000**   |
@@ -171,6 +171,6 @@ Abaixo está uma estimativa de custos para o desenvolvimento do aplicativo de ge
 | **Subtotal Redes**                                         |            |        |        | **$ 3.494,40** |
 | **Serviços**        | Supervisão do Professor (6 meses)          | 1          | R$ 2.000/mês   | R$ 12.000    |
 | **Subtotal Serviços**                                       |            |        |        | **R$ 12.000** |
-| **Total Geral**                                           |            |        |        | **R$ 32.000** |
+| **Total Geral**                                           |            |        |        | **R$ 47.500** |
 
 
