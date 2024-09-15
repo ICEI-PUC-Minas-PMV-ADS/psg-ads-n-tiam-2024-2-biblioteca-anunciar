@@ -158,12 +158,13 @@ Abaixo está uma estimativa de custos para o desenvolvimento do aplicativo de ge
 
 | Categoria          | Item                                      | Quantidade | Custo Unitário | Custo Total  |
 |--------------------|-------------------------------------------|------------|----------------|--------------|
-| **Recursos Humanos** | Desenvolvimento, documentação e desing (6 Alunos)     | 6 | R$ 1.000/mês(Desenvolvimento) + R$2.000(Documentação) |
+| **Recursos Humanos** | Desenvolvimento, documentação e desing (6 Alunos)     | 6 | R$ 1.000/mês(Desenvolvimento) + R$2.000(Documentação) | R$20.000
 | **Subtotal Recursos Humanos**                                |            |          |      | **R$20.000** |
 | **Hardware**        | Preparação de Maquinas (já existentes)     | 1          | R$ 1.000         | R$ 1.000       |
 |                    | Equipamentos de Desenvolvimento (se necessário) | 0          | R$ 0           | R$ 0         |
 | **Subtotal Hardware**                                      |            |          |      | **R$ 1.000**   |
 | **Software**        | Banco de Dados Mongo Atlas Free         | 1          | R$ 0       | R$ 0     |
+|                     |Visual Studio    | 6         | R$ 0       | R$ 0     |
 | **Subtotal Software**                                      |            |           |     | **R$ 0** |
 | **Redes**           | Hospedagem em Nuvem (Se necessário)  | 1          | $ 0.8/Hora         | $ 3.494,40       
 | **Subtotal Redes**                                         |            |        |        | **$ 3.494,40** |
