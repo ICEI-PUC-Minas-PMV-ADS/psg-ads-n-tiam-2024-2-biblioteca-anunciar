@@ -22,28 +22,35 @@ foi utilizado para hospedagem do repositório.
 
 ```mermaid
 gitGraph
-   commit id: "main: Início"
+   commit id: "v0.1" tag: "v0.1"
    branch develop
-   commit id: "develop: Início"
-   branch feature/nova-feature
-   commit id: "Nova Feature"
-   commit id: "Continuação da Feature"
+   commit id: "Feature A"
+   branch feature/feature1
+   commit id: "Work on feature 1"
+   commit id: "Work on feature 1"
    checkout develop
-   merge feature/nova-feature tag: "Merge Feature"
-   commit id: "Preparação para Release"
-   branch release/v1.0.0
-   commit id: "Ajustes Finais para Release"
-   checkout main
-   merge release/v1.0.0 tag: "v1.0.0"
+   merge feature/feature1
+   commit id: "Feature B"
+   branch feature/feature2
+   commit id: "Work on feature 2"
+   commit id: "Work on feature 2"
    checkout develop
-   merge release/v1.0.0
-   branch hotfix/corrigir-bug
-   checkout main
-   commit id: "Hotfix aplicado"
-   merge hotfix/corrigir-bug tag: "v1.0.1"
+   merge feature/feature2
+   branch release
+   checkout release
+   commit id: "v0.2" tag: "v0.2"
+   checkout master
+   merge release
+   branch feature/feature3
+   commit id: "Work on feature 3"
    checkout develop
-   merge hotfix/corrigir-bug
-
+   merge feature/feature3
+   commit id: "v1.0" tag: "v1.0"
+   checkout release
+   merge develop
+   checkout master
+   merge release
+````
 
 O projeto segue a seguinte convenção para o nome de branches:
 
