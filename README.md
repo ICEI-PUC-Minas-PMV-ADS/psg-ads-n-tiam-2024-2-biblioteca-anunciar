@@ -13,7 +13,8 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 * Arthur Henrique de Oliveira Acácio
 * Isabella Bosco
 * Vitor Hugo
-* Nome completo do aluno 4
+* Messias Junio
+* Luis Gustavo Mendes
 
 ## Orientador
 
