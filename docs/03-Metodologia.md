@@ -11,7 +11,7 @@ A metodologia escolhida pela equipe para o desenvolvimento do projeto foi o SCRU
 |----------|------------|------------|
 | Repositório de codigo fonte | GitHub  | https://github.com/ICEI-PUC-Minas-PMV-ADS/psg-ads-n-tiam-2024-2-biblioteca-anunciar)|
 | Design de interface  |    Figma | https://www.figma.com |
-| Comunicação  | Discord e WhatsApp    | https://discord.com |
+| Comunicação  | Discord | https://discord.com |
 | Gerenciamento do projeto | GitHub    | https://github.com/|
 
 ## Controle de Versão
@@ -62,7 +62,7 @@ Para a organização do processo de desenvolvimento do projeto, a ferramenta "Pr
 
 • Backlog: Tarefa que precisa ser realizada.
 
-• Em progresso: Tarefa que está sendo desenvolvida.
+• Em progresso: Tarefa que está em processo de desenvolvimento.
 
 • Feito: Tarefa já realizada, feita.
 
@@ -74,14 +74,9 @@ Para a organização do processo de desenvolvimento do projeto, a ferramenta "Pr
 
 As ferramentas empregadas no projeto são:
 
-- Editor de código: Visual Studio
-- Ferramentas de comunicação: Discord
-- Ferramentas de desenho de tela: Figma
+• Editor de código: Visual Studio
+• Ferramentas de comunicação: Discord
+• Ferramentas de desenho de tela: Figma
+• Controle de Versão: GitHub e Git
 
-O editor de código foi escolhido porque ele possui uma integração com o sistema de versão. As ferramentas de comunicação utilizadas possuem integração semelhante e por isso foram selecionadas. Por fim, para criar diagramas utilizamos essa ferramenta por melhor captar as necessidades da nossa solução.
-
-Liste quais ferramentas foram empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível.
- 
-> **Possíveis Ferramentas que auxiliarão no gerenciamento**: 
-> - [Slack](https://slack.com/)
-> - [Github](https://github.com/)
+O editor de código, Visual Studio, foi escolhido porque ele possui uma integração com o sistema de versão,Git e GitHub. O discord foi escolhido pela facilidade de utilização de suas ferrametas. Por fim, para criar diagramas utilizamos o Figma por facilitar o desenvolvimento de protótipos gráficos para a solução do projeto.
