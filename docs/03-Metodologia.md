@@ -74,9 +74,12 @@ Para a organização do processo de desenvolvimento do projeto, a ferramenta "Pr
 
 As ferramentas empregadas no projeto são:
 
-• Editor de código: Visual Studio
-• Ferramentas de comunicação: Discord
-• Ferramentas de desenho de tela: Figma
-• Controle de Versão: GitHub e Git
+• Editor de código: Visual Studio.
+
+• Ferramentas de comunicação: Discord.
+
+• Ferramentas de desenho de tela: Figma.
+
+• Controle de Versão: GitHub e Git.
 
 O editor de código, Visual Studio, foi escolhido porque ele possui uma integração com o sistema de versão,Git e GitHub. O discord foi escolhido pela facilidade de utilização de suas ferrametas. Por fim, para criar diagramas utilizamos o Figma por facilitar o desenvolvimento de protótipos gráficos para a solução do projeto.
