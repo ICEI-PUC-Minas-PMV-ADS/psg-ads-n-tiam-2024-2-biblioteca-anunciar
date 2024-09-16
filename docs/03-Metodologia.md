@@ -60,9 +60,9 @@ A equipe será divida de acordo com a metodologia SCRUM, sendo assim, a divisão
 
 Para a organização do processo de desenvolvimento do projeto, a ferramenta "Projects" do Github nos auxiliará.
 
-•Backlog: Tarefa que precisa ser realizada.
-•Em progresso: Tarefa que está sendo desenvolvida.
-•Feito: Tarefa já realizada, feita.
+• Backlog: Tarefa que precisa ser realizada.
+• Em progresso: Tarefa que está sendo desenvolvida.
+• Feito: Tarefa já realizada, feita.
 
 ![image](https://github.com/user-attachments/assets/8219e23b-7d0d-41b5-a0a7-baabfb0cb3a7)
 
