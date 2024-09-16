@@ -22,6 +22,38 @@ foi utilizado para hospedagem do repositório.
 
 O projeto segue a seguinte convenção para o nome de branches:
 
+```mermaid
+gitGraph
+   commit id: "v1.0" tag: "v1.0"
+   branch develop
+   commit id: "Dev Commit 1"
+   branch feature/feature1
+   commit id: "Feature 1 Commit 1"
+   commit id: "Feature 1 Commit 2"
+   checkout develop
+   merge feature/feature1 tag: "Merge Feature 1"
+   branch release/v1.1
+   commit id: "Release Commit"
+   checkout master
+   merge release/v1.1 tag: "v1.1"
+   branch hotfix/hotfix1
+   commit id: "Hotfix Commit"
+   checkout develop
+   merge hotfix/hotfix1 tag: "Merge Hotfix"
+   checkout master
+   merge hotfix/hotfix1 tag: "v1.1.1"
+   checkout develop
+   commit id: "Dev Commit 2"
+   branch feature/feature2
+   commit id: "Feature 2 Commit 1"
+   commit id: "Feature 2 Commit 2"
+   checkout develop
+   merge feature/feature2 tag: "Merge Feature 2"
+   branch release/v1.2
+   commit id: "Release Commit 2"
+   checkout master
+   merge release/v1.2 tag: "v1.2"
+
 - `main`: versão estável já testada do software
 - `unstable`: versão já testada do software, porém instável
 - `testing`: versão em testes do software
