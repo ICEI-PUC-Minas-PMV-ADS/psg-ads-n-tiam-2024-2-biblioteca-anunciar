@@ -20,6 +20,31 @@ A ferramenta de controle de versão adotada no projeto foi o
 [Git](https://git-scm.com/), sendo que o [Github](https://github.com)
 foi utilizado para hospedagem do repositório.
 
+gitGraph
+   commit
+   branch develop
+   commit id: "Initial commit"
+   commit
+   branch feature/feature1
+   commit
+   checkout develop
+   merge feature/feature1
+   commit
+   branch release/1.0
+   commit
+   checkout master
+   merge release/1.0
+   commit
+   checkout develop
+   merge release/1.0
+   branch hotfix/1.0.1
+   commit
+   checkout master
+   merge hotfix/1.0.1
+   commit
+   checkout develop
+   merge hotfix/1.0.1
+
 O projeto segue a seguinte convenção para o nome de branches:
 
 - `main`: versão estável já testada do software
