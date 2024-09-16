@@ -10,10 +10,10 @@ A metodologia escolhida pela equipe para o desenvolvimento do projeto foi o SCRU
 
 | Ambiente | Plataforma | Link       |
 |----------|------------|------------|
-| Repositório de codigo fonte | GitHub  |(https://github.com/ICEI-PUC-Minas-PMV-ADS/psg-ads-n-tiam-2024-2-biblioteca-anunciar)|
+| Repositório de codigo fonte | GitHub  | https://github.com/ICEI-PUC-Minas-PMV-ADS/psg-ads-n-tiam-2024-2-biblioteca-anunciar)|
 | Design de interface  |    Figma | https://www.figma.com |
 | Comunicação  | Discord e WhatsApp    | https://discord.com |
-| Gerenciamento do projeto | GitHub    | https://discord.com/](https://github.com/|
+| Gerenciamento do projeto | GitHub    | https://github.com/|
 
 ## Controle de Versão
 
