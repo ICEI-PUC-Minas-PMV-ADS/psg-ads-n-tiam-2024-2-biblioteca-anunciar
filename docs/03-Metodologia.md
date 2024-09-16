@@ -60,26 +60,24 @@ A equipe será divida de acordo com a metodologia SCRUM, sendo assim, a divisão
 
 Para a organização do processo de desenvolvimento do projeto, a ferramenta "Projects" do Github nos auxiliará.
 
-• Backlog: Tarefa que precisa ser realizada.
-
-• Em progresso: Tarefa que está em processo de desenvolvimento.
-
-• Feito: Tarefa já realizada, feita.
+  • Backlog: Tarefa que precisa ser realizada.
+  
+  • Em progresso: Tarefa que está em processo de desenvolvimento.
+  
+  • Feito: Tarefa já realizada, feita.
 
 ![image](https://github.com/user-attachments/assets/8219e23b-7d0d-41b5-a0a7-baabfb0cb3a7)
-
-
 
 ### Ferramentas
 
 As ferramentas empregadas no projeto são:
 
-• Editor de código: Visual Studio.
-
-• Ferramentas de comunicação: Discord.
-
-• Ferramentas de desenho de tela: Figma.
-
-• Controle de Versão: GitHub e Git.
+  • Editor de código: Visual Studio.
+  
+  • Ferramentas de comunicação: Discord.
+  
+  • Ferramentas de desenho de tela: Figma.
+  
+  • Controle de Versão: GitHub e Git.
 
 O editor de código, Visual Studio, foi escolhido porque ele possui uma integração com o sistema de versão,Git e GitHub. O discord foi escolhido pela facilidade de utilização de suas ferrametas. Por fim, para criar diagramas utilizamos o Figma por facilitar o desenvolvimento de protótipos gráficos para a solução do projeto.
