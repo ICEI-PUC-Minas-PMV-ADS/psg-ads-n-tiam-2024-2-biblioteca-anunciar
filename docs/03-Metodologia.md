@@ -4,7 +4,6 @@
 <span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
 
 A metodologia escolhida pela equipe para o desenvolvimento do projeto foi o SCRUM, sendo assim, o projeto será divido em sprints. Os ambientes para produção do projeto serão dividos em dev, ambiente para desenvolvimento, e prod, ambiente em que o software será utilizado pelos usuários. A equipe fará reuniões em sala de aula e no Discord para discutir sobre assuntos do projeto. Além disso, será utilizado o quadro Kanban para a separação de tarefas e gestão do Time.
-  
 
 ## Relação de Ambientes de Trabalho
 
@@ -59,15 +58,15 @@ A equipe será divida de acordo com a metodologia SCRUM, sendo assim, a divisão
 
 ### Processo
 
-Coloque  informações sobre detalhes da implementação do Scrum seguido pelo grupo. O grupo deverá fazer uso do recurso de gerenciamento de projeto oferecido pelo GitHub, que permite acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
- 
-> **Links Úteis**:
-> - [Planejamento e Gestáo Ágil de Projetos](https://pucminas.instructure.com/courses/87878/pages/unidade-2-tema-2-utilizacao-de-ferramentas-para-controle-de-versoes-de-software)
-> - [Sobre quadros de projeto](https://docs.github.com/pt/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)
-> - [Project management, made simple](https://github.com/features/project-management/)
-> - [Sobre quadros de projeto](https://docs.github.com/pt/github/managing-your-work-on-github/about-project-boards)
-> - [Como criar Backlogs no Github](https://www.youtube.com/watch?v=RXEy6CFu9Hk)
-> - [Tutorial Slack](https://slack.com/intl/en-br/)
+Para a organização do processo de desenvolvimento do projeto, a ferramenta "Projects" do Github nos auxiliará.
+
+•Backlog: Tarefa que precisa ser realizada.
+•Em progresso: Tarefa que está sendo desenvolvida.
+•Feito: Tarefa já realizada, feita.
+
+![image](https://github.com/user-attachments/assets/8219e23b-7d0d-41b5-a0a7-baabfb0cb3a7)
+
+
 
 ### Ferramentas
 
