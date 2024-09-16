@@ -3,7 +3,7 @@
 
 <span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
 
-A metodologia escolhida pela equipe para o desenvolvimento do projeto foi o SCRUM, sendo assim, o projeto será divido em sprints. Os ambientes para produção do projeto serão dividos em dev, ambiente para desenvolvimento, e prod, ambiente em que o software será ultiziado pelos usuários. A equipe fará reuniões em sala de aula e no Discord para discutir sobre assuntos do projeto. Além disso, será utilizado o quadro Kanban para a separação de tarefas e gestão do Time.
+A metodologia escolhida pela equipe para o desenvolvimento do projeto foi o SCRUM, sendo assim, o projeto será divido em sprints. Os ambientes para produção do projeto serão dividos em dev, ambiente para desenvolvimento, e prod, ambiente em que o software será utilizado pelos usuários. A equipe fará reuniões em sala de aula e no Discord para discutir sobre assuntos do projeto. Além disso, será utilizado o quadro Kanban para a separação de tarefas e gestão do Time.
   
 
 ## Relação de Ambientes de Trabalho
