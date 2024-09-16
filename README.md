@@ -4,7 +4,7 @@
 
 `Trabalho Interdisciplinar: Aplicação Móvel`
 
-`4 peiodo`
+`4 periodo`
 
 Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
 
