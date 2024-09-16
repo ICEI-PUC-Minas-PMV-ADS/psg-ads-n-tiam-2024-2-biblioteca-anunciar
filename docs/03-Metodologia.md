@@ -20,38 +20,6 @@ A ferramenta de controle de versão adotada no projeto foi o
 [Git](https://git-scm.com/), sendo que o [Github](https://github.com)
 foi utilizado para hospedagem do repositório.
 
-```mermaid
-gitGraph
-   commit id: "v0.1" tag: "v0.1"
-   branch develop
-   commit id: "Feature A"
-   branch feature/feature1
-   commit id: "Work on feature 1"
-   commit id: "Work on feature 1"
-   checkout develop
-   merge feature/feature1
-   commit id: "Feature B"
-   branch feature/feature2
-   commit id: "Work on feature 2"
-   commit id: "Work on feature 2"
-   checkout develop
-   merge feature/feature2
-   branch release
-   checkout release
-   commit id: "v0.2" tag: "v0.2"
-   checkout master
-   merge release
-   branch feature/feature3
-   commit id: "Work on feature 3"
-   checkout develop
-   merge feature/feature3
-   commit id: "v1.0" tag: "v1.0"
-   checkout release
-   merge develop
-   checkout master
-   merge release
-````
-
 O projeto segue a seguinte convenção para o nome de branches:
 
 - `main`: versão estável já testada do software
