@@ -3,12 +3,17 @@
 
 <span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
 
-A metodologia escolhida pela equipe para o desenvolvimento do projeto foi o SCRUM, sendo assim, o projeto será divido em sprints. Os ambientes para produção do proejo serão dividos em dev, ambiente para desenvolvimento, e prod, ambiente em que o software será ultiziado pelos usuários. A equipe fará reuniões em sala de aula e no Discord para discutir sobre assuntos do projeto. Além disso, será utilizado o quadro Kanban para a separação de tarefas e gestão do Time.
+A metodologia escolhida pela equipe para o desenvolvimento do projeto foi o SCRUM, sendo assim, o projeto será divido em sprints. Os ambientes para produção do projeto serão dividos em dev, ambiente para desenvolvimento, e prod, ambiente em que o software será ultiziado pelos usuários. A equipe fará reuniões em sala de aula e no Discord para discutir sobre assuntos do projeto. Além disso, será utilizado o quadro Kanban para a separação de tarefas e gestão do Time.
+  
 
 ## Relação de Ambientes de Trabalho
 
-Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a relação dos ambientes com seu respectivo propósito deverá ser apresentada em uma tabela que especifica que detalha Ambiente, Plataforma e Link de Acesso. 
-Nota: Vide documento modelo do estudo de caso "Portal de Notícias" e defina também os ambientes e frameworks que serão utilizados no desenvolvimento de aplicações móveis.
+| Ambiente | Plataforma | Link       |
+|----------|------------|------------|
+| Repositório de codigo fonte | GitHub  |(https://github.com/ICEI-PUC-Minas-PMV-ADS/psg-ads-n-tiam-2024-2-biblioteca-anunciar)|
+| Design de interface  |    Figma | https://www.figma.com |
+| Comunicação  | Discord e WhatsApp    | https://discord.com |
+| Gerenciamento do projeto | GitHub    | https://discord.com/](https://github.com/|
 
 ## Controle de Versão
 
