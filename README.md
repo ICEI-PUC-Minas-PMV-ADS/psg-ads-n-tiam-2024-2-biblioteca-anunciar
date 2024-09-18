@@ -15,6 +15,7 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 * Vitor Hugo
 * Messias Junio
 * Luis Gustavo Mendes
+* Rodrigo Yule
 
 ## Orientador
 
