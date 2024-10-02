@@ -45,7 +45,7 @@ A equipe será divida de acordo com a metodologia SCRUM, sendo assim, a divisão
  
 - Scrum Master: Arthur Henrique;
 - Product Owner: Vitor;
-- Equipe de Desenvolvimento: Isabela Bosco, Yule, Luis Gustavo;
+- Equipe de Desenvolvimento: Isabela Bosco, Yule, Luis Gustavo, Arthur Henrique, Vitor Hugo, Messias Junio;
 - Equipe de Design: Messias Junio.
 
 ### Processo
