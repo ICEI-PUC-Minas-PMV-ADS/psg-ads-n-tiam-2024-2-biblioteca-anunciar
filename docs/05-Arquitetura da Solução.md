@@ -16,31 +16,25 @@ O diagrama de classes ilustra graficamente como será a estrutura do software, e
 ## Modelo Físico
 
 {
-  "Usuario": { 
 
+  "Usuario": { 
   
     "id": "Long",
-
-    
     "nome": "String",
-
-    
     "email": "String"
-
-    
-    "senha": "String"
-
-    
+    "senha": "String.
     "tipo": "String"
   }
   "Aluguel": {
-    "id": "Long",
+  
+    "id": "Long", 
     "livro": "Livro",
     "usuario": "Usuario",
     "previsaoEntrega": "Date",
     "dataEntrega": "Date"
   },
   "Livro": {
+  
     "id": "Long",
     "nome": "String",
     "descricao": "String",
