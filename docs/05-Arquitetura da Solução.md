@@ -17,29 +17,29 @@ O diagrama de classes ilustra graficamente como será a estrutura do software, e
 
 {
 
-  "Usuario": { 
+  "Usuario":  
   
-    "id": "Long",
+    {"id": "Long",
     "nome": "String",
     "email": "String"
     "senha": "String.
-    "tipo": "String"
-  }
-  "Aluguel": {
+    "tipo": "String"},
   
-    "id": "Long", 
+  "Aluguel": 
+  
+    {"id": "Long", 
     "livro": "Livro",
     "usuario": "Usuario",
     "previsaoEntrega": "Date",
-    "dataEntrega": "Date"
+    "dataEntrega": "Date"},
   },
-  "Livro": {
+  "Livro": 
   
-    "id": "Long",
+    {"id": "Long",
     "nome": "String",
     "descricao": "String",
     "autor": "String",
-    "disponivel": "Boolean"
+    "disponivel": "Boolean"}
   }
 }
 
