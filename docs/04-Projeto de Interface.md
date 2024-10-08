@@ -27,14 +27,18 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas d
 ## Wireframes
 
 **LOGIN / CADASTRO / RECUPERAR SENHA**
+![login_cadastro_recuperar](https://github.com/user-attachments/assets/5f868107-9f1a-43a5-bcc3-446b92dffa2b)
 
 **HOME / PAGINA DO LIVRO**
+![home_especifica](https://github.com/user-attachments/assets/e5b4e520-9c74-43c6-ad01-b326c3aad9de)
 
 **PERFIL DE USUARIO**
+![profile](https://github.com/user-attachments/assets/d45e1b10-7ef7-46a9-9b3a-3607dd404d2e)
 
 **PERFIL ADM**
+![Adm](https://github.com/user-attachments/assets/37e1708d-c033-4184-b322-3c7906bf1ada)
 
-**LISTA DE DESEJOS**
+
 
 
 
