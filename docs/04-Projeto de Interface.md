@@ -27,30 +27,19 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas d
 ## Wireframes
 
 **LOGIN / CADASTRO / RECUPERAR SENHA**
+Formulários básicos para login, cadastro de novos usuários e recuperação de senha. O login solicita informações como e-mail e senha, enquanto o cadastro pede dados adicionais como nome e confirmação de senha. O formulário de recuperação de senha permite ao usuário redefinir a senha por e-mail.
 ![login_cadastro_recuperar](https://github.com/user-attachments/assets/5f868107-9f1a-43a5-bcc3-446b92dffa2b)
 
 **HOME / PAGINA DO LIVRO**
+A página inicial exibe uma lista de livros disponíveis, com funcionalidades de busca e filtros para facilitar a navegação. Ao selecionar um livro específico, o usuário é levado à página do livro, onde pode visualizar detalhes, adicionar o livro à sua lista de desejos ou clicar para alugar.
 ![home_especifica](https://github.com/user-attachments/assets/e5b4e520-9c74-43c6-ad01-b326c3aad9de)
 
 **PERFIL DE USUARIO**
+O perfil do usuário contém o histórico de locações, mostrando os livros alugados no passado e presentes, além de notificações relacionadas a novas locações ou vencimentos de prazo de aluguel.
 ![profile](https://github.com/user-attachments/assets/d45e1b10-7ef7-46a9-9b3a-3607dd404d2e)
 
 **PERFIL ADM**
+O perfil do administrador inclui a visualização dos livros alugados, um registro detalhado de todas as locações realizadas, uma aba para envio de notificações aos usuários e a funcionalidade de gerar protocolos para acompanhamento geral dos processos de aluguel.
 ![Adm](https://github.com/user-attachments/assets/37e1708d-c033-4184-b322-3c7906bf1ada)
 
 
-
-
-
-
-
-São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
- 
-> **Links Úteis**:
-> - [Protótipos vs Wireframes](https://www.nngroup.com/videos/prototypes-vs-wireframes-ux-projects/)
-> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
-> - [Figma](https://www.figma.com/)
-> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-> - [Axure](https://www.axure.com/edu) (Licença Educacional)
-> - [InvisionApp](https://www.invisionapp.com/) (Licença Educacional)
