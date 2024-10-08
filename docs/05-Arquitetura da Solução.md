@@ -47,7 +47,7 @@ Para a elaboração do software de Locação de livros da Igreja Batista Anuncia
  - Ioredis
  - Banco de dados Redis
 
-
+![Diagrama de classes](img/Tecnologias.png)
 
 ## Hospedagem
 
