@@ -4,7 +4,7 @@
 
 Cenários de testes utilizados na realização dos testes da aplicação:
 
-[Teste](img/TesteBiblioteca.png)
+![Teste](img/TesteBiblioteca.png)
  
  
 > **Links Úteis**:
