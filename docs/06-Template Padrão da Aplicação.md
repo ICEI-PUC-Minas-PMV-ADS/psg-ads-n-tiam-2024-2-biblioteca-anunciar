@@ -4,7 +4,7 @@
 
 Layout padrão da aplicação que será utilizado em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
 
-![Layout Padrão](img/TemplateBiblioteca.png)
+![Layout Padrão](img/TemplateBilbioteca.png)
 
 > **Links Úteis**:
 >
