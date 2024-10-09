@@ -45,7 +45,7 @@ Para a elaboração do software de Locação de livros da Igreja Batista Anuncia
  - Java Script - Back-end.
  - Express 
  - Ioredis
- - Banco de dados Redis
+ - Banco de dados Firebase
 
 ![Diagrama de classes](img/Tecnologias.png)
 
