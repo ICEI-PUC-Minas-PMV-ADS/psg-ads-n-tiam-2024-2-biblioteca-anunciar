@@ -44,7 +44,7 @@ Para a elaboração do software de Locação de livros da Igreja Batista Anuncia
  - React Native - Front-end.
  - Java Script - Back-end.
  - Express 
- - Ioredis
+ - SDK
  - Banco de dados Firebase
 
 ![Diagrama de classes](img/Tecnologias.png)
