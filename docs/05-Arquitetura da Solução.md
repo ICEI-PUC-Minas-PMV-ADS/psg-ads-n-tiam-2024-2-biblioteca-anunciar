@@ -47,7 +47,7 @@ Para a elaboração do software de Locação de livros da Igreja Batista Anuncia
  - SDK
  - Banco de dados Firebase
 
-![Diagrama de classes](img/Tecnologias.png)
+![Diagrama de classes](img/TecnologiasBiblioteca.png)
 
 ## Hospedagem
 
