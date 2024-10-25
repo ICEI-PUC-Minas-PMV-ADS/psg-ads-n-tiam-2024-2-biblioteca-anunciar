@@ -1,4 +1,4 @@
-import { doc, setDoc, getDoc } from "firebase/firestore";
+const { doc, setDoc, getDoc } = require("firebase/firestore");
 
 const addDocument = async (collection, docId, data) => {
   try {
@@ -21,4 +21,4 @@ const getDocument = async (collection, docId) => {
   }
 };
 
-export { app, db, auth, addDocument, getDocument };
+module.exports = { addDocument, getDocument };

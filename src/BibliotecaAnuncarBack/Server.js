@@ -1,9 +1,10 @@
 const express = require('express')
-const app = express()
+const app = express();
+const rotaLivro = require("./Routes/LivroRoutes")
 
-app.get('/', (req, res) => {
-  res.send('hello world')
-});
+app.use(express.json());
+
+app.use('/livro', rotaLivro)
 
 app.listen(3000);
 

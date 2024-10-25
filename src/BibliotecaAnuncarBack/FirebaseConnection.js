@@ -1,19 +1,18 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore"; // Importa Firestore se for usá-lo
-import { getAuth } from "firebase/auth"; // Importa Authentication se for usá-lo
+const { initializeApp } = require ( "firebase/app");
+const { getFirestore,collection, getDocs } = require("firebase/firestore");
+const { getAuth } = ("firebase/auth"); 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDeqOFJbnC9OWQvdk1zHzu5O6J_R6SFdhI",
-  authDomain: "bibliotecaanunciar.firebaseapp.com",
-  projectId: "bibliotecaanunciar",
-  storageBucket: "bibliotecaanunciar.appspot.com",
-  messagingSenderId: "1045580809334",
-  appId: "1:1045580809334:web:cd0e3d2c83eadfc3b7cb57"
+  apiKey: "AIzaSyBNmIRKGyJM_31APHQBy582ABjKRppp3xk",
+  authDomain: "bibliotecaanunciar-7655f.firebaseapp.com",
+  projectId: "bibliotecaanunciar-7655f",
+  storageBucket: "bibliotecaanunciar-7655f.appspot.com",
+  messagingSenderId: "177451581345",
+  appId: "1:177451581345:web:46e2d45ffb55b5c8d815e0",
+  measurementId: "G-THWQZKD4E0"
 };
 
 const app = initializeApp(firebaseConfig);
-
 const db = getFirestore(app);
-const auth = getAuth(app);
 
-export { app, db, auth };
+module.exports = { app, db };
