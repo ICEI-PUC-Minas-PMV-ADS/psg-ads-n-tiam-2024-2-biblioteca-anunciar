@@ -1,7 +1,12 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+
 export default function Footer() {
+    // Mova o hook `useNavigation` para dentro do componente
+    const navigation = useNavigation();
+
     return (
         <View style={styles.footer}>
             <View style={styles.iconContainer}>
@@ -12,7 +17,10 @@ export default function Footer() {
                 <Icon name="list-outline" size={30} color="black" />
                 <Text style={styles.iconText}>Lista</Text>
             </View>
-            <View style={styles.iconContainer}>
+            <View 
+                style={styles.iconContainer} 
+                onTouchStart={() => navigation.navigate('BookRegistration')} // Use o nome correto da rota
+            >
                 <Icon name="person-outline" size={30} color="black" />
                 <Text style={styles.iconText}>Perfil</Text>
             </View>
