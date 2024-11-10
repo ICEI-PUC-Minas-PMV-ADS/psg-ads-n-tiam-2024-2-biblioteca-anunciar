@@ -4,7 +4,7 @@ import { Image, StyleSheet, View } from 'react-native';
 export default function Navbar() {
     return (
         <View style={styles.navbar}>
-            
+            <Image source={require('../../assets/logo.png')} style={styles.image} />
         </View>
     );
 }
