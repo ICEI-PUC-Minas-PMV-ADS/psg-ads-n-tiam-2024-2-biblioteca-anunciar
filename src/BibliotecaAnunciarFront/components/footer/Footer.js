@@ -21,6 +21,14 @@ export default function Footer() {
         <Icon name="person-outline" size={30} color="black" />
         <Text style={styles.iconText}>Perfil</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+        <Icon name="person-outline" size={30} color="black" />
+        <Text style={styles.iconText}>Login</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Singup")}>
+        <Icon name="person-outline" size={30} color="black" />
+        <Text style={styles.iconText}>Cadastro</Text>
+        </TouchableOpacity>
     </View>
   );
 }
