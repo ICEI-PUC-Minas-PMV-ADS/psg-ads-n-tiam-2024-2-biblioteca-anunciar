@@ -1,6 +1,9 @@
 const express = require('express')
+const cors = require('cors');
 const app = express();
 const rotaLivro = require("./Routes/LivroRoutes")
+
+app.use(cors());
 
 app.use(express.json());
 
