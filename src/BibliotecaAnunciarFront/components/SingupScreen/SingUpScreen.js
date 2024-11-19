@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'react-native';
-// import { auth } from '../firebaseConfig';
+import { auth } from '../firebaseConfig';
 
 const SignupScreen = ({ navigation }) => {
   const [nome, setNome] = useState('');
@@ -44,7 +44,7 @@ const SignupScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-       <Image source={require('..\docs\img\logo anunciar.png')} style={styles.logo} />
+        <Image source={require('\psg-ads-n-tiam-2024-2-biblioteca-anunciar\docs\img\logo anunciar.png')} style={styles.logo} />
       <Text style={styles.label}>Nome Completo</Text>
       <TextInput
         style={styles.input}
@@ -140,6 +140,13 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     textAlign: 'center',
     fontSize: 14,
+  },
+  logo: {
+    width: 150,           
+    height: 150,         
+    resizeMode: 'contain', 
+    marginBottom: 20,       
+    alignSelf: 'center',   
   },
 });
 
