@@ -44,6 +44,7 @@ const SignupScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+       <Image source={require('..\docs\img\logo anunciar.png')} style={styles.logo} />
       <Text style={styles.label}>Nome Completo</Text>
       <TextInput
         style={styles.input}
