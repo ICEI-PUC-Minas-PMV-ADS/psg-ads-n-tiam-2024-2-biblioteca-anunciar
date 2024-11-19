@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
-//import { auth } from '../firebaseConfig';
+import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'react-native';
+// import { auth } from '../firebaseConfig';
 
 const SignupScreen = ({ navigation }) => {
   const [nome, setNome] = useState('');
@@ -14,7 +14,7 @@ const SignupScreen = ({ navigation }) => {
       return;
     }
     try {
-      const userCredential = await auth().createUserWithEmailAndPassword(email, senha);
+      // const userCredential = await auth().createUserWithEmailAndPassword(email, senha);
       const userType = email.endsWith('@adm.anunciar') ? 'Administrador' : 'Usuário';
       Alert.alert('Sucesso', `Usuário ${userType} cadastrado!`);
     } catch (error) {
@@ -24,20 +24,60 @@ const SignupScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text>Nome Completo</Text>
-      <TextInput value={nome} onChangeText={setNome} placeholder="Nome Completo" />
-      <Text>E-mail</Text>
-      <TextInput value={email} onChangeText={setEmail} placeholder="Email" keyboardType="email-address" />
-      <Text>Telefone</Text>
-      <TextInput value={telefone} onChangeText={setTelefone} placeholder="Telefone" keyboardType="phone-pad" />
-      <Text>Senha</Text>
-      <TextInput value={senha} onChangeText={setSenha} placeholder="Senha" secureTextEntry />
-      <Button title="Cadastrar" onPress={handleSignup} />
-      <Button title="Voltar para Login" onPress={() => navigation.navigate('LoginScreen')} />
+      <Text style={styles.label}>Nome Completo</Text>
+      <TextInput
+        style={styles.input}
+        value={nome}
+        onChangeText={setNome}
+        placeholder="Nome Completo"
+      />
+
+      <Text style={styles.label}>E-mail</Text>
+      <TextInput
+        style={styles.input}
+        value={email}
+        onChangeText={setEmail}
+        placeholder="Email"
+        keyboardType="email-address"
+      />
+
+      <Text style={styles.label}>Telefone</Text>
+      <TextInput
+        style={styles.input}
+        value={telefone}
+        onChangeText={setTelefone}
+        placeholder="Telefone"
+        keyboardType="phone-pad"
+      />
+
+      <Text style={styles.label}>Senha</Text>
+      <TextInput
+        style={styles.input}
+        value={senha}
+        onChangeText={setSenha}
+        placeholder="Confirmar Senha"
+        secureTextEntry
+      />
+
+      <Text style={styles.label}>Confirmar Senha</Text>
+      <TextInput
+        style={styles.input}
+        value={senha}
+        onChangeText={setSenha}
+        placeholder="Senha"  
+        secureTextEntry
+      />
+
+      <TouchableOpacity style={styles.signupButton} onPress={handleSignup}>
+        <Text style={styles.signupButtonText}>Cadastrar</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
+        <Text style={styles.link}>Voltar para Login</Text>
+      </TouchableOpacity>
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -54,7 +94,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center', // Para alinhar o texto no início do campo
   },
   input: {
-    width: '60%', 
+    width: '60%',
     padding: 10,
     marginVertical: 8,
     borderColor: 'gray',
@@ -62,13 +102,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: '#f9f9f9',
   },
-  logo: {
-    width: 100, 
-    height: 100,
-    marginBottom: 20, 
-    resizeMode: 'contain',
-  },
-  loginButton: {
+  signupButton: {
     width: '60%',
     backgroundColor: '#333',
     paddingVertical: 12,
@@ -76,7 +110,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginVertical: 10,
   },
-  loginButtonText: {
+  signupButtonText: {
     color: '#fff',
     fontSize: 16,
   },
@@ -89,3 +123,4 @@ const styles = StyleSheet.create({
 });
 
 export default SignupScreen;
+     
