@@ -14,9 +14,29 @@ const SignupScreen = ({ navigation }) => {
       return;
     }
     try {
-      // const userCredential = await auth().createUserWithEmailAndPassword(email, senha);
-      const userType = email.endsWith('@adm.anunciar') ? 'Administrador' : 'Usuário';
+      const userCredential = await auth().createUserWithEmailAndPassword(email, senha);
+      const userId = userCredential.user.uid;
+  
+      // Verificar domínio do e-mail
+      let userType;
+      if (email.endsWith('@adm.anunciar')) {
+        userType = 'Administrador';
+      } else if (email.endsWith('@user.anunciar')) {
+        userType = 'Usuário';
+      } else {
+        Alert.alert('Erro', 'O domínio do e-mail deve ser @adm.anunciar ou @user.anunciar');
+        return; 
+      }
+  
+      await firestore.collection('users').doc(userId).set({
+        nome,
+        email,
+        telefone,
+        userType,
+      });
+  
       Alert.alert('Sucesso', `Usuário ${userType} cadastrado!`);
+      navigation.navigate('LoginScreen');
     } catch (error) {
       Alert.alert('Erro', error.message);
     }
@@ -83,7 +103,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center', // Alinha o conteúdo no centro horizontalmente
+    alignItems: 'center', 
     padding: 20,
     backgroundColor: '#fff',
   },
@@ -91,7 +111,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 5,
     color: '#333',
-    alignSelf: 'center', // Para alinhar o texto no início do campo
+    alignSelf: 'center',
   },
   input: {
     width: '60%',
