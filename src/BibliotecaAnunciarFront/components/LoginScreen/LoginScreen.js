@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'react-native';
-// import { auth } from '../firebaseConfig';
+import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet, Image } from 'react-native';
+
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -8,7 +8,7 @@ const LoginScreen = ({ navigation }) => {
 
   const handleLogin = async () => {
     try {
-      // const userCredential = await auth().signInWithEmailAndPassword(email, senha);
+      const userCredential = await auth().signInWithEmailAndPassword(email, senha);
       const userType = email.endsWith('@adm.anunciar') ? 'Administrador' : 'Usuário';
       Alert.alert('Sucesso', `Bem-vindo, ${userType}`);
     } catch (error) {
@@ -18,6 +18,7 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <Image source={require('../../assets/logoanunciar.png')} style={styles.logo} />
       <Text style={styles.label}>Email</Text>
       <TextInput
         style={styles.input}
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center', // Alinha o conteúdo no centro horizontalmente
+    alignItems: 'center', 
     padding: 20,
     backgroundColor: '#fff',
   },
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 5,
     color: '#333',
-    alignSelf: 'center', // Para alinhar o texto no início do campo
+    alignSelf: 'center', 
   },
   input: {
     width: '60%', 
@@ -98,6 +99,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 14,
   },
+  logo: {
+    width: 150,           
+    height: 150,           
+    resizeMode: 'contain',  
+    marginBottom: 20,      
+    alignSelf: 'center', 
+  }
 });
 
 

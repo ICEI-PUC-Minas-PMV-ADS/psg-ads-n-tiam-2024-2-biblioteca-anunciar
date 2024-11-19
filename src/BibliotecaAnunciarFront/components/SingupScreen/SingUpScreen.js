@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Image } from 'react-native';
 import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'react-native';
-//import { auth } from '../firebaseConfig';
+
 
 const SignupScreen = ({ navigation }) => {
   const [nome, setNome] = useState('');
@@ -8,43 +9,43 @@ const SignupScreen = ({ navigation }) => {
   const [telefone, setTelefone] = useState('');
   const [senha, setSenha] = useState('');
 
-  // const handleSignup = async () => {
-  //   if (!email || !senha || !nome || !telefone) {
-  //     Alert.alert('Erro', 'Todos os campos são obrigatórios!');
-  //     return;
-  //   }
-  //   try {
-  //     const userCredential = await auth().createUserWithEmailAndPassword(email, senha);
-  //     const userId = userCredential.user.uid;
+  const handleSignup = async () => {
+    if (!email || !senha || !nome || !telefone) {
+      Alert.alert('Erro', 'Todos os campos são obrigatórios!');
+      return;
+    }
+    try {
+      const userCredential = await auth().createUserWithEmailAndPassword(email, senha);
+      const userId = userCredential.user.uid;
   
-  //     // Verificar domínio do e-mail
-  //     let userType;
-  //     if (email.endsWith('@adm.anunciar')) {
-  //       userType = 'Administrador';
-  //     } else if (email.endsWith('@user.anunciar')) {
-  //       userType = 'Usuário';
-  //     } else {
-  //       Alert.alert('Erro', 'O domínio do e-mail deve ser @adm.anunciar ou @user.anunciar');
-  //       return; 
-  //     }
+      // Verificar domínio do e-mail
+      let userType;
+      if (email.endsWith('@adm.anunciar')) {
+        userType = 'Administrador';
+      } else if (email.endsWith('@user.anunciar')) {
+        userType = 'Usuário';
+      } else {
+        Alert.alert('Erro', 'O domínio do e-mail deve ser @adm.anunciar ou @user.anunciar');
+        return; 
+      }
   
-  //     await firestore.collection('users').doc(userId).set({
-  //       nome,
-  //       email,
-  //       telefone,
-  //       userType,
-  //     });
+      await firestore.collection('users').doc(userId).set({
+        nome,
+        email,
+        telefone,
+        userType,
+      });
   
-  //     Alert.alert('Sucesso', `Usuário ${userType} cadastrado!`);
-  //     navigation.navigate('LoginScreen');
-  //   } catch (error) {
-  //     Alert.alert('Erro', error.message);
-  //   }
-  // };
+      Alert.alert('Sucesso', `Usuário ${userType} cadastrado!`);
+      navigation.navigate('LoginScreen');
+    } catch (error) {
+      Alert.alert('Erro', error.message);
+    }
+  };
 
   return (
     <View style={styles.container}>
-        <Image source={require('/psg-ads-n-tiam-2024-2-biblioteca-anunciar/docs/img/logo anunciar.png')} style={styles.logo} />
+      <Image source={require('../../assets/logoanunciar.png')} style={styles.logo} />
       <Text style={styles.label}>Nome Completo</Text>
       <TextInput
         style={styles.input}
@@ -143,11 +144,11 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: 150,           
-    height: 150,         
-    resizeMode: 'contain', 
+    height: 150,            
+    resizeMode: 'contain',  
     marginBottom: 20,       
-    alignSelf: 'center',   
-  },
+    alignSelf: 'center', 
+  }
 });
 
 export default SignupScreen;
