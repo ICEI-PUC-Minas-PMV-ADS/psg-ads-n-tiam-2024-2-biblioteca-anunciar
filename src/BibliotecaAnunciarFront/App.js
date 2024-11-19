@@ -1,7 +1,10 @@
 import { StyleSheet } from 'react-native';
+import { Provider as PaperProvider } from 'react-native-paper';
 import AppNavigator from './routes/routes';
 export default function App() {
   return (
-    <AppNavigator />
+    <PaperProvider>
+      <AppNavigator />
+    </PaperProvider>
   );
 }

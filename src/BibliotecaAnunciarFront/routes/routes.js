@@ -1,11 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
-import PaginaInicial from "../pages/cadastroLivros/PaginaInicial";
-import CadastroLivros from "../pages/cadastroLivros/cadastroLivros";
 import Footer from "../components/footer/Footer";
 import LoginScreen from "../components/LoginScreen/LoginScreen";
 import SignupScreen from "../components/SingupScreen/SingUpScreen";
+import CadastroLivros from "../pages/cadastroLivros/cadastroLivros";
+import PaginaInicial from "../pages/cadastroLivros/PaginaInicial";
 
 const Tela = createStackNavigator();
 
