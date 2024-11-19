@@ -38,12 +38,54 @@ const SignupScreen = ({ navigation }) => {
   );
 };
 
+
 const styles = StyleSheet.create({
-  container :{
+  container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  }
+    justifyContent: 'center',
+    alignItems: 'center', // Alinha o conteúdo no centro horizontalmente
+    padding: 20,
+    backgroundColor: '#fff',
+  },
+  label: {
+    fontSize: 16,
+    marginBottom: 5,
+    color: '#333',
+    alignSelf: 'center', // Para alinhar o texto no início do campo
+  },
+  input: {
+    width: '60%', 
+    padding: 10,
+    marginVertical: 8,
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 5,
+    backgroundColor: '#f9f9f9',
+  },
+  logo: {
+    width: 100, 
+    height: 100,
+    marginBottom: 20, 
+    resizeMode: 'contain',
+  },
+  loginButton: {
+    width: '60%',
+    backgroundColor: '#333',
+    paddingVertical: 12,
+    borderRadius: 5,
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  loginButtonText: {
+    color: '#fff',
+    fontSize: 16,
+  },
+  link: {
+    color: '#007AFF',
+    marginVertical: 5,
+    textAlign: 'center',
+    fontSize: 14,
+  },
 });
 
 export default SignupScreen;
