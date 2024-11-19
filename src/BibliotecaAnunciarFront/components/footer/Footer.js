@@ -8,7 +8,10 @@ export default function Footer() {
 
   return (
     <View style={styles.footer}>
-      <View style={styles.iconContainer}>
+      <View
+        style={styles.iconContainer}
+        onTouchStart={() => navigation.navigate("Home")}
+      >
         <Icon name="home-outline" size={30} color="black" />
         <Text style={styles.iconText}>Home</Text>
       </View>
@@ -18,7 +21,7 @@ export default function Footer() {
       </View>
       <View
         style={styles.iconContainer}
-        onTouchStart={() => navigation.navigate("BookRegistration")}
+        onTouchStart={() => navigation.navigate("CadastroLivros")}
       >
         <Icon name="person-outline" size={30} color="black" />
         <Text style={styles.iconText}>Perfil</Text>

@@ -16,7 +16,7 @@ export default function AppNavigator() {
           options={{ headerShown: false }}
         />
         <Tela.Screen
-          name="BookRegistration"
+          name="CadastroLivros"
           component={CadastroLivros}
           options={{ headerShown: false }}
         />
