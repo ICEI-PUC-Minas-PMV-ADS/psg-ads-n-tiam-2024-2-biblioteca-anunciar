@@ -18,7 +18,6 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Image source={require('...\docs\logo anunciar.png')} style={styles.logo} />
       <Text style={styles.label}>Email</Text>
       <TextInput
         style={styles.input}
