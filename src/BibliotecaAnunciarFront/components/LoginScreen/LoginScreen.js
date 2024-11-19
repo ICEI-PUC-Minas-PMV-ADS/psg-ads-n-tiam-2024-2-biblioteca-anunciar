@@ -18,6 +18,7 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <Image source={require('...\docs\logo anunciar.png')} style={styles.logo} />
       <Text style={styles.label}>Email</Text>
       <TextInput
         style={styles.input}
@@ -55,6 +56,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center', // Alinha o conteúdo no centro horizontalmente
     padding: 20,
     backgroundColor: '#fff',
   },
@@ -62,9 +64,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 5,
     color: '#333',
+    alignSelf: 'center', // Para alinhar o texto no início do campo
   },
   input: {
-    width: '100%',
+    width: '60%', 
     padding: 10,
     marginVertical: 8,
     borderColor: 'gray',
@@ -72,10 +75,16 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: '#f9f9f9',
   },
+  logo: {
+    width: 100, 
+    height: 100,
+    marginBottom: 20, 
+    resizeMode: 'contain',
+  },
   loginButton: {
+    width: '60%',
     backgroundColor: '#333',
     paddingVertical: 12,
-    paddingHorizontal: 20,
     borderRadius: 5,
     alignItems: 'center',
     marginVertical: 10,
@@ -91,5 +100,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
 });
+
+
 
 export default LoginScreen;
