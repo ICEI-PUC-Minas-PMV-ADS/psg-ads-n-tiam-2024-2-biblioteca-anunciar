@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet, Image } from 'react-native';
+import { signInWithEmailAndPassword } from 'firebase/auth'; 
+import {auth} from '../../FirebaseConfig'
 
 
 const LoginScreen = ({ navigation }) => {
@@ -7,12 +9,33 @@ const LoginScreen = ({ navigation }) => {
   const [senha, setSenha] = useState('');
 
   const handleLogin = async () => {
+    if (!email || !senha) {
+      console.log('Erro', 'Por favor, preencha todos os campos.');
+      return;
+    }
+
     try {
-      const userCredential = await auth().signInWithEmailAndPassword(email, senha);
+      const userCredential = await signInWithEmailAndPassword(auth, email, senha);
       const userType = email.endsWith('@adm.anunciar') ? 'Administrador' : 'Usuário';
-      Alert.alert('Sucesso', `Bem-vindo, ${userType}`);
+
+      console.log('Sucesso', `Bem-vindo, ${userType}`);
+
+      
     } catch (error) {
-      Alert.alert('Erro', error.message);
+      switch (error.code) {
+        case 'auth/invalid-email':
+          console.log('Erro', 'O email inserido é inválido.');
+          break;
+        case 'auth/user-not-found':
+          console.log('Erro', 'Usuário não encontrado.');
+          break;
+        case 'auth/wrong-password':
+          console.log('Erro', 'Senha incorreta.');
+          break;
+        default:
+          console.log('Erro', 'Algo deu errado. Tente novamente.');
+      }
+          
     }
   };
 
@@ -40,7 +63,7 @@ const LoginScreen = ({ navigation }) => {
       <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
         <Text style={styles.loginButtonText}>Sign In</Text>
       </TouchableOpacity>
-
+      
       <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
         <Text style={styles.link}>Forgot password?</Text>
       </TouchableOpacity>
