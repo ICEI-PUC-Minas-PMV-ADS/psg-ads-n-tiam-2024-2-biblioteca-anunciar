@@ -1,4 +1,4 @@
-const {addLivro,getAllLivro,getLivroId,} = require("../Service/LivroService");
+const {addLivro,getAllLivro,getLivroId,deleteLivroById} = require("../Service/LivroService");
 const { Livro } = require('../Models/Livro');
 
 async function getLivros(req, res) {
@@ -39,9 +39,19 @@ async function postLivros(req, res) {
     res.status(500);
   }
 }
+async function deleteLivro(req, res) {
+  try {
+    const id = req.params.id; 
+    const resultado = await deleteLivroById(id);
+    res.status(200).send(resultado); 
+  } catch (error) {
+    res.status(500).send({ error: error.message }); 
+  }
+}
 
 module.exports = {
   getLivros,
   getLivro,
   postLivros,
+  deleteLivro, 
 };
