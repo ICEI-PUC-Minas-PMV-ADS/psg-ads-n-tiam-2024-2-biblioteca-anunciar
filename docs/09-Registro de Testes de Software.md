@@ -101,6 +101,17 @@ Caso o usuario tente cadastrar um livro sem preencher todos os campos, uma mensa
 Se o usuario seguiu os passos certo e preencheu todos os campos, apos clicar no botão de cadastrar livro uma mensagem tem que ser exibida informando que o livro foi cadastrado. <br>
 ![8330e0cf-4dd4-4333-a429-edb01f44fc0a](https://github.com/user-attachments/assets/76a01bb2-08ee-401e-9c02-ac4104862778)
 
+Cenário -> Ao entrar na página principal, os livros devem ser carregados dinamicamente com dados recebidos do banco de dados.  
+![image](https://github.com/user-attachments/assets/3807f62c-dc88-4e4f-85d7-81c50b1cb6bb)
+
+Cenário -> Ao pesquisar o nome ou parte do nome do título do livro, deve ser aplicado o filtro para o texto digitado.
+![image](https://github.com/user-attachments/assets/05ce8b2c-4906-43db-9747-ea423cb30346)
+Caso a pesquisa esteja vazia, e o filtro seja aplicado, todos os livros devem ser carregados.
+![image](https://github.com/user-attachments/assets/d95a0344-f6d1-4921-924d-848f174bc554)
+
+
+
+
 
 ## Avaliação
 
