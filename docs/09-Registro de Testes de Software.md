@@ -28,7 +28,7 @@ Caso o usuario tente cadastrar um livro sem preencher todos os campos, uma mensa
 
 ![7162a2b0-9aa6-4748-a28a-6c0409c04988](https://github.com/user-attachments/assets/bdfa2d77-8c31-494f-93dd-ac708b6b3558)
 
-Se o usuario seguiu os passos certo e preencheu todos os campos, apos clicar no botão de cadastrar livro uma mensagem tem que ser exibida informando que o livro foi cadastrado.
+Se o usuario seguiu os passos certo e preencheu todos os campos, apos clicar no botão de cadastrar livro uma mensagem tem que ser exibida informando que o livro foi cadastrado. <br>
 ![8330e0cf-4dd4-4333-a429-edb01f44fc0a](https://github.com/user-attachments/assets/76a01bb2-08ee-401e-9c02-ac4104862778)
 
 
