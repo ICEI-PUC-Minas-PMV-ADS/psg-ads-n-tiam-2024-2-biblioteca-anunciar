@@ -17,7 +17,7 @@ export default function CadastroLivros() {
       return;
     }
 
-    const livro = { titulo, descricao, resumo, autor };
+    const livro = { titulo, descricao, resumo, autor, disponivel: "S" };
 
     try {
       console.log("Enviando dados para API:", livro);
