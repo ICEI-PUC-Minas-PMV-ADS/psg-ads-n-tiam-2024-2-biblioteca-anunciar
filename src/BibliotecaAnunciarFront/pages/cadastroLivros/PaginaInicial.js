@@ -4,9 +4,12 @@ import Navbar from "../../components/navbar/navbar";
 import CardLivro from "../../components/CardLivro/CardLivro";
 import api from '../../Service/apiAxios';
 import { TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
 export default function PaginaInicial() {
-  
+
   const [livros, setLivros] = useState([]);
+  const navigation = useNavigation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,14 +35,22 @@ export default function PaginaInicial() {
       </View>
       <View style={styles.viewContent}>
         {livros.map((livro) => (
-          <TouchableOpacity 
-          key={livro.id} 
-          onPress={() => navigation.navigate('BookDetails', { livroId: livro.id })}
-        >
-          <CardLivro title={livro.nome} />
-        </TouchableOpacity>
+          <TouchableOpacity
+            key={livro.id}
+            onPress={() => navigation.navigate('detalheLivro',
+              {
+                livroId: livro.id,
+                titulo: livro.titulo,
+                autor: livro.autor,
+                resumo: livro.resumo,
+                descricao: livro.descricao,
+                disponivel: livro.disponivel
+              })}
+          >
+            <CardLivro title={livro.nome} />
+          </TouchableOpacity>
         ))}
-      </View> 
+      </View>
     </View>
   );
 }
@@ -50,13 +61,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-start",
     paddingTop: 200,
-    overflow: 'auto', 
+    overflow: 'auto',
   },
   viewInput: {
     width: "80%",
     marginTop: 20,
   },
-  viewContent : {
+  viewContent: {
     width: "100%",
     flexDirection: "row",
     flexWrap: "wrap",

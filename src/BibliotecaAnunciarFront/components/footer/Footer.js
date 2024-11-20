@@ -15,19 +15,19 @@ export default function Footer() {
       <TouchableOpacity onPress={() => navigation.navigate("Home")}>
         <Icon name="list-outline" size={30} color="black" />
         <Text style={styles.iconText}>Lista</Text>
-        </TouchableOpacity>
+      </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate("BookRegistration")}>
         <Icon name="person-outline" size={30} color="black" />
         <Text style={styles.iconText}>Perfil</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Login")}>
         <Icon name="person-outline" size={30} color="black" />
         <Text style={styles.iconText}>Login</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Singup")}>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Singup")}>
         <Icon name="person-outline" size={30} color="black" />
         <Text style={styles.iconText}>Cadastro</Text>
-        </TouchableOpacity>
+      </TouchableOpacity>
     </View>
   );
 }
