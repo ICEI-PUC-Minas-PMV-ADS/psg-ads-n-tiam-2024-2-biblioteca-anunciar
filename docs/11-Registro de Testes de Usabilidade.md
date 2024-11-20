@@ -70,6 +70,8 @@ Testar a facilidade de uso da tela de Cadastro, incluindo clareza das instruçõ
 Os testes de usabilidade identificaram que as telas de Login e Cadastro possuem uma interface funcional e intuitiva, com mensagens de erro claras. Sugere-se implementar as seguintes melhorias para aprimorar a experiência do usuário:
 - **Destaque Visual de Erros:** Destacar visualmente os campos de entrada com erro, especialmente os campos de senha.
 - **Feedback de Carregamento:** Implementar um ícone de carregamento durante os processos de login e cadastro.
+![image](https://github.com/user-attachments/assets/33594d98-e348-49c5-8ee2-74a0ea02cc6e)
+
 
 > **Links Úteis**:
 > - [Ferramentas de Testes de Usabilidade](https://www.usability.gov/how-to-and-tools/resources/templates.html)
