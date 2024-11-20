@@ -1,45 +1,45 @@
 import React, { useState } from 'react';
 import { Image } from 'react-native';
 import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'react-native';
-
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth, db } from '../../FirebaseConfig'; 
+import { addDoc, collection } from 'firebase/firestore';
 
 const SignupScreen = ({ navigation }) => {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [telefone, setTelefone] = useState('');
   const [senha, setSenha] = useState('');
+  const [confirmsenha, setconfirmSenha] = useState('');
 
   const handleSignup = async () => {
     if (!email || !senha || !nome || !telefone) {
-      Alert.alert('Erro', 'Todos os campos são obrigatórios!');
+      console.log('Erro', 'Todos os campos são obrigatórios!');
       return;
     }
+
+    if (senha !== confirmsenha) {
+      console.log('Erro', 'As senhas não coincidem!');
+      return;
+    }
+
     try {
-      const userCredential = await auth().createUserWithEmailAndPassword(email, senha);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
       const userId = userCredential.user.uid;
-  
-      // Verificar domínio do e-mail
-      let userType;
-      if (email.endsWith('@adm.anunciar')) {
-        userType = 'Administrador';
-      } else if (email.endsWith('@user.anunciar')) {
-        userType = 'Usuário';
-      } else {
-        Alert.alert('Erro', 'O domínio do e-mail deve ser @adm.anunciar ou @user.anunciar');
-        return; 
-      }
-  
-      await firestore.collection('users').doc(userId).set({
+
+      await addDoc(collection(db, "users"),{
         nome,
         email,
         telefone,
-        userType,
+        userType: 'Usuário', 
       });
+
+      console.log('Sucesso', 'Usuário cadastrado com sucesso!');
+      navigation.navigate('LoginScreen'); 
   
-      Alert.alert('Sucesso', `Usuário ${userType} cadastrado!`);
-      navigation.navigate('LoginScreen');
     } catch (error) {
-      Alert.alert('Erro', error.message);
+      console.log('Erro', error.message);
+      console.log('Erro ao cadastrar', error.message); 
     }
   };
 
@@ -77,16 +77,16 @@ const SignupScreen = ({ navigation }) => {
         style={styles.input}
         value={senha}
         onChangeText={setSenha}
-        placeholder="Confirmar Senha"
+        placeholder="Senha"
         secureTextEntry
       />
 
       <Text style={styles.label}>Confirmar Senha</Text>
       <TextInput
         style={styles.input}
-        value={senha}
-        onChangeText={setSenha}
-        placeholder="Senha"  
+        value={confirmsenha}
+        onChangeText={setconfirmSenha}
+        placeholder="Confirmar Senha"
         secureTextEntry
       />
 
@@ -152,4 +152,3 @@ const styles = StyleSheet.create({
 });
 
 export default SignupScreen;
-     
