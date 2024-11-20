@@ -20,7 +20,7 @@ Resultado: Mostra a mensagem de indisponivel e botão desabilitado.
 
 Tela de Cadastro de Livros
 
-Todos os campos de entrada (Título, Descrição, Resumo, Autor) estão visíveis e o botão de cadastrar livro habilitado
+Todos os campos de entrada (Título, Categoria, Resumo, Autor) estão visíveis e o botão de cadastrar livro habilitado
 
 ![abf9b33d-70bb-407a-88ae-034f64c73067](https://github.com/user-attachments/assets/50bf3d8d-3790-4f28-9ece-0c9fce951d1f)
 
