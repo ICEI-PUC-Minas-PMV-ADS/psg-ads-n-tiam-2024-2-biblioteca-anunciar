@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, Image } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 
 export default function CardLivro({image, title, update}){
      return(
@@ -20,17 +20,17 @@ const styles = StyleSheet.create({
        alignItems: "center",
      },
      card : {
-          width: '300px',
-          height: '250px'
+          width: 300,
+          height: 250
      },
      image:{
-          width: '250px',
-          height: '200px',
-          borderRadius: '15px'
+          width: 250,
+          height: 200,
+          borderRadius: 15
           
      },
      boldText: {
        fontWeight: "bold",
-       fontSize: "20px"
+       fontSize: 20
      },
    });
