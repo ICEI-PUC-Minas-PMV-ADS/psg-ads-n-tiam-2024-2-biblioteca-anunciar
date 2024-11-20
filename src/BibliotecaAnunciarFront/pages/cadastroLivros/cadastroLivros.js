@@ -1,23 +1,32 @@
 import React, { useState } from "react";
-import { Alert, StyleSheet, View } from "react-native";
+import {
+  Alert,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { Button, TextInput } from "react-native-paper";
 import { postLivros } from "../../Service/apiService";
 import Footer from "../../components/footer/Footer";
+import MenuDeAcoes from "../../components/menuAcoesAdmin/menuAcoesAdmin";
 import Navbar from "../../components/navbar/navbar";
 
 export default function CadastroLivros() {
   const [titulo, setTitulo] = useState("");
-  const [descricao, setDescricao] = useState("");
+  const [categoria, setCategoria] = useState("");
   const [resumo, setResumo] = useState("");
   const [autor, setAutor] = useState("");
 
   const handleEnviar = async () => {
-    if (!titulo || !descricao || !resumo || !autor) {
+    if (!titulo || !categoria || !resumo || !autor) {
       Alert.alert("Erro", "Todos os campos devem ser preenchidos!");
       return;
     }
 
-    const livro = { titulo, descricao, resumo, autor, disponivel: "S" };
+    const livro = { titulo, categoria, resumo, autor, disponivel: "S" };
 
     try {
       console.log("Enviando dados para API:", livro);
@@ -26,7 +35,7 @@ export default function CadastroLivros() {
       if (status === 200 || status === 201) {
         Alert.alert("Sucesso", "Livro cadastrado com sucesso!");
         setTitulo("");
-        setDescricao("");
+        setCategoria("");
         setResumo("");
         setAutor("");
       } else {
@@ -41,6 +50,29 @@ export default function CadastroLivros() {
   return (
     <View style={styles.container}>
       <Navbar />
+
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+      <View style={styles.perfilHeader}>
+        <Text style={styles.titulo}>Perfil</Text>
+        <View style={styles.perfilContainer}>
+          <Image
+            source={{ uri: "https://via.placeholder.com/50" }}
+            style={styles.avatar}
+          />
+          <View style={styles.textoContainer}>
+            <Text style={styles.nome}>Seu Nome</Text>
+            <Text style={styles.email}>seuemail@email.com</Text>
+          </View>
+          <TouchableOpacity
+            onPress={() => Alert.alert("Editar", "Funcionalidade de edição!")}
+          >
+            <Text style={styles.editText}>editar</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      <MenuDeAcoes activeAction="addLivro" />
+
       <View style={styles.form}>
         <TextInput
           label="Titulo"
@@ -53,9 +85,9 @@ export default function CadastroLivros() {
           style={styles.input}
         />
         <TextInput
-          label="Descrição"
-          value={descricao}
-          onChangeText={(text) => setDescricao(text)}
+          label="Categoria"
+          value={categoria}
+          onChangeText={(text) => setCategoria(text)}
           mode="outlined"
           outlineColor="#000000"
           activeOutlineColor="#000000"
@@ -91,6 +123,7 @@ export default function CadastroLivros() {
           Cadastrar Livro
         </Button>
       </View>
+      </ScrollView>
       <Footer />
     </View>
   );
@@ -99,7 +132,53 @@ export default function CadastroLivros() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    backgroundColor: "#fff",
+    paddingTop: 150,
+  },
+  scrollContainer: {
+    flexGrow: 1, 
+    paddingBottom: 100, 
+  },
+  perfilHeader: {
+    padding: 16,
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: "#a9a9a9",
+    margin: 12,
+    borderRadius: 8,
+  },
+  titulo: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 16,
+  },
+  perfilContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  avatar: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    marginRight: 16,
+  },
+  textoContainer: {
+    flex: 1,
+  },
+  nome: {
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  email: {
+    fontSize: 14,
+    color: "#888",
+  },
+  editText: {
+    color: "white",
+    backgroundColor: "black",
+    padding: 5,
+    borderRadius: 8,
   },
   form: {
     padding: 16,
@@ -115,7 +194,6 @@ const styles = StyleSheet.create({
   },
   input: {
     marginBottom: 16,
-    color: "#ff0000",
   },
   button: {
     marginTop: 16,
