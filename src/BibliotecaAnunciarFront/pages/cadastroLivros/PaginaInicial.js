@@ -6,6 +6,7 @@ import api from '../../Service/apiAxios';
 import { TouchableOpacity } from "react-native";
 import { Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
+import Icon from "react-native-vector-icons/Ionicons";
 
 export default function PaginaInicial() {
 
@@ -54,7 +55,7 @@ export default function PaginaInicial() {
         <Button
           style={styles.buttonPesquisar}
           onPress={() => filtrarLivro()}
-        >Pesquisar</Button>
+        ><Icon name="search" size={30} color="black" /></Button>
       </View>
       <View style={styles.viewContent}>
         {livros.map((livro) => (
@@ -70,7 +71,7 @@ export default function PaginaInicial() {
                 disponivel: livro.disponivel
               })}
           >
-            <CardLivro title={livro.nome} />
+            <CardLivro title={livro.titulo} />
           </TouchableOpacity>
         ))}
       </View>
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
   },
   buttonPesquisar: {
     width: "100px",
-    backgroundColor: "black",
+    backgroundColor: "transparent",
     height: "40px",
     color: "white"
   },
@@ -108,17 +109,17 @@ const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "space-around",
+    justifyContent: "center",
     alignItems: "flex-start",
     marginTop: 10,
   },
   input: {
-    backgroundColor: "#fff",
     borderWidth: 1,
     borderColor: "#ccc",
     height: 40,
     borderRadius: 5,
     paddingLeft: 10,
-    width: "500px"
+    width: "500px",
+    borderRadius: "50px"
   },
 });
