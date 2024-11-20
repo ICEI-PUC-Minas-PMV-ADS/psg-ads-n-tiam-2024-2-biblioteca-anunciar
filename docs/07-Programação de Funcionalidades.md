@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/aca46a7c-ec5f-4ca6-9bbf-40ba85b9d6e4)# Programação de Funcionalidades
+# Programação de Funcionalidades
 
 <span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="4-Metodologia.md"> Metodologia</a>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="5-Arquitetura da Solução.md"> Arquitetura da Solução</a>
 
@@ -10,10 +10,10 @@ Modelo Banco Banco de dados -> ![image](https://github.com/user-attachments/asse
 
 Relacionamento código e requisito
 
-- Visualização de livros 
+- Visualização de livros  
 ![image](https://github.com/user-attachments/assets/86175c2e-4dfe-4b02-9470-88389bb2a268)
 ![image](https://github.com/user-attachments/assets/060416b0-50df-4145-9e75-453d2b717a1e)
-- Filtragem de livros 
+- Filtragem de livros  
 ![image](https://github.com/user-attachments/assets/bcd6fb7c-b0e5-4817-b7dd-48b8e4e37cca)
 ![image](https://github.com/user-attachments/assets/7b9790f6-b03a-4bce-8008-4b24806562ce)
 
