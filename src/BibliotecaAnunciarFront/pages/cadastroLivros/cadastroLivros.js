@@ -52,77 +52,77 @@ export default function CadastroLivros() {
       <Navbar />
 
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-      <View style={styles.perfilHeader}>
-        <Text style={styles.titulo}>Perfil</Text>
-        <View style={styles.perfilContainer}>
-          <Image
-            source={{ uri: "https://via.placeholder.com/50" }}
-            style={styles.avatar}
-          />
-          <View style={styles.textoContainer}>
-            <Text style={styles.nome}>Seu Nome</Text>
-            <Text style={styles.email}>seuemail@email.com</Text>
+        <View style={styles.perfilHeader}>
+          <Text style={styles.titulo}>Perfil</Text>
+          <View style={styles.perfilContainer}>
+            <Image
+              source={{ uri: "https://via.placeholder.com/50" }}
+              style={styles.avatar}
+            />
+            <View style={styles.textoContainer}>
+              <Text style={styles.nome}>Seu Nome</Text>
+              <Text style={styles.email}>seuemail@email.com</Text>
+            </View>
+            <TouchableOpacity
+              onPress={() => Alert.alert("Editar", "Funcionalidade de edição!")}
+            >
+              <Text style={styles.editText}>editar</Text>
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity
-            onPress={() => Alert.alert("Editar", "Funcionalidade de edição!")}
-          >
-            <Text style={styles.editText}>editar</Text>
-          </TouchableOpacity>
         </View>
-      </View>
 
-      <MenuDeAcoes activeAction="addLivro" />
+        <MenuDeAcoes activeAction="addLivro" />
 
-      <View style={styles.form}>
-        <TextInput
-          label="Titulo"
-          value={titulo}
-          onChangeText={(text) => setTitulo(text)}
-          mode="outlined"
-          outlineColor="#000000"
-          activeOutlineColor="#000000"
-          theme={{ colors: { background: "#ffffff" } }}
-          style={styles.input}
-        />
-        <TextInput
-          label="Categoria"
-          value={categoria}
-          onChangeText={(text) => setCategoria(text)}
-          mode="outlined"
-          outlineColor="#000000"
-          activeOutlineColor="#000000"
-          theme={{ colors: { background: "#ffffff" } }}
-          style={styles.input}
-        />
-        <TextInput
-          label="Resumo"
-          value={resumo}
-          onChangeText={(text) => setResumo(text)}
-          mode="outlined"
-          outlineColor="#000000"
-          activeOutlineColor="#000000"
-          theme={{ colors: { background: "#ffffff" } }}
-          style={styles.input}
-        />
-        <TextInput
-          label="Autor"
-          value={autor}
-          onChangeText={(text) => setAutor(text)}
-          mode="outlined"
-          outlineColor="#000000"
-          activeOutlineColor="#000000"
-          theme={{ colors: { background: "#ffffff" } }}
-          style={styles.input}
-        />
-        <Button
-          mode="contained"
-          onPress={handleEnviar}
-          style={styles.button}
-          labelStyle={{ color: "white" }}
-        >
-          Cadastrar Livro
-        </Button>
-      </View>
+        <View style={styles.form}>
+          <TextInput
+            label="Titulo"
+            value={titulo}
+            onChangeText={(text) => setTitulo(text)}
+            mode="outlined"
+            outlineColor="#000000"
+            activeOutlineColor="#000000"
+            theme={{ colors: { background: "#ffffff" } }}
+            style={styles.input}
+          />
+          <TextInput
+            label="Categoria"
+            value={categoria}
+            onChangeText={(text) => setCategoria(text)}
+            mode="outlined"
+            outlineColor="#000000"
+            activeOutlineColor="#000000"
+            theme={{ colors: { background: "#ffffff" } }}
+            style={styles.input}
+          />
+          <TextInput
+            label="Resumo"
+            value={resumo}
+            onChangeText={(text) => setResumo(text)}
+            mode="outlined"
+            outlineColor="#000000"
+            activeOutlineColor="#000000"
+            theme={{ colors: { background: "#ffffff" } }}
+            style={styles.input}
+          />
+          <TextInput
+            label="Autor"
+            value={autor}
+            onChangeText={(text) => setAutor(text)}
+            mode="outlined"
+            outlineColor="#000000"
+            activeOutlineColor="#000000"
+            theme={{ colors: { background: "#ffffff" } }}
+            style={styles.input}
+          />
+          <Button
+            mode="contained"
+            onPress={handleEnviar}
+            style={styles.button}
+            labelStyle={{ color: "white" }}
+          >
+            Cadastrar Livro
+          </Button>
+        </View>
       </ScrollView>
       <Footer />
     </View>
@@ -136,8 +136,8 @@ const styles = StyleSheet.create({
     paddingTop: 150,
   },
   scrollContainer: {
-    flexGrow: 1, 
-    paddingBottom: 100, 
+    flexGrow: 1,
+    paddingBottom: 100,
   },
   perfilHeader: {
     padding: 16,

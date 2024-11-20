@@ -5,11 +5,14 @@ import CardLivro from "../../components/CardLivro/CardLivro";
 import api from '../../Service/apiAxios';
 import { TouchableOpacity } from "react-native";
 import { Button } from "react-native-paper";
+import { useNavigation } from "@react-navigation/native";
+
 export default function PaginaInicial() {
-  
+
   const [livrosDb, setLivrosDb] = useState([]);
   const [livros, setLivros] = useState([]);
   const [pesquisa, setPesquisa] = useState('');
+  const navigation = useNavigation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,14 +28,14 @@ export default function PaginaInicial() {
     fetchData();
   }, []);
 
-  function filtrarLivro(){
+  function filtrarLivro() {
     console.log(livros)
     console.log(pesquisa)
-    if(pesquisa == '' || pesquisa == null){
-     setLivros(livrosDb);
-     return;
+    if (pesquisa == '' || pesquisa == null) {
+      setLivros(livrosDb);
+      return;
     }
-    const livrosFiltrados = livrosDb.filter(livro => 
+    const livrosFiltrados = livrosDb.filter(livro =>
       livro.titulo && livro.titulo.toLowerCase().includes(pesquisa.toLowerCase())
     );
 
@@ -48,20 +51,29 @@ export default function PaginaInicial() {
           placeholder="Nome do livro"
           onChangeText={(valor) => setPesquisa(valor)}
         />
-        <Button 
-        style={styles.buttonPesquisar}
-        onPress={() => filtrarLivro()}
+        <Button
+          style={styles.buttonPesquisar}
+          onPress={() => filtrarLivro()}
         >Pesquisar</Button>
       </View>
       <View style={styles.viewContent}>
-      <ScrollView contentContainerStyle={styles.contentContainer}>
-      {livros.map((livro) => (
-        <TouchableOpacity key={livro.id}>
-          <CardLivro title={livro.titulo} />
-        </TouchableOpacity>
-      ))}
-    </ScrollView>
-      </View> 
+        {livros.map((livro) => (
+          <TouchableOpacity
+            key={livro.id}
+            onPress={() => navigation.navigate('detalheLivro',
+              {
+                livroId: livro.id,
+                titulo: livro.titulo,
+                autor: livro.autor,
+                resumo: livro.resumo,
+                descricao: livro.descricao,
+                disponivel: livro.disponivel
+              })}
+          >
+            <CardLivro title={livro.nome} />
+          </TouchableOpacity>
+        ))}
+      </View>
     </View>
   );
 }
@@ -71,8 +83,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "flex-start",
-    paddingTop: 220,
-    overflow: 'auto', 
+    paddingTop: 200,
+    overflow: 'auto',
   },
   viewInput: {
     width: "100%",
@@ -83,10 +95,10 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     justifyContent: 'center',
-    flexDirection: 'row', 
+    flexDirection: 'row',
     flexWrap: 'wrap',
   },
-  buttonPesquisar :{
+  buttonPesquisar: {
     width: "100px",
     backgroundColor: "black",
     height: "40px",
@@ -97,7 +109,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-around",
-    alignItems: "flex-start", 
+    alignItems: "flex-start",
     marginTop: 10,
   },
   input: {
