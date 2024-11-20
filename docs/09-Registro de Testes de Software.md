@@ -18,6 +18,19 @@ Resultado: Mostra a mensagem de disponível e botão habilitado.
 ![pag indisponivel](https://github.com/user-attachments/assets/72be7d68-f2cd-40d1-8536-53ed32337222)<br>
 Resultado: Mostra a mensagem de indisponivel e botão desabilitado.
 
+Tela de Cadastro de Livros
+
+Todos os campos de entrada (Título, Descrição, Resumo, Autor) estão visíveis e o botão de cadastrar livro habilitado
+
+![abf9b33d-70bb-407a-88ae-034f64c73067](https://github.com/user-attachments/assets/50bf3d8d-3790-4f28-9ece-0c9fce951d1f)
+
+Caso o usuario tente cadastrar um livro sem preencher todos os campos, uma mensagem deve ser exibida e o cadastro tem que ser interrompido
+
+![7162a2b0-9aa6-4748-a28a-6c0409c04988](https://github.com/user-attachments/assets/bdfa2d77-8c31-494f-93dd-ac708b6b3558)
+
+Se o usuario seguiu os passos certo e preencheu todos os campos, apos clicar no botão de cadastrar livro uma mensagem tem que ser exibida informando que o livro foi cadastrado.
+![8330e0cf-4dd4-4333-a429-edb01f44fc0a](https://github.com/user-attachments/assets/76a01bb2-08ee-401e-9c02-ac4104862778)
+
 
 ## Avaliação
 
