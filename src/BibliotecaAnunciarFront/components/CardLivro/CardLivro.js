@@ -1,7 +1,7 @@
 import { StyleSheet, View, Text, Image } from "react-native";
 
-export default function CardLivro({image, title, update}){
-     return(
+export default function CardLivro({ image, title, update }) {
+     return (
           <View style={styles.card}>
                <View style={styles.viewImage}>
                     <Image source={require("../../assets/logo.png")} style={styles.image} />
@@ -15,22 +15,22 @@ export default function CardLivro({image, title, update}){
 }
 const styles = StyleSheet.create({
      container: {
-       flex: 1,
-       justifyContent: "center",
-       alignItems: "center",
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
      },
-     card : {
-          width: '300px',
-          height: '250px'
+     card: {
+          width: 300,
+          height: 250
      },
-     image:{
-          width: '250px',
-          height: '200px',
-          borderRadius: '15px'
-          
+     image: {
+          width: 250,
+          height: 200,
+          borderRadius: 15
+
      },
      boldText: {
-       fontWeight: "bold",
-       fontSize: "20px"
+          fontWeight: "bold",
+          fontSize: 20
      },
-   });
+});
