@@ -6,7 +6,8 @@ Implementação do sistema descritas por meio dos requisitos funcionais e/ou nã
 
 Para cada requisito funcional, pode ser entregue um artefato desse tipo
 
-Modelo Banco Banco de dados -> ![image](https://github.com/user-attachments/assets/dc887efc-9ed6-4cc1-853a-b8702bcd91f5)
+Modelo Banco Banco de dados ->  
+![image](https://github.com/user-attachments/assets/dc887efc-9ed6-4cc1-853a-b8702bcd91f5)
 
 Relacionamento código e requisito
 
