@@ -84,7 +84,7 @@ Os testes de usabilidade identificaram que as telas de Login e Cadastro possuem 
 - **Feedback de Carregamento:** Implementar um ícone de carregamento durante os processos de login e cadastro.
 ![image](https://github.com/user-attachments/assets/33594d98-e348-49c5-8ee2-74a0ea02cc6e)
 
-## Tela de Cadastro
+## Tela de Cadastro de livros
 
 ### Objetivo do Teste
 Testar a facilidade de uso da tela de Cadastro de livros, incluindo clareza das instruções, efetividade das mensagens de erro e responsividade da interface.
@@ -93,6 +93,10 @@ Testar a facilidade de uso da tela de Cadastro de livros, incluindo clareza das 
    - **Descrição do Teste:** Testar a exibição de mensagem de erro ao tentar se cadastrar um livro sem preencher todos os campos.
    - **Resultado:** A mensagem "Todos os campos são obrigatórios" foi exibida como esperado.
    - **Feedback do Usuário:** Usuários sugeriram que a mensagem de erro poderia ser exibida próxima ao campo que precisa ser preenchido.
+
+## Conclusão
+
+Os testes de usabilidade identificaram que as telas de Cadastro de livro possue uma interface funcional e intuitiva, com mensagens de erro claras.
 
 
 > **Links Úteis**:
