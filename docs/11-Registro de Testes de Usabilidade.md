@@ -6,14 +6,14 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Registro de
 
 ## Tela Principal ( Home )
 
-##Objetivo
-- Ajustar fluxo usuario, ao clicar em um card, redirecinar o usuario para página de detalhes do livro clicado.
-![image](https://github.com/user-attachments/assets/f66789b0-32ec-4d3f-b85a-13e9221ad8b6)
-![image](https://github.com/user-attachments/assets/2f73d906-995d-46e8-b9e1-f507d46e7c11)
+## Objetivo
+- Ajustar fluxo usuario, ao clicar em um card, redirecinar o usuario para página de detalhes do livro clicado.  
+![image](https://github.com/user-attachments/assets/f66789b0-32ec-4d3f-b85a-13e9221ad8b6)  
+![image](https://github.com/user-attachments/assets/2f73d906-995d-46e8-b9e1-f507d46e7c11)  
 
 - Input de pesquisa para ajudar o usuario a encontrar o livro, ao pesquisar um titulo, os livros devem ser filtrados pelo texto pesquisado.  
 ![image](https://github.com/user-attachments/assets/73ba524d-661f-4e98-8851-20ca5060fcd1)  
-![image](https://github.com/user-attachments/assets/8f27d37a-7a62-4341-a60a-b6a9b8efe82c)
+![image](https://github.com/user-attachments/assets/8f27d37a-7a62-4341-a60a-b6a9b8efe82c)  
 
 
 ## Tela de Login
