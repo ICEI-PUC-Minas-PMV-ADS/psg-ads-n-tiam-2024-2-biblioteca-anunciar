@@ -57,6 +57,15 @@ Esta documentação descreve o modelo do banco de dados de usuários e as implem
 
 ---
 
+## Código da Página Detalhe Livro
+![image](https://github.com/user-attachments/assets/1d4aabc8-c707-4c3c-bd07-bae3b2d068c9)
+
+## Print da Página Detalhe Livro
+![image](https://github.com/user-attachments/assets/3eac0058-e29a-4269-818d-679a41cdd5d0)
+
+- **Descrição:** Captura de tela da interface de detalhe livro, exibindo dados do livro, como titulo, autor e ressumo, além de sua disponibilidade. Um botão para fazer reserva.
+- **Objetivo:** Mostrar a aparência da tela de detalhe livro para referência visual, ajudando a identificar possíveis melhorias na experiência do usuário.
+
 Modelo Banco Banco de dados ->  
 ![image](https://github.com/user-attachments/assets/dc887efc-9ed6-4cc1-853a-b8702bcd91f5)
 
