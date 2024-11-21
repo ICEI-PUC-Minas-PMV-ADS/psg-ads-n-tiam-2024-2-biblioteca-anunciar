@@ -87,6 +87,27 @@ Esses testes e observações fornecem um guia para otimizar a experiência do us
 
 ---
 
+## Testes da Tela de Cadastro
+
+## Objetivo
+Garantir que a funcionalidade de cadastro de livros está funcionando corretamente, incluindo validações de campos obrigatórios e envio para a API.
+
+### Casos de Teste
+
+1. **Verificação de Campos Obrigatórios**
+   - **Descrição:** Exibir uma mensagem de erro se o usuário tentar se cadastrar um livro sem preencher todos os campos.
+   - **Resultado Esperado:** Exibir o alerta "Todos os campos são obrigatórios".
+
+2. **Cadastro bem sucedido**
+   - **Descrição:** Usuario preenche todos os campos e cadastro o livro.
+   - **Resultado Esperado:** Exibi um alerta para o usuario com a mensagem confirmando o cadastro.
+  
+ ### Observações
+Durante o desenvolvimento, foram identificados os seguintes pontos de melhoria:
+- **Sugestão de ajuste no layout:** Melhorar a disposição dos campos para evitar sobreposição em dispositivos com telas menores.
+- **Cadastro de imagem do livro** Opção de cadastrar a imagem do livro no banco de dados..
+
+  
 As referências abaixo irão auxiliá-lo na geração do artefato "Plano de Testes de Usabilidade".
 
 > **Links Úteis**:
