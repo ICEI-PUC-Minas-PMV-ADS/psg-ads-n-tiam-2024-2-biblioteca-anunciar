@@ -7,11 +7,14 @@ Com o desenvolvimento da tela nota-se que a tela do celular é pequena para mant
 Para o restante da página o layout funcionou como no protótipo. 
 
 ## Teste tela Principal
-Ao clicar no botão de pesquisar, o software deve ser capaz de filtrar os livros com os textos digitados.
+ - Ao clicar no botão de pesquisar, o software deve ser capaz de filtrar os livros com os textos digitados.
+ - Ao clicar em um card, o usuario deve ser redirecionado à pagina de detalhes do livro.
 ## Casos de teste
 1. **Verificar input**
    - Caso o input esteja vazio e o filtro for aplicado, todos os livros devem aparecer.
    - Caso tenha algum texto no input, o filtro deve ser aplicado com esse texto.
+2. **Clicar no card**
+ - Caso o usuario clique no card do livro, ele é redirecionado à pagina de detalhes do livro clicado.
 
 ## Testes da Tela de Login
 
