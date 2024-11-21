@@ -75,7 +75,7 @@ Pagina de Cadastro de Livros
 
 Função de cadastro de livros (post) + validações
 ![image](https://github.com/user-attachments/assets/7c7f5e34-ba05-478a-b2e1-fd25f80ba684)
-Montagem da tela
+Montagem da tela. </br>
 ![image](https://github.com/user-attachments/assets/f5857fe1-2353-415f-ae8c-706fc338cdc2)
 ![image](https://github.com/user-attachments/assets/81efb822-0dbc-4c3c-84b0-0f7785ba323c)
 
