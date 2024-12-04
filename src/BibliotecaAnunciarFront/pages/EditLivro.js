@@ -29,7 +29,7 @@ export default function EditLivro({ route }) {
         };
       
       const response = await api.put(`/livro/${livroId}`, livroAtualizado);
-      navigation.navigate("detalheLivro")
+      navigation.navigate("Home")
 
       console.log(response)
 
