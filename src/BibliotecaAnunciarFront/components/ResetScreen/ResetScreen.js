@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'react-native';
-import auth from '@react-native-firebase/auth'; 
 import { useNavigation } from '@react-navigation/native'; 
+import { auth, db } from '../../FirebaseConfig';
 
 const ForgotPasswordScreen = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(''); 
   const [isLoading, setIsLoading] = useState(false); 
   const navigation = useNavigation(); 
 
+  
   const handlePasswordReset = async () => {
     if (!email) {
       Alert.alert('Erro', 'Por favor, insira o e-mail.');
       return;
     }
 
-    setIsLoading(true); 
+    setIsLoading(true);  
 
     try {
       await auth().sendPasswordResetEmail(email);
@@ -25,14 +26,14 @@ const ForgotPasswordScreen = () => {
       );
     } catch (error) {
       let errorMessage = 'Ocorreu um erro desconhecido.';
-      
+
       if (error.code === 'auth/invalid-email') {
         errorMessage = 'O e-mail fornecido não é válido.';
       } else if (error.code === 'auth/user-not-found') {
         errorMessage = 'Não encontramos um usuário com esse e-mail.';
       }
 
-      Alert.alert('Erro', errorMessage);
+      Alert.alert('Erro', errorMessage); 
     } finally {
       setIsLoading(false); 
     }
@@ -55,7 +56,7 @@ const ForgotPasswordScreen = () => {
       <TouchableOpacity
         style={[styles.resetButton, { opacity: isLoading || !email ? 0.5 : 1 }]} 
         onPress={handlePasswordReset}
-        disabled={isLoading || !email} 
+        disabled={isLoading || !email}  
       >
         <Text style={styles.resetButtonText}>
           {isLoading ? 'Enviando...' : 'Enviar Link de Recuperação'}

@@ -7,6 +7,7 @@ import SignupScreen from "../components/SingupScreen/SingUpScreen";
 import CadastroLivros from "../pages/cadastroLivros/cadastroLivros";
 import PaginaInicial from "../pages/cadastroLivros/PaginaInicial";
 import DetalheLivro from "../pages/cadastroLivros/detalheLivro";
+import ResetScreen from "../components/ResetScreen/ResetScreen"
 
 const Tela = createStackNavigator();
 
@@ -37,6 +38,11 @@ export default function AppNavigator() {
         <Tela.Screen
           name="detalheLivro"
           component={DetalheLivro}
+          options={{ headerShown: false }}
+        />
+        <Tela.Screen
+          name="ResetScreen"
+          component={ResetScreen}
           options={{ headerShown: false }}
         />
       </Tela.Navigator>

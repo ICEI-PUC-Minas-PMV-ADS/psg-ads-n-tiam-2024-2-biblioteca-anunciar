@@ -1,20 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { ScrollView, StyleSheet, TextInput, View } from "react-native";
+import { ScrollView, StyleSheet, TextInput, View, Button } from "react-native";
 import Navbar from "../../components/navbar/navbar";
 import CardLivro from "../../components/CardLivro/CardLivro";
 import api from '../../Service/apiAxios';
 import { TouchableOpacity } from "react-native";
-import { Button } from "react-native-paper";
+import { Button as PaperButton } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/Ionicons";
+import { signOut } from 'firebase/auth';
+import { auth, db } from '../../FirebaseConfig';
 
 export default function PaginaInicial() {
-
   const [livrosDb, setLivrosDb] = useState([]);
   const [livros, setLivros] = useState([]);
   const [pesquisa, setPesquisa] = useState('');
   const navigation = useNavigation();
 
+  const handleLogout = async () => {
+    try {
+      await signOut(auth); 
+      console.log('Sucesso Logout'); 
+      navigation.navigate('Login'); 
+    } catch (error) {
+      console.error('Erro ao fazer logout:', error.message);
+    }
+  };
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -52,11 +63,15 @@ export default function PaginaInicial() {
           placeholder="Nome do livro"
           onChangeText={(valor) => setPesquisa(valor)}
         />
-        <Button
+        <PaperButton
           style={styles.buttonPesquisar}
           onPress={() => filtrarLivro()}
-        ><Icon name="search" size={30} color="black" /></Button>
+        >
+          <Icon name="search" size={30} color="black" />
+        </PaperButton>
       </View>
+
+      {/* Lista de livros */}
       <View style={styles.viewContent}>
         {livros.map((livro) => (
           <TouchableOpacity
@@ -75,9 +90,12 @@ export default function PaginaInicial() {
           </TouchableOpacity>
         ))}
       </View>
+
+      <Button title="Sair" onPress={handleLogout} color="#FF6347" />
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

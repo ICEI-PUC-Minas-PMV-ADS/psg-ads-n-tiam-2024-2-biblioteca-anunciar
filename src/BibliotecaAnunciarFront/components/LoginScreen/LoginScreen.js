@@ -1,28 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { useNavigation } from "@react-navigation/native";
 import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet, Image } from 'react-native';
-import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'; 
+import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { auth, db } from '../../FirebaseConfig';
+import { AuthContext } from '../../Provider/AuthProvider'; // Importando o contexto
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  // Monitorar mudanças de autenticação do usuário
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setIsAuthenticated(true);
-        console.log('Usuário autenticado:', user.email);
-        // Você pode redirecionar o usuário diretamente aqui
-      } else {
-        setIsAuthenticated(false);
-      }
-    });
-
-    return () => unsubscribe(); // Limpar o listener quando o componente for desmontado
-  }, []);
+  const navigation = useNavigation();
+  const { setUser, setIsAuthenticated: setAuthContext } = useContext(AuthContext); // Acessando os métodos de contexto
 
   const handleLogin = async () => {
     if (!email || !senha) {
@@ -31,17 +20,19 @@ const LoginScreen = ({ navigation }) => {
     }
 
     try {
-      // Autentica o usuário no Firebase Authentication
       const userCredential = await signInWithEmailAndPassword(auth, email, senha);
       const userId = userCredential.user.uid;
 
-      // Obtém os dados do usuário no Firestore
       const userDoc = await getDoc(doc(db, 'users', userId));
       if (userDoc.exists()) {
         const userData = userDoc.data();
         const userType = userData.role || 'Usuário'; // Verifica o tipo do usuário
 
         console.log('Sucesso', `Bem-vindo, ${userType}`);
+
+        // Atualizando o estado de autenticação no contexto
+        setAuthContext(true);
+        setUser(userCredential.user);
 
         // Redireciona com base no tipo de usuário
         if (userType === 'Administrador') {
@@ -92,13 +83,9 @@ const LoginScreen = ({ navigation }) => {
 
       <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
         <Text style={styles.loginButtonText}>Entrar</Text>
-      </TouchableOpacity>
-      
-      <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
-        <Text style={styles.link}>Esqueceu a senha?</Text>
-      </TouchableOpacity>
+      </TouchableOpacity>      
 
-      <TouchableOpacity onPress={() => navigation.navigate('SignupScreen')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Singup')}>
         <Text style={styles.link}>Registrar</Text>
       </TouchableOpacity>
     </View>
