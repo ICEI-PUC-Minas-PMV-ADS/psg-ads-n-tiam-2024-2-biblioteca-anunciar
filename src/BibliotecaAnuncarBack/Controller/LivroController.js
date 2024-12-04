@@ -1,4 +1,4 @@
-const {addLivro,getAllLivro,getLivroId,deleteLivroById} = require("../Service/LivroService");
+const {addLivro,getAllLivro,getLivroId,deleteLivroById ,editLivro} = require("../Service/LivroService");
 const { Livro } = require('../Models/Livro');
 
 async function getLivros(req, res) {
@@ -49,9 +49,24 @@ async function deleteLivro(req, res) {
   }
 }
 
+async function putLivro(req, res) {
+  try {
+    const id = req.params.id; 
+    const dadosAtualizados = req.body; 
+    const resultado = await editLivro(id, dadosAtualizados);
+    if (!resultado) {
+      return res.status(404).send({ error: 'Livro não encontrado.' });
+    }
+    res.status(200).send({ message: 'Livro atualizado com sucesso!', livro: resultado });
+  } catch (error) {
+    res.status(500).send({ error: error.message });
+  }
+}
+
 module.exports = {
   getLivros,
   getLivro,
   postLivros,
+  putLivro,
   deleteLivro, 
 };

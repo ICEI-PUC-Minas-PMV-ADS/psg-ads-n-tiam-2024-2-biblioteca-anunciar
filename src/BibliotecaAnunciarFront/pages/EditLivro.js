@@ -1,50 +1,41 @@
-import React, { useState } from "react";
-import {
-  Alert,
-  Image,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import React, { useState, useEffect } from "react";
+import {Alert,ScrollView,StyleSheet,View,} from "react-native";
 import { Button, TextInput } from "react-native-paper";
-import { postLivros } from "../../Service/apiService";
-import Footer from "../../components/footer/Footer";
-import MenuDeAcoes from "../../components/menuAcoesAdmin/menuAcoesAdmin";
-import Navbar from "../../components/navbar/navbar";
-import api from '../../Service/apiAxios';
+import Navbar from "../components/navbar/navbar";
+import api from '../../BibliotecaAnunciarFront/Service/apiAxios';
+import { useNavigation } from "@react-navigation/native";
 
-export default function CadastroLivros() {
-  const [titulo, setTitulo] = useState("");
-  const [categoria, setCategoria] = useState("");
-  const [resumo, setResumo] = useState("");
-  const [autor, setAutor] = useState("");
+export default function EditLivro({ route }) {
+  const navigation = useNavigation();
 
-  const handleEnviar = async () => {
-    if (!titulo || !categoria || !resumo || !autor) {
+  const { livroId, titulo, autor, resumo, categoria } = route.params;
+
+  const [tituloEdit, setTitulo] = useState(titulo);
+  const [categoriaEdit, setCategoria] = useState(categoria);
+  const [resumoEdit, setResumo] = useState(resumo);
+  const [autorEdit, setAutor] = useState(autor);
+
+  const handleEditar = async () => {
+    if (!tituloEdit || !categoriaEdit || !resumoEdit || !autorEdit) {
       Alert.alert("Erro", "Todos os campos devem ser preenchidos!");
       return;
     }
-
-    const livro = { titulo, categoria, resumo, autor, disponivel: "S" };
-
     try {
-      console.log("Enviando dados para API:", livro);
-      const { status } = await postLivros(livro);
+     const livroAtualizado = {
+          titulo: tituloEdit,
+          categoria: categoriaEdit,
+          resumo: resumoEdit,
+          autor: autorEdit,
+        };
+      
+      const response = await api.put(`/livro/${livroId}`, livroAtualizado);
+      navigation.navigate("detalheLivro")
 
-      if (status === 200 || status === 201) {
-        Alert.alert("Sucesso", "Livro cadastrado com sucesso!");
-        setTitulo("");
-        setCategoria("");
-        setResumo("");
-        setAutor("");
-      } else {
-        Alert.alert("Erro", "Não foi possível cadastrar o livro.");
-      }
+      console.log(response)
+
     } catch (error) {
-      console.error("Erro no handleEnviar:", error.message);
-      Alert.alert("Erro", "Ocorreu um erro ao tentar cadastrar o livro.");
+      console.error("Erro no handleEditar:", error.message);
+      Alert.alert("Erro", "Ocorreu um erro ao tentar atualizar o livro.");
     }
   };
 
@@ -53,79 +44,77 @@ export default function CadastroLivros() {
       <Navbar />
 
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <View style={styles.perfilHeader}>
-          <Text style={styles.titulo}>Perfil</Text>
-          <View style={styles.perfilContainer}>
-            <Image
-              source={{ uri: "https://via.placeholder.com/50" }}
-              style={styles.avatar}
-            />
-            <View style={styles.textoContainer}>
-              <Text style={styles.nome}>Seu Nome</Text>
-              <Text style={styles.email}>seuemail@email.com</Text>
-            </View>
-            <TouchableOpacity
-              onPress={() => Alert.alert("Editar", "Funcionalidade de edição!")}
-            >
-              <Text style={styles.editText}>editar</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        <MenuDeAcoes activeAction="addLivro" />
-
         <View style={styles.form}>
           <TextInput
             label="Titulo"
-            value={titulo}
+            value={tituloEdit}
             onChangeText={(text) => setTitulo(text)}
             mode="outlined"
             outlineColor="#000000"
             activeOutlineColor="#000000"
-            theme={{ colors: { background: "#ffffff" } }}
+            theme={{
+              colors: {
+                background: "#ffffff",
+                placeholder: "#000000", // Definindo a cor do texto como preta
+              },
+            }}
             style={styles.input}
           />
           <TextInput
             label="Categoria"
-            value={categoria}
+            value={categoriaEdit}
             onChangeText={(text) => setCategoria(text)}
             mode="outlined"
             outlineColor="#000000"
             activeOutlineColor="#000000"
-            theme={{ colors: { background: "#ffffff" } }}
+            theme={{
+              colors: {
+                background: "#ffffff",
+                placeholder: "#000000", // Definindo a cor do texto como preta
+              },
+            }}
             style={styles.input}
           />
           <TextInput
             label="Resumo"
-            value={resumo}
+            value={resumoEdit}
             onChangeText={(text) => setResumo(text)}
             mode="outlined"
             outlineColor="#000000"
             activeOutlineColor="#000000"
-            theme={{ colors: { background: "#ffffff" } }}
+            theme={{
+              colors: {
+                background: "#ffffff",
+                placeholder: "#000000", 
+              },
+            }}
             style={styles.input}
           />
           <TextInput
             label="Autor"
-            value={autor}
+            value={autorEdit}
             onChangeText={(text) => setAutor(text)}
             mode="outlined"
-            outlineColor="#000000"
+            aoutlineColor="#000000"
             activeOutlineColor="#000000"
-            theme={{ colors: { background: "#ffffff" } }}
+            theme={{
+              colors: {
+                background: "#ffffff",
+                placeholder: "#000000", 
+              },
+            }}
             style={styles.input}
           />
           <Button
             mode="contained"
-            onPress={handleEnviar}
+            onPress={handleEditar}
             style={styles.button}
             labelStyle={{ color: "white" }}
           >
-            Cadastrar Livro
+            Atualizar Livro
           </Button>
         </View>
       </ScrollView>
-      <Footer />
     </View>
   );
 }
@@ -134,7 +123,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    paddingTop: 150,
+    paddingTop: 250,
   },
   scrollContainer: {
     flexGrow: 1,
@@ -195,6 +184,7 @@ const styles = StyleSheet.create({
   },
   input: {
     marginBottom: 16,
+    color: "black",
   },
   button: {
     marginTop: 16,

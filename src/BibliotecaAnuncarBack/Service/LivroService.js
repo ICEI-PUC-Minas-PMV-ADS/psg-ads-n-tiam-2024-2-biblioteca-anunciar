@@ -4,6 +4,7 @@ const {
   getDoc,
   doc,
   addDoc,
+  updateDoc,
   deleteDoc,
 } = require("firebase/firestore");
 const { db } = require("../FirebaseConnection");
@@ -51,7 +52,23 @@ async function addLivro(novoLivro) {
   }
 }
 
-async function deleteLivroById(id) {
+async function editLivro(livroId, dadosAtualizados) {
+  try {
+    if (livroId && dadosAtualizados) {
+      const livroRef = doc(db, "Livros", livroId);
+      await updateDoc(livroRef, dadosAtualizados);
+
+      const livroAtualizado = await getDoc(livroRef);
+      return { id: livroAtualizado.id, ...livroAtualizado.data() };
+    } else {
+      throw new Error("ID do livro ou dados atualizados não fornecidos.");
+    }
+  } catch (error) {
+    throw new Error(`Erro ao editar o livro: ${error.message}`);
+  }
+}
+
+async function deleteLivroById(id){
   try {
     const livroRef = doc(db, "Livros", id);
     await deleteDoc(livroRef);
@@ -65,5 +82,6 @@ module.exports = {
   getAllLivro,
   getLivroId,
   addLivro,
-  deleteLivroById, 
+  deleteLivroById,
+  editLivro
 };

@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import Footer from "../../components/footer/Footer";
+import { useNavigation } from "@react-navigation/native";
 import Navbar from "../../components/navbar/navbar";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import { Button } from "react-native-paper";
+import Icon from "react-native-vector-icons/Ionicons";
+import api from '../../Service/apiAxios';
 
 export default function DetalheLivro() {
 
+    const navigation = useNavigation();
     const route = useRoute();
     const { livroId, titulo, autor, resumo, categoria, disponivel } = route.params;
     const [isDisabled, setIsDisabled] = useState(disponivel !== "S");
@@ -15,7 +18,18 @@ export default function DetalheLivro() {
         setIsDisabled(disponivel !== "S");
     }, [disponivel]);
 
+    async function deleteLivro(livroId) {
+        try {
+          const response = await api.delete(`/livro/${livroId}`);
+          navigation.navigate("Home");
+          console.log('Livro deletado com sucesso:', response.data);
 
+        } catch (error) {
+          console.error('Erro ao deletar o livro:', error.response || error.message);
+        }
+    }
+
+    
     return (
         <View style={styles.container}>
             <Navbar />
@@ -24,8 +38,19 @@ export default function DetalheLivro() {
                     <ScrollView contentContainerStyle={styles.scrollViewContent}>
 
                         {/* fazer icon de voltar*/}
-
+                        
                         <Text style={styles.detalhe__TituloLivro}>Título: {titulo}</Text>
+
+                        <View style={styles.containerDeleteEditButton }>
+                            <Button 
+                                style={styles.buttonFunctions}
+                                onPress={() => navigation.navigate("editPage", {livroId, titulo, autor, resumo, categoria })}
+                            ><Icon  name="pencil-outline" size={30} color="black" /></Button>
+                            <Button
+                                style={styles.buttonFunctions}
+                                onPress={() => deleteLivro(livroId)}
+                            ><Icon name="trash-outline" size={30} color="black" /></Button>
+                        </View>
 
                         {/* imagem*/}
 
@@ -119,5 +144,14 @@ const styles = StyleSheet.create({
         backgroundColor: "#b0b0b0",
         borderColor: "#b0b0b0",
     },
-
+    containerDeleteEditButton : {
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "end"
+    },
+    buttonFunctions:{
+        width: "50px",
+        height: "50px",
+        justifyContent: "center"
+    },
 });

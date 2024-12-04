@@ -1,5 +1,5 @@
 const { Router } = require("express")
-const { getLivros, postLivros, getLivro, deleteLivro } = require("../Controller/LivroController")
+const { getLivros, postLivros, getLivro, deleteLivro, putLivro } = require("../Controller/LivroController")
 
 const router = Router();
 
@@ -9,7 +9,7 @@ router.get(`/:id`, getLivro);
 
 router.post("/" , postLivros);
 
-//router.put("/", putLivro);
+router.put("/:id", putLivro);
 
 router.delete("/:id", deleteLivro); 
 

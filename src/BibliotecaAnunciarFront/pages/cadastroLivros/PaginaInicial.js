@@ -30,8 +30,6 @@ export default function PaginaInicial() {
   }, []);
 
   function filtrarLivro() {
-    console.log(livros)
-    console.log(pesquisa)
     if (pesquisa == '' || pesquisa == null) {
       setLivros(livrosDb);
       return;
