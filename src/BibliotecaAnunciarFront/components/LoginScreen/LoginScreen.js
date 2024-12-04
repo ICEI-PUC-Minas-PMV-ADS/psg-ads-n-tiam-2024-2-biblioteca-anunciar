@@ -7,11 +7,13 @@ import { auth, db } from '../../FirebaseConfig';
 import { AuthContext } from '../../Provider/AuthProvider'; // Importando o contexto
 
 const LoginScreen = () => {
+
+
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigation = useNavigation();
-  const { setUser, setIsAuthenticated: setAuthContext } = useContext(AuthContext); // Acessando os métodos de contexto
+  const { setUser, setIsAuthenticated: setAuthContext, setIsAdm } = useContext(AuthContext) 
 
   const handleLogin = async () => {
     if (!email || !senha) {
@@ -27,19 +29,15 @@ const LoginScreen = () => {
       if (userDoc.exists()) {
         const userData = userDoc.data();
         const userType = userData.role || 'Usuário'; // Verifica o tipo do usuário
-
+        setUser(userCredential.user);
+        setIsAuthenticated(true); 
+        if(isAdm){
+          setIsAdm(true)
+        }
+        console.log(isAdm, 'result is adm')
         console.log('Sucesso', `Bem-vindo, ${userType}`);
-
-        // Atualizando o estado de autenticação no contexto
         setAuthContext(true);
         setUser(userCredential.user);
-
-        // Redireciona com base no tipo de usuário
-        if (userType === 'Administrador') {
-          navigation.navigate('Home'); // Exemplo: Tela de administrador
-        } else {
-          navigation.navigate('Home'); // Exemplo: Tela de usuário comum
-        }
       } else {
         console.log('Erro', 'Usuário não encontrado no banco de dados.');
       }

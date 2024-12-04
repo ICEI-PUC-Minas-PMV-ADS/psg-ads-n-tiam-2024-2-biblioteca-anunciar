@@ -6,14 +6,18 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [isAdm, setIsAdm] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        // O estado do usuário será atualizado com base na autenticação
         setIsAuthenticated(true);
         setUser(user);
+        debugger
+        if(user.email === 'admanunciar@gmail.com'){
+          setIsAdm(true)
+        }
         console.log('Usuário autenticado:', user.email);
       } else {
         setIsAuthenticated(false);

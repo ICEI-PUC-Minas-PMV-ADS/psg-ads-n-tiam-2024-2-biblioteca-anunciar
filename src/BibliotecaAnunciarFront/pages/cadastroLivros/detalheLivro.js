@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/navbar";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import { Button } from "react-native-paper";
+import {  AuthContext } from '../../Provider/AuthProvider';
 
 export default function DetalheLivro() {
-
+    const { isAdm } = useContext(AuthContext) 
     const route = useRoute();
     const { livroId, titulo, autor, resumo, categoria, disponivel } = route.params;
     const [isDisabled, setIsDisabled] = useState(disponivel !== "S");
@@ -14,6 +15,7 @@ export default function DetalheLivro() {
     useEffect(() => {
         setIsDisabled(disponivel !== "S");
     }, [disponivel]);
+    console.log(isAdm, ' teste ')
 
 
     return (

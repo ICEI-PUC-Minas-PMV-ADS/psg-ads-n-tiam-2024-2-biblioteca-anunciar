@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { ScrollView, StyleSheet, TextInput, View, Button } from "react-native";
 import Navbar from "../../components/navbar/navbar";
 import CardLivro from "../../components/CardLivro/CardLivro";
@@ -9,8 +9,13 @@ import { useNavigation } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { signOut } from 'firebase/auth';
 import { auth, db } from '../../FirebaseConfig';
+import {  AuthContext } from '../../Provider/AuthProvider'; 
+
 
 export default function PaginaInicial() {
+
+  const { user, isAdm } = useContext(AuthContext);
+  console.log(user, isAdm)
   const [livrosDb, setLivrosDb] = useState([]);
   const [livros, setLivros] = useState([]);
   const [pesquisa, setPesquisa] = useState('');

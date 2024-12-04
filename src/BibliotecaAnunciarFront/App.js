@@ -4,12 +4,12 @@ import { AuthProvider, AuthContext } from './Provider/AuthProvider'; // Caminho 
 import AppNavigator from './routes/routes'; // Supondo que AppNavigator esteja em routes/routes.js
 
 export default function App() {
-  const { isAuthenticated, user } = useContext(AuthContext);
+  //const { isAuthenticated, user } = useContext(AuthContext);
 
   // Exibir mensagem de login caso o usuário não esteja autenticado
-  if (!isAuthenticated) {
-    return <Text>Por favor, faça login</Text>;
-  }
+  //if (!isAuthenticated) {
+    //return <Text>Por favor, faça login</Text>;
+  //}
 
   return (
     <AuthProvider> {/* Certifique-se de envolver a aplicação com o AuthProvider */}
