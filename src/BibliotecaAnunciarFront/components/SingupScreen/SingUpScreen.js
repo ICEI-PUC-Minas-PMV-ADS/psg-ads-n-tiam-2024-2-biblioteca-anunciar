@@ -3,7 +3,7 @@ import { Image } from 'react-native';
 import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, db } from '../../FirebaseConfig'; 
-import { addDoc, collection } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 
 const SignupScreen = ({ navigation }) => {
   const [nome, setNome] = useState('');
@@ -11,6 +11,7 @@ const SignupScreen = ({ navigation }) => {
   const [telefone, setTelefone] = useState('');
   const [senha, setSenha] = useState('');
   const [confirmsenha, setconfirmSenha] = useState('');
+  const [role, setRole] = useState('user'); // Define o tipo de usuário padrão como 'user'
 
   const handleSignup = async () => {
     if (!email || !senha || !nome || !telefone) {
@@ -24,22 +25,22 @@ const SignupScreen = ({ navigation }) => {
     }
 
     try {
+      // Cria o usuário no Firebase Authentication
       const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
       const userId = userCredential.user.uid;
 
-      await addDoc(collection(db, "users"),{
+      // Salva os dados do usuário no Firestore
+      await setDoc(doc(db, "users", userId), {
         nome,
         email,
         telefone,
-        userType: 'Usuário', 
+        role, // Salva o tipo de usuário (user ou admin)
       });
 
       console.log('Sucesso', 'Usuário cadastrado com sucesso!');
       navigation.navigate('LoginScreen'); 
-  
     } catch (error) {
-      console.log('Erro', error.message);
-      console.log('Erro ao cadastrar', error.message); 
+      console.log('Erro ao cadastrar', error.message);
     }
   };
 
@@ -90,6 +91,22 @@ const SignupScreen = ({ navigation }) => {
         secureTextEntry
       />
 
+      <Text style={styles.label}>Tipo de Usuário</Text>
+      <View style={styles.roleContainer}>
+        <TouchableOpacity
+          style={[styles.roleButton, role === 'user' && styles.selectedRoleButton]}
+          onPress={() => setRole('user')}
+        >
+          <Text style={styles.roleButtonText}>Usuário</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.roleButton, role === 'admin' && styles.selectedRoleButton]}
+          onPress={() => setRole('admin')}
+        >
+          <Text style={styles.roleButtonText}>Administrador</Text>
+        </TouchableOpacity>
+      </View>
+
       <TouchableOpacity style={styles.signupButton} onPress={handleSignup}>
         <Text style={styles.signupButtonText}>Cadastrar</Text>
       </TouchableOpacity>
@@ -124,6 +141,24 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: '#f9f9f9',
   },
+  roleContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginVertical: 10,
+  },
+  roleButton: {
+    padding: 10,
+    marginHorizontal: 5,
+    borderWidth: 1,
+    borderColor: '#333',
+    borderRadius: 5,
+  },
+  selectedRoleButton: {
+    backgroundColor: '#333',
+  },
+  roleButtonText: {
+    color: '#fff',
+  },
   signupButton: {
     width: '60%',
     backgroundColor: '#333',
@@ -148,7 +183,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',  
     marginBottom: 20,       
     alignSelf: 'center', 
-  }
+  },
 });
 
 export default SignupScreen;

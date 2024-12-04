@@ -1,12 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet, Image } from 'react-native';
-import { signInWithEmailAndPassword } from 'firebase/auth'; 
-import {auth} from '../../FirebaseConfig'
-
+import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'; 
+import { doc, getDoc } from 'firebase/firestore';
+import { auth, db } from '../../FirebaseConfig';
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  // Monitorar mudanças de autenticação do usuário
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsAuthenticated(true);
+        console.log('Usuário autenticado:', user.email);
+        // Você pode redirecionar o usuário diretamente aqui
+      } else {
+        setIsAuthenticated(false);
+      }
+    });
+
+    return () => unsubscribe(); // Limpar o listener quando o componente for desmontado
+  }, []);
 
   const handleLogin = async () => {
     if (!email || !senha) {
@@ -15,12 +31,27 @@ const LoginScreen = ({ navigation }) => {
     }
 
     try {
+      // Autentica o usuário no Firebase Authentication
       const userCredential = await signInWithEmailAndPassword(auth, email, senha);
-      const userType = email.endsWith('@adm.anunciar') ? 'Administrador' : 'Usuário';
+      const userId = userCredential.user.uid;
 
-      console.log('Sucesso', `Bem-vindo, ${userType}`);
+      // Obtém os dados do usuário no Firestore
+      const userDoc = await getDoc(doc(db, 'users', userId));
+      if (userDoc.exists()) {
+        const userData = userDoc.data();
+        const userType = userData.role || 'Usuário'; // Verifica o tipo do usuário
 
-      
+        console.log('Sucesso', `Bem-vindo, ${userType}`);
+
+        // Redireciona com base no tipo de usuário
+        if (userType === 'Administrador') {
+          navigation.navigate('Home'); // Exemplo: Tela de administrador
+        } else {
+          navigation.navigate('Home'); // Exemplo: Tela de usuário comum
+        }
+      } else {
+        console.log('Erro', 'Usuário não encontrado no banco de dados.');
+      }
     } catch (error) {
       switch (error.code) {
         case 'auth/invalid-email':
@@ -35,7 +66,6 @@ const LoginScreen = ({ navigation }) => {
         default:
           console.log('Erro', 'Algo deu errado. Tente novamente.');
       }
-          
     }
   };
 
@@ -51,7 +81,7 @@ const LoginScreen = ({ navigation }) => {
         keyboardType="email-address"
       />
 
-      <Text style={styles.label}>Password</Text>
+      <Text style={styles.label}>Senha</Text>
       <TextInput
         style={styles.input}
         value={senha}
@@ -61,15 +91,15 @@ const LoginScreen = ({ navigation }) => {
       />
 
       <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-        <Text style={styles.loginButtonText}>Sign In</Text>
+        <Text style={styles.loginButtonText}>Entrar</Text>
       </TouchableOpacity>
       
       <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
-        <Text style={styles.link}>Forgot password?</Text>
+        <Text style={styles.link}>Esqueceu a senha?</Text>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => navigation.navigate('SignupScreen')}>
-        <Text style={styles.link}>Register</Text>
+        <Text style={styles.link}>Registrar</Text>
       </TouchableOpacity>
     </View>
   );
@@ -98,12 +128,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: '#f9f9f9',
   },
-  logo: {
-    width: 100, 
-    height: 100,
-    marginBottom: 20, 
-    resizeMode: 'contain',
-  },
   loginButton: {
     width: '60%',
     backgroundColor: '#333',
@@ -130,7 +154,5 @@ const styles = StyleSheet.create({
     alignSelf: 'center', 
   }
 });
-
-
 
 export default LoginScreen;
