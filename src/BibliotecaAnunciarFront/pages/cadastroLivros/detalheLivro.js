@@ -1,10 +1,9 @@
+import { useNavigation, useRoute } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
-import { useNavigation } from "@react-navigation/native";
-import Navbar from "../../components/navbar/navbar";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
-import { useRoute } from "@react-navigation/native";
+import { Alert, ScrollView, StyleSheet, Text, View } from "react-native";
 import { Button } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
+import Navbar from "../../components/navbar/navbar";
 import api from '../../Service/apiAxios';
 
 export default function DetalheLivro() {
@@ -16,7 +15,20 @@ export default function DetalheLivro() {
 
     useEffect(() => {
         setIsDisabled(disponivel !== "S");
-    }, [disponivel]);
+      }, [disponivel]);
+      
+      async function reservarLivro(livroId) {
+        try {
+          await api.put(`/livro/${livroId}/reservar`, { disponivel: "N" });
+          Alert.alert("Sucesso", "Livro reservado com sucesso!");
+          setIsDisabled(true); 
+        } catch (error) {
+          console.error("Erro ao reservar o livro:", error.response?.data || error.message);
+          Alert.alert("Erro", "Não foi possível reservar o livro.");
+        }
+      }
+      
+    
 
     async function deleteLivro(livroId) {
         try {
@@ -70,6 +82,7 @@ export default function DetalheLivro() {
                             mode="contained"
                             labelStyle={{ color: isDisabled ? "gray" : "white" }}
                             disabled={isDisabled}
+                            onPress={() => reservarLivro(livroId)} 
                         >
                             Reservar
                         </Button>

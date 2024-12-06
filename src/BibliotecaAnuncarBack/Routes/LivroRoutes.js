@@ -1,5 +1,5 @@
 const { Router } = require("express")
-const { getLivros, postLivros, getLivro, deleteLivro, putLivro } = require("../Controller/LivroController")
+const { getLivros, postLivros, getLivro, deleteLivro, putLivro, reservarLivro} = require("../Controller/LivroController")
 
 const router = Router();
 
@@ -12,5 +12,7 @@ router.post("/" , postLivros);
 router.put("/:id", putLivro);
 
 router.delete("/:id", deleteLivro); 
+
+router.put("/:id/reservar", reservarLivro);
 
 module.exports = router;
