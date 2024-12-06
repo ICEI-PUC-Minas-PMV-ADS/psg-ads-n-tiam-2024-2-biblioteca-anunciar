@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { ScrollView, StyleSheet, TextInput, View } from "react-native";
-import Navbar from "../../components/navbar/navbar";
-import CardLivro from "../../components/CardLivro/CardLivro";
-import api from '../../Service/apiAxios';
-import { TouchableOpacity } from "react-native";
-import { Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
+import React, { useEffect, useState } from "react";
+import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
+import { Button } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
+import CardLivro from "../../components/CardLivro/CardLivro";
+import Navbar from "../../components/navbar/navbar";
+import api from '../../Service/apiAxios';
 
 export default function PaginaInicial() {
 
@@ -118,6 +117,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     paddingLeft: 10,
     width: "500px",
-    borderRadius: "50px"
+    borderRadius: 50
   },
 });

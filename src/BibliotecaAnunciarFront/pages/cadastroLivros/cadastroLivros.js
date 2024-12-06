@@ -1,3 +1,4 @@
+import { Picker } from "@react-native-picker/picker";
 import React, { useState } from "react";
 import {
   Alert,
@@ -9,11 +10,10 @@ import {
   View,
 } from "react-native";
 import { Button, TextInput } from "react-native-paper";
-import { postLivros } from "../../Service/apiService";
 import Footer from "../../components/footer/Footer";
 import MenuDeAcoes from "../../components/menuAcoesAdmin/menuAcoesAdmin";
 import Navbar from "../../components/navbar/navbar";
-import api from '../../Service/apiAxios';
+import { postLivros } from "../../Service/apiService";
 
 export default function CadastroLivros() {
   const [titulo, setTitulo] = useState("");
@@ -85,16 +85,25 @@ export default function CadastroLivros() {
             theme={{ colors: { background: "#ffffff" } }}
             style={styles.input}
           />
-          <TextInput
-            label="Categoria"
-            value={categoria}
-            onChangeText={(text) => setCategoria(text)}
-            mode="outlined"
-            outlineColor="#000000"
-            activeOutlineColor="#000000"
-            theme={{ colors: { background: "#ffffff" } }}
-            style={styles.input}
-          />
+          <View style={[styles.input, styles.pickerContainer]}>
+            <Picker
+              selectedValue={categoria}
+              onValueChange={(itemValue) => setCategoria(itemValue)}
+              style={styles.picker}
+              dropdownIconColor="#000" 
+            >
+              <Picker.Item label="Selecione uma categoria" value="" />
+              <Picker.Item label="Bíblia" value="biblia" />
+              <Picker.Item label="Teologia" value="teologia" />
+              <Picker.Item label="Jovens e Adolescentes" value="devocional" />
+              <Picker.Item label="Estudo Bíblico" value="historia_da_igreja" />
+              <Picker.Item
+                label="Comentário Bíblico"
+                value="comentario_biblico"
+              />
+            </Picker>
+          </View>
+
           <TextInput
             label="Resumo"
             value={resumo}
@@ -200,5 +209,18 @@ const styles = StyleSheet.create({
     marginTop: 16,
     backgroundColor: "black",
     borderRadius: 10,
+  },
+  pickerContainer: {
+    borderWidth: 1,
+    borderColor: "black",
+    borderRadius: 5,
+    backgroundColor: "#ffffff",
+    paddingHorizontal: 10,
+    justifyContent: "center",
+    height: 50,
+  },
+  picker: {
+    color: "#000",
+    backgroundColor: "transparent",
   },
 });
