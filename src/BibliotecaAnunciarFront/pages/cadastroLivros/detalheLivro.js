@@ -92,12 +92,18 @@ export default function DetalheLivro() {
         <View style={styles.container}>
             <Navbar />
             <View style={styles.detalhe__Container}>
+                <TouchableOpacity
+                    style={styles.detalhe__botaoVolta}
+                    onPress={() => navigation.goBack()}
+                >
+                    <Icon name="arrow-back" size={24} color="#000" />
+                </TouchableOpacity>
                 <View style={styles.contentContainer}>
                     <ScrollView contentContainerStyle={styles.scrollViewContent}>
 
                         {/* fazer icon de voltar*/}
 
-                        <Text style={styles.detalhe__TituloLivro}>Título: {titulo}</Text>
+                        <Text style={styles.detalhe__TituloLivro}>{titulo}</Text>
 
                         <View style={styles.containerDeleteEditButton}>
                             <Button
@@ -139,20 +145,22 @@ export default function DetalheLivro() {
                             </Button>
                         </View>
 
-
-                        <Text style={styles.detalhe__StatusDisponivel}>{disponivel === "S" ? "Disponível para empréstimo" : "NÃO disponível para empréstimo"}</Text>
-                        <Button
-                            style={[
-                                styles.detalhe__BotaoReservar,
-                                isDisabled && styles.detalhe__BotaoReservarDesabilitado,
-                            ]}
-                            mode="contained"
-                            labelStyle={{ color: isDisabled ? "gray" : "white" }}
-                            disabled={isDisabled}
-                            onPress={() => reservarLivro(livroId)}
-                        >
-                            Reservar
-                        </Button>
+                        <View style={styles.statusContainer__BotaoReserva}>
+                            <Button
+                                style={[
+                                    styles.detalhe__BotaoReservar,
+                                    isDisabled && styles.detalhe__BotaoReservarDesabilitado
+                                ]}
+                                mode="contained"
+                                labelStyle={{ color: isDisabled ? "gray" : "white" }}
+                                disabled={isDisabled}
+                                onPress={() => reservarLivro(livroId)}
+                            >
+                                Reservar
+                            </Button>
+                            <Text style={styles.detalhe__StatusDisponivel}>{
+                                disponivel === "S" ? "Disponível para empréstimo" : "NÃO disponível para empréstimo"}</Text>
+                        </View>
                         <Text style={styles.detalhe__Resumo}>Resumo: {resumo}</Text>
 
                     </ScrollView>
@@ -206,10 +214,11 @@ const styles = StyleSheet.create({
         marginBottom: 15,
     },
     detalhe__StatusDisponivel: {
-        fontSize: 18,
+        fontSize: 12,
         fontWeight: "bold",
         color: "#980204",
-        marginBottom: 20,
+        marginTop: 1,
+
     },
     boldText: {
         fontWeight: "bold",
@@ -219,7 +228,10 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: "#007BFF",
         backgroundColor: "#006C69",
-        marginBottom: 20,
+        marginBottom: 1,
+        paddingHorizontal: 20,
+        width: '55%',
+        alignSelf: 'center',
     },
     detalhe__BotaoReservarDesabilitado: {
         backgroundColor: "#b0b0b0",
@@ -263,8 +275,21 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
     },
     columnContainer: {
-        flex: 2, // Autor e categoria ocupam no máximo 2/3 da largura
-        flexBasis: '66%', // Garantindo que autor e categoria ocupem até 2/3 do espaço
-        marginRight: 10, // Dá um pequeno espaço entre o texto e o botão de favoritar
-    }
+        flex: 2,
+        flexBasis: '66%',
+        marginRight: 10,
+    },
+    detalhe__botaoVolta: {
+        position: 'absolute',
+        top: 10,
+        left: 15,
+        zIndex: 1,
+        padding: 10,
+    },
+    statusContainer__BotaoReserva: {
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        marginBottom: 1,
+    },
 });
