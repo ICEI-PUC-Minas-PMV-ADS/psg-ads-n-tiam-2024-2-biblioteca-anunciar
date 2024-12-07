@@ -191,11 +191,13 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: "#131313",
         marginBottom: 10,
+        flexWrap: "wrap",
     },
     detalhe__Descricao: {
         fontSize: 18,
         color: "#131313",
         marginBottom: 10,
+        flexWrap: "wrap",
     },
     detalhe__Resumo: {
         fontSize: 18,
@@ -238,8 +240,10 @@ const styles = StyleSheet.create({
         elevation: 0,
         paddingVertical: 10,
         paddingHorizontal: 20,
-        width: 200,
+        width: 100,
         alignSelf: 'center',
+        justifyContent: "center",
+        alignItems: "center",
     },
     content__favorito: {
         flexDirection: "column",
@@ -255,7 +259,12 @@ const styles = StyleSheet.create({
     rowContainer: {
         flexDirection: "row",
         justifyContent: "space-between",
-        alignItems: "center",
+        alignItems: "flex-start",
         paddingHorizontal: 10,
+    },
+    columnContainer: {
+        flex: 2, // Autor e categoria ocupam no máximo 2/3 da largura
+        flexBasis: '66%', // Garantindo que autor e categoria ocupem até 2/3 do espaço
+        marginRight: 10, // Dá um pequeno espaço entre o texto e o botão de favoritar
     }
 });
