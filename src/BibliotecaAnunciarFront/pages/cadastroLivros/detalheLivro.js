@@ -121,22 +121,23 @@ export default function DetalheLivro() {
                                 </Text>
                             </View>
                             <Button
-                                mode="contained"
+                                mode="text"
+                                style={styles.button__favorito}
+                                contentStyle={styles.content__favorito}
+                                labelStyle={styles.label__favorito}
                                 icon={() => (
                                     <Icon
                                         name={favorito ? "heart" : "heart-outline"}
                                         size={24}
-                                        color="white"
+                                        color={favorito ? "red" : "gray"}
+                                        style={{ marginRight: 30 }}
                                     />
                                 )}
                                 onPress={alternarFavorito}
                             >
                                 {favorito ? "Remover Favorito" : "Favoritar"}
                             </Button>
-
                         </View>
-
-
 
 
                         <Text style={styles.detalhe__StatusDisponivel}>{disponivel === "S" ? "Disponível para empréstimo" : "NÃO disponível para empréstimo"}</Text>
@@ -211,7 +212,6 @@ const styles = StyleSheet.create({
     boldText: {
         fontWeight: "bold",
     },
-
     detalhe__BotaoReservar: {
         fontSize: 18,
         fontWeight: "bold",
@@ -233,4 +233,29 @@ const styles = StyleSheet.create({
         height: "50px",
         justifyContent: "center"
     },
+    button__favorito: {
+        backgroundColor: 'transparent',
+        elevation: 0,
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        width: 200,
+        alignSelf: 'center',
+    },
+    content__favorito: {
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    label__favorito: {
+        color: "black",
+        marginTop: 4,
+        fontSize: 14,
+        textAlign: "center",
+    },
+    rowContainer: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        paddingHorizontal: 10,
+    }
 });
