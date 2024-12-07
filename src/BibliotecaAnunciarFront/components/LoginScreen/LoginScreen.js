@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet, Image } from 'react-native';
-import { signInWithEmailAndPassword } from 'firebase/auth'; 
-import {auth} from '../../FirebaseConfig'
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../FirebaseConfig'
+import { UserContext } from '../../Context/UserContext';
 
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const { userId, setUserId } = useContext(UserContext);
 
   const handleLogin = async () => {
     if (!email || !senha) {
@@ -18,9 +20,12 @@ const LoginScreen = ({ navigation }) => {
       const userCredential = await signInWithEmailAndPassword(auth, email, senha);
       const userType = email.endsWith('@adm.anunciar') ? 'Administrador' : 'Usuário';
 
+      const user = userCredential.user;
+      setUserId(user.uid);
+
       console.log('Sucesso', `Bem-vindo, ${userType}`);
 
-      
+
     } catch (error) {
       switch (error.code) {
         case 'auth/invalid-email':
@@ -35,9 +40,13 @@ const LoginScreen = ({ navigation }) => {
         default:
           console.log('Erro', 'Algo deu errado. Tente novamente.');
       }
-          
     }
   };
+  useEffect(() => {
+    if (userId) {
+      console.log('UID atualizado:', userId);
+    }
+  }, [userId]);
 
   return (
     <View style={styles.container}>
@@ -63,7 +72,7 @@ const LoginScreen = ({ navigation }) => {
       <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
         <Text style={styles.loginButtonText}>Sign In</Text>
       </TouchableOpacity>
-      
+
       <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
         <Text style={styles.link}>Forgot password?</Text>
       </TouchableOpacity>
@@ -79,7 +88,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center', 
+    alignItems: 'center',
     padding: 20,
     backgroundColor: '#fff',
   },
@@ -87,10 +96,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 5,
     color: '#333',
-    alignSelf: 'center', 
+    alignSelf: 'center',
   },
   input: {
-    width: '60%', 
+    width: '60%',
     padding: 10,
     marginVertical: 8,
     borderColor: 'gray',
@@ -99,9 +108,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f9f9',
   },
   logo: {
-    width: 100, 
+    width: 100,
     height: 100,
-    marginBottom: 20, 
+    marginBottom: 20,
     resizeMode: 'contain',
   },
   loginButton: {
@@ -123,11 +132,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   logo: {
-    width: 150,           
-    height: 150,           
-    resizeMode: 'contain',  
-    marginBottom: 20,      
-    alignSelf: 'center', 
+    width: 150,
+    height: 150,
+    resizeMode: 'contain',
+    marginBottom: 20,
+    alignSelf: 'center',
   }
 });
 

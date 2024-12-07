@@ -1,10 +1,11 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
-import React, { useEffect, useState } from "react";
-import { Alert, ScrollView, StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useState, useContext } from "react";
+import { Alert, ScrollView, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { Button } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 import Navbar from "../../components/navbar/navbar";
 import api from '../../Service/apiAxios';
+import { UserContext } from '../../Context/UserContext';
 
 export default function DetalheLivro() {
 
@@ -12,36 +13,81 @@ export default function DetalheLivro() {
     const route = useRoute();
     const { livroId, titulo, autor, resumo, categoria, disponivel } = route.params;
     const [isDisabled, setIsDisabled] = useState(disponivel !== "S");
+    const [favorito, setFavorito] = useState(false);
+    const { userId } = useContext(UserContext);
 
-    useEffect(() => {
-        setIsDisabled(disponivel !== "S");
-      }, [disponivel]);
-      
-      async function reservarLivro(livroId) {
+    async function alternarFavorito() {
         try {
-          await api.put(`/livro/${livroId}/reservar`, { disponivel: "N" });
-          Alert.alert("Sucesso", "Livro reservado com sucesso!");
-          setIsDisabled(true); 
-        } catch (error) {
-          console.error("Erro ao reservar o livro:", error.response?.data || error.message);
-          Alert.alert("Erro", "Não foi possível reservar o livro.");
-        }
-      }
-      
-    
-
-    async function deleteLivro(livroId) {
-        try {
-          const response = await api.delete(`/livro/${livroId}`);
-          navigation.navigate("Home");
-          console.log('Livro deletado com sucesso:', response.data);
-
-        } catch (error) {
-          console.error('Erro ao deletar o livro:', error.response || error.message);
+            const resposta = await api.put(
+                `/livro/users/${userId}/favoritos/${livroId}`
+            );
+            const mensagem = resposta.data.mensagem;
+            Alert.alert("Sucesso", mensagem);
+            setFavorito((anterior) => !anterior);
+        } catch (erro) {
+            console.error("Erro ao atualizar favoritos:", erro.message);
+            Alert.alert("Erro", "Não foi possível atualizar os favoritos.");
         }
     }
 
-    
+
+    useEffect(() => {
+        async function buscarFavorito() {
+            try {
+                const resposta = await api.get(`/livro/users/${userId}`);
+                const favoritos = resposta.data.favoritos || [];
+
+                // Verifica se o livro está nos favoritos
+                setFavorito(favoritos.includes(livroId));
+            } catch (erro) {
+                console.error("Erro ao buscar favoritos:", erro.message);
+            }
+        }
+
+        if (userId && livroId) {
+            buscarFavorito();
+        }
+    }, [userId, livroId]);
+
+    useEffect(() => {
+        setIsDisabled(disponivel !== "S");
+    }, [disponivel]);
+
+    async function reservarLivro(livroId) {
+        try {
+            await api.put(`/livro/${livroId}/reservar`, { disponivel: "N" });
+            Alert.alert("Sucesso", "Livro reservado com sucesso!");
+            setIsDisabled(true);
+        } catch (error) {
+            console.error("Erro ao reservar o livro:", error.response?.data || error.message);
+            Alert.alert("Erro", "Não foi possível reservar o livro.");
+        }
+    }
+
+    useEffect(() => {
+        if (userId) {
+            console.log('UID atualizado:', userId);
+        }
+    }, [userId]);
+
+    useEffect(() => {
+        if (livroId) {
+            console.log('livroId atualizado:', livroId);
+        }
+    }, [livroId]);
+
+    async function deleteLivro(livroId) {
+        try {
+            const response = await api.delete(`/livro/${livroId}`);
+            navigation.navigate("Home");
+            console.log('Livro deletado com sucesso:', response.data);
+
+        } catch (error) {
+            console.error('Erro ao deletar o livro:', error.response || error.message);
+        }
+    }
+
+
     return (
         <View style={styles.container}>
             <Navbar />
@@ -50,28 +96,48 @@ export default function DetalheLivro() {
                     <ScrollView contentContainerStyle={styles.scrollViewContent}>
 
                         {/* fazer icon de voltar*/}
-                        
+
                         <Text style={styles.detalhe__TituloLivro}>Título: {titulo}</Text>
 
-                        <View style={styles.containerDeleteEditButton }>
-                            <Button 
+                        <View style={styles.containerDeleteEditButton}>
+                            <Button
                                 style={styles.buttonFunctions}
-                                onPress={() => navigation.navigate("editPage", {livroId, titulo, autor, resumo, categoria })}
-                            ><Icon  name="pencil-outline" size={30} color="black" /></Button>
+                                onPress={() => navigation.navigate("editPage", { livroId, titulo, autor, resumo, categoria })}
+                            ><Icon name="pencil-outline" size={30} color="black" /></Button>
                             <Button
                                 style={styles.buttonFunctions}
                                 onPress={() => deleteLivro(livroId)}
                             ><Icon name="trash-outline" size={30} color="black" /></Button>
                         </View>
 
-                        {/* imagem*/}
+                        <View style={styles.rowContainer}>
 
-                        <Text style={styles.detalhe__Autor}>
-                            <Text style={styles.boldText}>Autor: </Text>{autor}
-                        </Text>
-                        <Text style={styles.detalhe__Descricao} >
-                            <Text style={styles.boldText}>Descrição: </Text>{categoria}
-                        </Text>
+                            <View style={styles.columnContainer}>
+                                <Text style={styles.detalhe__Autor}>
+                                    <Text style={styles.boldText}>Autor: </Text>{autor}
+                                </Text>
+                                <Text style={styles.detalhe__Descricao}>
+                                    <Text style={styles.boldText}>Categoria: </Text>{categoria}
+                                </Text>
+                            </View>
+                            <Button
+                                mode="contained"
+                                icon={() => (
+                                    <Icon
+                                        name={favorito ? "heart" : "heart-outline"}
+                                        size={24}
+                                        color="white"
+                                    />
+                                )}
+                                onPress={alternarFavorito}
+                            >
+                                {favorito ? "Remover Favorito" : "Favoritar"}
+                            </Button>
+
+                        </View>
+
+
+
 
                         <Text style={styles.detalhe__StatusDisponivel}>{disponivel === "S" ? "Disponível para empréstimo" : "NÃO disponível para empréstimo"}</Text>
                         <Button
@@ -82,7 +148,7 @@ export default function DetalheLivro() {
                             mode="contained"
                             labelStyle={{ color: isDisabled ? "gray" : "white" }}
                             disabled={isDisabled}
-                            onPress={() => reservarLivro(livroId)} 
+                            onPress={() => reservarLivro(livroId)}
                         >
                             Reservar
                         </Button>
@@ -157,12 +223,12 @@ const styles = StyleSheet.create({
         backgroundColor: "#b0b0b0",
         borderColor: "#b0b0b0",
     },
-    containerDeleteEditButton : {
+    containerDeleteEditButton: {
         flex: 1,
         flexDirection: "row",
         justifyContent: "end"
     },
-    buttonFunctions:{
+    buttonFunctions: {
         width: "50px",
         height: "50px",
         justifyContent: "center"

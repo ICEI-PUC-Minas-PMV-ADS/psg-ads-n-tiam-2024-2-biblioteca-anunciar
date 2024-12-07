@@ -7,6 +7,8 @@ const {
 } = require("../Service/LivroService");
 const { Livro } = require("../Models/Livro");
 const schedule = require("node-schedule");
+const { doc, getDoc, updateDoc } = require("firebase/firestore");
+const { db } = require("../FirebaseConnection");
 
 async function getLivros(req, res) {
   try {
@@ -106,6 +108,58 @@ async function reservarLivro(req, res) {
   }
 }
 
+async function alternarFavorito(req, res) {
+  try {
+    const { userId, livroId } = req.params;
+    console.log("Recebido userId:", userId, "livroId:", livroId);
+
+    const referenciaUsuario = doc(db, "users", userId);
+    const documentoUsuario = await getDoc(referenciaUsuario);
+
+    if (!documentoUsuario.exists()) {
+      console.log("Usuário não encontrado.");
+      return res.status(404).send({ erro: "Usuário não encontrado" });
+    }
+
+    const listaFavoritos = documentoUsuario.data().favoritos || [];
+
+    const jaFavoritado = listaFavoritos.includes(livroId);
+    const novaListaFavoritos = jaFavoritado
+      ? listaFavoritos.filter((id) => id !== livroId)
+      : [...listaFavoritos, livroId];
+
+    await updateDoc(referenciaUsuario, { favoritos: novaListaFavoritos });
+
+    console.log("Favoritos atualizados:", novaListaFavoritos);
+
+    res.status(200).send({
+      mensagem: jaFavoritado
+        ? "Livro removido dos favoritos"
+        : "Livro adicionado aos favoritos!",
+      favoritos: novaListaFavoritos,
+    });
+  } catch (erro) {
+    console.error("Erro no alternarFavorito:", erro.message);
+    res.status(500).send({ erro: erro.message });
+  }
+}
+async function buscarFavoritos(req, res) {
+  try {
+    const { userId } = req.params;
+    const referenciaUsuario = doc(db, "users", userId);
+    const documentoUsuario = await getDoc(referenciaUsuario);
+
+    if (!documentoUsuario.exists()) {
+      return res.status(404).send({ erro: "Usuário não encontrado" });
+    }
+
+    const favoritos = documentoUsuario.data().favoritos || [];
+    res.status(200).send({ favoritos });
+  } catch (erro) {
+    res.status(500).send({ erro: erro.message });
+  }
+}
+
 module.exports = {
   getLivros,
   getLivro,
@@ -113,4 +167,6 @@ module.exports = {
   putLivro,
   deleteLivro,
   reservarLivro,
+  alternarFavorito,
+  buscarFavoritos
 };
