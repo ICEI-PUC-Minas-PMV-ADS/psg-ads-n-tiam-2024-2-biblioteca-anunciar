@@ -30,7 +30,6 @@ export default function DetalheLivro() {
         }
     }
 
-
     useEffect(() => {
         async function buscarFavorito() {
             try {
@@ -100,9 +99,6 @@ export default function DetalheLivro() {
                 </TouchableOpacity>
                 <View style={styles.contentContainer}>
                     <ScrollView contentContainerStyle={styles.scrollViewContent}>
-
-                        {/* fazer icon de voltar*/}
-
                         <Text style={styles.detalhe__TituloLivro}>{titulo}</Text>
 
                         <View style={styles.containerDeleteEditButton}>
@@ -134,9 +130,9 @@ export default function DetalheLivro() {
                                 icon={() => (
                                     <Icon
                                         name={favorito ? "heart" : "heart-outline"}
-                                        size={24}
+                                        size={35}
                                         color={favorito ? "red" : "gray"}
-                                        style={{ marginRight: 30 }}
+                                        style={{ marginRight: 6 }}
                                     />
                                 )}
                                 onPress={alternarFavorito}
@@ -179,7 +175,7 @@ const styles = StyleSheet.create({
     detalhe__Container: {
         marginTop: 10,
         marginBottom: 10,
-        padding: 15
+        padding: 8
     },
     contentContainer: {
         flexGrow: 1,
@@ -196,21 +192,21 @@ const styles = StyleSheet.create({
         marginBottom: 15,
     },
     detalhe__Autor: {
-        fontSize: 18,
+        fontSize: 16,
         color: "#131313",
         marginBottom: 10,
         flexWrap: "wrap",
     },
     detalhe__Descricao: {
-        fontSize: 18,
+        fontSize: 16,
         color: "#131313",
         marginBottom: 10,
         flexWrap: "wrap",
     },
     detalhe__Resumo: {
-        fontSize: 18,
+        fontSize: 16,
         color: "#131313",
-        marginTop: 20,
+        marginTop: 10,
         marginBottom: 15,
     },
     detalhe__StatusDisponivel: {
@@ -218,7 +214,6 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: "#980204",
         marginTop: 1,
-
     },
     boldText: {
         fontWeight: "bold",
@@ -230,7 +225,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#006C69",
         marginBottom: 1,
         paddingHorizontal: 20,
-        width: '55%',
+        width: '70%',
         alignSelf: 'center',
     },
     detalhe__BotaoReservarDesabilitado: {
@@ -251,40 +246,38 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
         elevation: 0,
         paddingVertical: 10,
-        paddingHorizontal: 20,
+        paddingHorizontal: 5,
+        minWidth: 45,
         width: 100,
         alignSelf: 'center',
         justifyContent: "center",
         alignItems: "center",
+        flexDirection: 'row',
     },
     content__favorito: {
-        flexDirection: "column",
+        flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
     },
     label__favorito: {
-        color: "black",
-        marginTop: 4,
-        fontSize: 14,
-        textAlign: "center",
+        display: 'none',
     },
     rowContainer: {
         flexDirection: "row",
         justifyContent: "space-between",
-        alignItems: "flex-start",
-        paddingHorizontal: 10,
+        alignItems: "center",
+        paddingHorizontal: 5,
     },
     columnContainer: {
-        flex: 2,
-        flexBasis: '66%',
-        marginRight: 10,
+        flex: 1,
+        marginRight: 5,
     },
     detalhe__botaoVolta: {
         position: 'absolute',
         top: 10,
         left: 15,
         zIndex: 1,
-        padding: 10,
+        padding: 1,
     },
     statusContainer__BotaoReserva: {
         flexDirection: "column",
