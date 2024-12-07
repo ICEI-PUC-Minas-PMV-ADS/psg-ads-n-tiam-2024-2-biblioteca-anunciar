@@ -5,16 +5,30 @@ import CardLivro from "../../components/CardLivro/CardLivro";
 import api from '../../Service/apiAxios';
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import axios from 'axios';
 
 export default function PaginaInicial() {
 
   const [livros, setLivros] = useState([]);
   const navigation = useNavigation();
 
+
+
+  // useEffect(() => {
+  //   axios.get('http://localhost:3000/api/livros')
+  //     .then(response => {
+  //       console.log(response.data);
+  //       // Processar a resposta 
+  //     })
+  //     .catch(error => {
+  //       console.error('Erro ao buscar dados:', error);
+  //     });
+  // }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await api.get('/livro');
+        const response = await api.get('/api/livros');
         setLivros(response.data);
       } catch (error) {
         console.error('Erro ao buscar dados:', error.message);

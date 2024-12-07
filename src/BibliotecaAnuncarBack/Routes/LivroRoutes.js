@@ -7,7 +7,7 @@ router.get("/", getLivros);
 
 router.get(`/:id`, getLivro);
 
-router.post("/" , postLivros);
+router.post("/", postLivros);
 
 //router.put("/", putLivro);
 

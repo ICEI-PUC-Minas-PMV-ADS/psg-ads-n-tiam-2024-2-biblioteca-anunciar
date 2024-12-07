@@ -12,7 +12,7 @@ export default function Footer() {
         <Icon name="home-outline" size={30} color="black" />
         <Text style={styles.iconText}>Home</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+      <TouchableOpacity onPress={() => navigation.navigate("ListaDesejos")}>
         <Icon name="list-outline" size={30} color="black" />
         <Text style={styles.iconText}>Lista</Text>
       </TouchableOpacity>
