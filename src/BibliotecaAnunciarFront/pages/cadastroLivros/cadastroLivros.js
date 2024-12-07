@@ -1,4 +1,5 @@
 import { Picker } from "@react-native-picker/picker";
+import * as ImagePicker from "expo-image-picker";
 import React, { useState } from "react";
 import {
   Alert,
@@ -15,19 +16,50 @@ import MenuDeAcoes from "../../components/menuAcoesAdmin/menuAcoesAdmin";
 import Navbar from "../../components/navbar/navbar";
 import { postLivros } from "../../Service/apiService";
 
+
 export default function CadastroLivros() {
   const [titulo, setTitulo] = useState("");
   const [categoria, setCategoria] = useState("");
   const [resumo, setResumo] = useState("");
   const [autor, setAutor] = useState("");
+  const [imagem, setImagem] = useState(null);
+
+  const escolherImagem = async () => {
+    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (status !== "granted") {
+      Alert.alert(
+        "Permissão Negada",
+        "Precisamos de permissão para acessar a galeria!"
+      );
+      return;
+    }
+
+    const resultado = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    if (!resultado.canceled) {
+      setImagem(resultado.assets[0].uri);
+    }
+  };
 
   const handleEnviar = async () => {
-    if (!titulo || !categoria || !resumo || !autor) {
+    if (!titulo || !categoria || !resumo || !autor || !imagem) {
       Alert.alert("Erro", "Todos os campos devem ser preenchidos!");
       return;
     }
 
-    const livro = { titulo, categoria, resumo, autor, disponivel: "S" };
+    const livro = {
+      titulo,
+      categoria,
+      resumo,
+      autor,
+      imagem, // Incluindo a imagem na requisição
+      disponivel: "S",
+    };
 
     try {
       console.log("Enviando dados para API:", livro);
@@ -39,6 +71,7 @@ export default function CadastroLivros() {
         setCategoria("");
         setResumo("");
         setAutor("");
+        setImagem(null); // Limpa a imagem
       } else {
         Alert.alert("Erro", "Não foi possível cadastrar o livro.");
       }
@@ -90,7 +123,7 @@ export default function CadastroLivros() {
               selectedValue={categoria}
               onValueChange={(itemValue) => setCategoria(itemValue)}
               style={styles.picker}
-              dropdownIconColor="#000" 
+              dropdownIconColor="#000"
             >
               <Picker.Item label="Selecione uma categoria" value="" />
               <Picker.Item label="Bíblia" value="biblia" />
@@ -124,6 +157,18 @@ export default function CadastroLivros() {
             theme={{ colors: { background: "#ffffff" } }}
             style={styles.input}
           />
+          <View style={styles.imagemContainer}>
+            <TouchableOpacity
+              onPress={escolherImagem}
+              style={styles.botaoImagem}
+            >
+              <Text style={styles.botaoTexto}>Selecionar Imagem</Text>
+            </TouchableOpacity>
+
+            {imagem && (
+              <Image source={{ uri: imagem }} style={styles.imagemPreview} />
+            )}
+          </View>
           <Button
             mode="contained"
             onPress={handleEnviar}
@@ -222,5 +267,26 @@ const styles = StyleSheet.create({
   picker: {
     color: "#000",
     backgroundColor: "transparent",
+  },
+  imagemContainer: {
+    alignItems: "center",
+    marginVertical: 20,
+  },
+  botaoImagem: {
+    backgroundColor: "black",
+    padding: 10,
+    borderRadius: 8,
+  },
+  botaoTexto: {
+    color: "white",
+    fontSize: 16,
+    textAlign: "center",
+  },
+  imagemPreview: {
+    width: 150,
+    height: 150,
+    marginTop: 10,
+    borderRadius: 8,
+    resizeMode: "contain",
   },
 });
