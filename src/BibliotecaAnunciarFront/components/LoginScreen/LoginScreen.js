@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet, Image } from 'react-native';
-import { signInWithEmailAndPassword } from 'firebase/auth'; 
-import {auth} from '../../FirebaseConfig'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import React, { useEffect, useState } from 'react';
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { auth } from '../../FirebaseConfig';
 
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const [ehAdmin, setEhAdmin] = useState(false);
 
   const handleLogin = async () => {
     if (!email || !senha) {
@@ -17,6 +18,11 @@ const LoginScreen = ({ navigation }) => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, senha);
       const userType = email.endsWith('@adm.anunciar') ? 'Administrador' : 'Usuário';
+      const isAdmin = email.toLowerCase() === 'admanunciar@gmail.com';
+      setEhAdmin(isAdmin);
+     
+      console.log('Login bem-sucedido');
+      console.log(`Usuário é ${isAdmin ? 'Administrador' : 'Usuário Comum'}`);
 
       console.log('Sucesso', `Bem-vindo, ${userType}`);
 
@@ -38,6 +44,20 @@ const LoginScreen = ({ navigation }) => {
           
     }
   };
+
+  useEffect(() => {
+    async function checarAdministrador() {
+      const auth = getAuth();
+      const usuario = auth.currentUser;
+
+      if (usuario) {
+        const tokenResult = await usuario.getIdTokenResult();
+        console.log("Usuário é admin?", tokenResult.claims.isAdmin);
+        setEhAdmin(tokenResult.claims.isAdmin || false);
+      }
+    }
+    checarAdministrador();
+  }, []);
 
   return (
     <View style={styles.container}>
