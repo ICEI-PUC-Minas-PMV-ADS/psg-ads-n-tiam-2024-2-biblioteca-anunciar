@@ -1,6 +1,6 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
 import React, { useContext, useEffect, useState } from "react";
-import { Alert, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Alert, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Button } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 import Navbar from "../../components/navbar/navbar";
@@ -11,7 +11,7 @@ export default function DetalheLivro() {
 
     const navigation = useNavigation();
     const route = useRoute();
-    const { livroId, titulo, autor, resumo, categoria, disponivel } = route.params;
+    const { livroId, titulo, autor, resumo, categoria, disponivel, imagem } = route.params;
     const [isDisabled, setIsDisabled] = useState(disponivel !== "S");
     const [favorito, setFavorito] = useState(false);
     const { user } = useContext(AuthContext);
@@ -104,13 +104,6 @@ export default function DetalheLivro() {
     return (
         <View style={styles.container}>
             <Navbar />
-            <View style={styles.button_back_view}>
-                <Button
-                    style={styles.voltarButton}
-                    onPress={() => navigation.goBack()}
-                    icon={() => <Icon name="arrow-back" size={30} color="black" />}
-                />
-            </View>
             <View style={styles.detalhe__Container}>
                 <TouchableOpacity
                     style={styles.detalhe__botaoVolta}
@@ -145,6 +138,14 @@ export default function DetalheLivro() {
                                     <Icon name="trash-outline" size={30} color="black" />
                                 </Button>
                             </View>
+                        )}
+
+                        {imagem && (
+                            <Image
+                                source={{ uri: imagem }}
+                                style={styles.image}
+                                resizeMode="cover"
+                            />
                         )}
 
                         <View style={styles.rowContainer}>
@@ -328,5 +329,10 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "column",
         justifyContent: "flex-start"
+    },
+    image: {
+        width: "100%",
+        height: 200,
+        marginBottom: 20,
     }
 });

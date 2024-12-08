@@ -66,7 +66,8 @@ export default function PaginaInicial() {
               autor: livro.autor,
               resumo: livro.resumo,
               descricao: livro.descricao,
-              disponivel: livro.disponivel
+              disponivel: livro.disponivel,
+              imagem: livro.imagem
             })}
           >
             <CardLivro title={livro.titulo} />
