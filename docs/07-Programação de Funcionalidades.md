@@ -83,13 +83,19 @@ Relacionamento código e requisito
 Pagina de Cadastro de Livros
 
 - Função de cadastro de livros (post) + validações.
+  
 ![image](https://github.com/user-attachments/assets/7c7f5e34-ba05-478a-b2e1-fd25f80ba684)
 - Montagem da tela. 
-![image](https://github.com/user-attachments/assets/f5857fe1-2353-415f-ae8c-706fc338cdc2)
-![image](https://github.com/user-attachments/assets/81efb822-0dbc-4c3c-84b0-0f7785ba323c)
+![image](https://github.com/user-attachments/assets/be1089f0-21b1-439e-ae94-b90eb83a91b9)
+
+
 - Função do campo imagem
+  
 ![image](https://github.com/user-attachments/assets/0e1233d4-0fab-49a3-81cb-5417d55ded73)
 
+![image](https://github.com/user-attachments/assets/131a9520-a3b8-44da-879b-ecc006ce2cc5)
+
+![image](https://github.com/user-attachments/assets/83af3a2a-2b8a-4dd9-abde-1bc6f09fc844)
 
 
 
@@ -97,10 +103,13 @@ Pagina de Cadastro de Livros
 Pagina de Detalhes dos livros
 
 -Função de reservar um livro + validações (após uma semana o livro fica disponivel novamente).
+
 ![image](https://github.com/user-attachments/assets/26005107-3238-4a48-91c5-191c53ed9000)
 
-- Montagem da tela. 
+- Montagem da tela.
+  
 ![image](https://github.com/user-attachments/assets/4a2c5062-39ff-4178-b9d2-3d80f9b04673)
+
 ![image](https://github.com/user-attachments/assets/d8c1a1c0-a827-477d-8ec5-fd35d11bf8ff)
 
 
