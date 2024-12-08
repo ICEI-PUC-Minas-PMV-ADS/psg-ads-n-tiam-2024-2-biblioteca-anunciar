@@ -87,8 +87,21 @@ Pagina de Cadastro de Livros
 - Montagem da tela. 
 ![image](https://github.com/user-attachments/assets/f5857fe1-2353-415f-ae8c-706fc338cdc2)
 ![image](https://github.com/user-attachments/assets/81efb822-0dbc-4c3c-84b0-0f7785ba323c)
+- Função do campo imagem
+![image](https://github.com/user-attachments/assets/0e1233d4-0fab-49a3-81cb-5417d55ded73)
 
 
+
+
+
+Pagina de Detalhes dos livros
+
+-Função de reservar um livro + validações (após uma semana o livro fica disponivel novamente).
+![image](https://github.com/user-attachments/assets/26005107-3238-4a48-91c5-191c53ed9000)
+
+- Montagem da tela. 
+![image](https://github.com/user-attachments/assets/4a2c5062-39ff-4178-b9d2-3d80f9b04673)
+![image](https://github.com/user-attachments/assets/d8c1a1c0-a827-477d-8ec5-fd35d11bf8ff)
 
 
 > **Links Úteis**:
