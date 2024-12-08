@@ -51,8 +51,6 @@ export default function DetalheLivro() {
             try {
                 const resposta = await api.get(`/livro/users/${useId}`);
                 const favoritos = resposta.data.favoritos || [];
-
-                // Verifica se o livro está nos favoritos
                 setFavorito(favoritos.includes(livroId));
             } catch (erro) {
                 console.error("Erro ao buscar favoritos:", erro.message);

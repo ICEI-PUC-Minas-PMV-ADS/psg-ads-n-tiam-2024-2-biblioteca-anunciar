@@ -1,9 +1,8 @@
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
 import React, { useState } from 'react';
-import { Image } from 'react-native';
-import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'react-native';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth, db } from '../../FirebaseConfig'; 
-import { addDoc, collection } from 'firebase/firestore';
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { auth, db } from '../../FirebaseConfig';
 
 const SignupScreen = ({ navigation }) => {
   const [nome, setNome] = useState('');
@@ -27,19 +26,25 @@ const SignupScreen = ({ navigation }) => {
       const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
       const userId = userCredential.user.uid;
 
-      await addDoc(collection(db, "users"),{
+     
+      await updateProfile(userCredential.user, {
+        displayName: nome,
+      });
+
+      
+      await setDoc(doc(db, "users", userId), {
         nome,
         email,
         telefone,
-        userType: 'Usuário', 
+        displayName: nome, 
+        userType: 'Usuário',
       });
 
       console.log('Sucesso', 'Usuário cadastrado com sucesso!');
-      navigation.navigate('LoginScreen'); 
-  
+      navigation.navigate('LoginScreen');
     } catch (error) {
       console.log('Erro', error.message);
-      console.log('Erro ao cadastrar', error.message); 
+      console.log('Erro ao cadastrar', error.message);
     }
   };
 
@@ -105,7 +110,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center', 
+    alignItems: 'center',
     padding: 20,
     backgroundColor: '#fff',
   },
@@ -143,12 +148,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   logo: {
-    width: 150,           
-    height: 150,            
-    resizeMode: 'contain',  
-    marginBottom: 20,       
-    alignSelf: 'center', 
-  }
+    width: 150,
+    height: 150,
+    resizeMode: 'contain',
+    marginBottom: 20,
+    alignSelf: 'center',
+  },
 });
 
 export default SignupScreen;

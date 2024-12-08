@@ -2,12 +2,12 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useContext, useEffect, useState } from 'react';
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { auth } from '../../FirebaseConfig';
-import { AuthContext } from '../../context/UserAuthContext'; // Use AuthContext
+import { AuthContext } from '../../context/UserAuthContext';
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const { user, setUser } = useContext(AuthContext);  // Acessando o contexto corretamente
+  const { user, setUser } = useContext(AuthContext);  
 
   const handleLogin = async () => {
     if (!email || !senha) {
@@ -18,10 +18,13 @@ const LoginScreen = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, senha);
       const isAdmin = email.toLowerCase() === 'admanunciar@gmail.com';
+      const usuario = userCredential;
+      console.log(usuario)
 
       setUser({
         uid: userCredential.user.uid,
         email: userCredential.user.email,
+        nome: userCredential.user.displayName || "Usuário", 
         isAdmin
       });
 
@@ -42,9 +45,11 @@ const LoginScreen = () => {
       }
     }
   };
+  
+
   useEffect(() => {
-    if (user) {
-      console.log('UID atualizado:', user);
+    if (user.nome) {
+      console.log("Nome carregado:", user.nome);
     }
   }, [user]);
 

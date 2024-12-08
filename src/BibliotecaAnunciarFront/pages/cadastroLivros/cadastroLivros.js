@@ -1,6 +1,6 @@
 import { Picker } from "@react-native-picker/picker";
 import * as ImagePicker from "expo-image-picker";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   Alert,
   Image,
@@ -14,6 +14,7 @@ import { Button, TextInput } from "react-native-paper";
 import Footer from "../../components/footer/Footer";
 import MenuDeAcoes from "../../components/menuAcoesAdmin/menuAcoesAdmin";
 import Navbar from "../../components/navbar/navbar";
+import { AuthContext } from "../../context/UserAuthContext";
 import { postLivros } from "../../Service/apiService";
 
 
@@ -23,6 +24,8 @@ export default function CadastroLivros() {
   const [resumo, setResumo] = useState("");
   const [autor, setAutor] = useState("");
   const [imagem, setImagem] = useState(null);
+  const { user } = useContext(AuthContext);
+  
 
   const escolherImagem = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -57,7 +60,7 @@ export default function CadastroLivros() {
       categoria,
       resumo,
       autor,
-      imagem, // Incluindo a imagem na requisição
+      imagem, 
       disponivel: "S",
     };
 
@@ -71,7 +74,7 @@ export default function CadastroLivros() {
         setCategoria("");
         setResumo("");
         setAutor("");
-        setImagem(null); // Limpa a imagem
+        setImagem(null); 
       } else {
         Alert.alert("Erro", "Não foi possível cadastrar o livro.");
       }
@@ -94,8 +97,8 @@ export default function CadastroLivros() {
               style={styles.avatar}
             />
             <View style={styles.textoContainer}>
-              <Text style={styles.nome}>Seu Nome</Text>
-              <Text style={styles.email}>seuemail@email.com</Text>
+              <Text style={styles.nome}>{user.nome}</Text>
+              <Text style={styles.email}>{user.email}</Text>
             </View>
             <TouchableOpacity
               onPress={() => Alert.alert("Editar", "Funcionalidade de edição!")}
