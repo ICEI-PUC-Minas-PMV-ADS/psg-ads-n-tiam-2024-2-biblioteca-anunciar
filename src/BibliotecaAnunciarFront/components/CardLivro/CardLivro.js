@@ -1,10 +1,10 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 
-export default function CardLivro({ image, title, update }) {
+export default function CardLivro({ imagem, title, update }) {
      return (
           <View style={styles.card}>
                <View style={styles.viewImage}>
-                    <Image source={require("../../assets/logo.png")} style={styles.image} />
+                    <Image source={{ uri : imagem }} style={styles.image} resizeMode="cover" />
                </View>
                <View style={styles.viewText}>
                     <Text style={styles.boldText}>{title}</Text>
