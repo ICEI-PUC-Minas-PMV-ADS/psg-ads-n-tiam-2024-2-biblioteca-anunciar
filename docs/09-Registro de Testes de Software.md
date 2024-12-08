@@ -109,8 +109,19 @@ Cenário -> Ao pesquisar o nome ou parte do nome do título do livro, deve ser a
 Caso a pesquisa esteja vazia, e o filtro seja aplicado, todos os livros devem ser carregados.
 ![image](https://github.com/user-attachments/assets/d95a0344-f6d1-4921-924d-848f174bc554)
 
+Cenário -> Um usuario normal, leitor ao acessar a tela de perfil não deve aparecer o formulario de cadastro de livros.
 
+![image](https://github.com/user-attachments/assets/a7a8560d-7dea-48fa-943d-836f1bd8578d)
 
+Cenário -> Caso o usuario seja adminstrador do sistema, ao acessar a pagina de perfil deve aparecer para ele o formulario de cadastro de livros.
+
+![image](https://github.com/user-attachments/assets/0ec1ddb5-2a93-4cd0-94c6-2a58c212da78)
+
+Cenário -> Quando o usuario clicar no botão de reservar livro, e ele estiver logado deve aparecer uma mensagem que o livro foi reservado e o botão de reserver livro deve ser desabilitado.
+
+![image](https://github.com/user-attachments/assets/5d0f5b02-82d6-43f1-909f-fb6f43b7673f)
+
+![image](https://github.com/user-attachments/assets/885915a9-3ead-476a-b1ac-c6ddfe0cd564)
 
 
 ## Avaliação
