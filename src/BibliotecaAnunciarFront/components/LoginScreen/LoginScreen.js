@@ -1,13 +1,13 @@
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import React, { useEffect, useState } from 'react';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import React, { useState, useContext } from 'react';
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { auth } from '../../FirebaseConfig';
+import { AuthContext } from '../../context/userAuthContext';  // Use AuthContext
 
-
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [ehAdmin, setEhAdmin] = useState(false);
+  const { setUser } = useContext(AuthContext);  // Acessando o contexto corretamente
 
   const handleLogin = async () => {
     if (!email || !senha) {
@@ -17,16 +17,15 @@ const LoginScreen = ({ navigation }) => {
 
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, senha);
-      const userType = email.endsWith('@adm.anunciar') ? 'Administrador' : 'Usuário';
       const isAdmin = email.toLowerCase() === 'admanunciar@gmail.com';
-      setEhAdmin(isAdmin);
-     
-      console.log('Login bem-sucedido');
-      console.log(`Usuário é ${isAdmin ? 'Administrador' : 'Usuário Comum'}`);
-
-      console.log('Sucesso', `Bem-vindo, ${userType}`);
-
       
+      setUser({
+        uid: userCredential.user.uid,
+        email: userCredential.user.email,
+        isAdmin
+      });
+
+      console.log('Login bem-sucedido');
     } catch (error) {
       switch (error.code) {
         case 'auth/invalid-email':
@@ -41,23 +40,8 @@ const LoginScreen = ({ navigation }) => {
         default:
           console.log('Erro', 'Algo deu errado. Tente novamente.');
       }
-          
     }
   };
-
-  useEffect(() => {
-    async function checarAdministrador() {
-      const auth = getAuth();
-      const usuario = auth.currentUser;
-
-      if (usuario) {
-        const tokenResult = await usuario.getIdTokenResult();
-        console.log("Usuário é admin?", tokenResult.claims.isAdmin);
-        setEhAdmin(tokenResult.claims.isAdmin || false);
-      }
-    }
-    checarAdministrador();
-  }, []);
 
   return (
     <View style={styles.container}>
@@ -70,8 +54,7 @@ const LoginScreen = ({ navigation }) => {
         placeholder="Digite seu email"
         keyboardType="email-address"
       />
-
-      <Text style={styles.label}>Password</Text>
+      <Text style={styles.label}>Senha</Text>
       <TextInput
         style={styles.input}
         value={senha}
@@ -79,17 +62,8 @@ const LoginScreen = ({ navigation }) => {
         placeholder="Digite sua senha"
         secureTextEntry
       />
-
       <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-        <Text style={styles.loginButtonText}>Sign In</Text>
-      </TouchableOpacity>
-      
-      <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
-        <Text style={styles.link}>Forgot password?</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={() => navigation.navigate('SignupScreen')}>
-        <Text style={styles.link}>Register</Text>
+        <Text style={styles.loginButtonText}>Entrar</Text>
       </TouchableOpacity>
     </View>
   );
@@ -99,7 +73,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center', 
+    alignItems: 'center',
     padding: 20,
     backgroundColor: '#fff',
   },
@@ -107,10 +81,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 5,
     color: '#333',
-    alignSelf: 'center', 
+    alignSelf: 'center',
   },
   input: {
-    width: '60%', 
+    width: '80%',
     padding: 10,
     marginVertical: 8,
     borderColor: 'gray',
@@ -118,14 +92,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: '#f9f9f9',
   },
-  logo: {
-    width: 100, 
-    height: 100,
-    marginBottom: 20, 
-    resizeMode: 'contain',
-  },
   loginButton: {
-    width: '60%',
+    width: '80%',
     backgroundColor: '#333',
     paddingVertical: 12,
     borderRadius: 5,
@@ -136,21 +104,13 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
   },
-  link: {
-    color: '#007AFF',
-    marginVertical: 5,
-    textAlign: 'center',
-    fontSize: 14,
-  },
   logo: {
-    width: 150,           
-    height: 150,           
-    resizeMode: 'contain',  
-    marginBottom: 20,      
-    alignSelf: 'center', 
-  }
+    width: 150,
+    height: 150,
+    resizeMode: 'contain',
+    marginBottom: 20,
+    alignSelf: 'center',
+  },
 });
-
-
 
 export default LoginScreen;

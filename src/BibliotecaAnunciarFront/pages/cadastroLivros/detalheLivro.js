@@ -1,10 +1,11 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Alert, ScrollView, StyleSheet, Text, View } from "react-native";
 import { Button } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 import Navbar from "../../components/navbar/navbar";
 import api from '../../Service/apiAxios';
+import { AuthContext } from "../../context/userAuthContext"; 
 
 export default function DetalheLivro() {
 
@@ -12,10 +13,8 @@ export default function DetalheLivro() {
     const route = useRoute();
     const { livroId, titulo, autor, resumo, categoria, disponivel } = route.params;
     const [isDisabled, setIsDisabled] = useState(disponivel !== "S");
+    const { user } = useContext(AuthContext);
 
-    useEffect(() => {
-        setIsDisabled(disponivel !== "S");
-      }, [disponivel]);
       
       async function reservarLivro(livroId) {
         try {
@@ -45,15 +44,19 @@ export default function DetalheLivro() {
     return (
         <View style={styles.container}>
             <Navbar />
+            <View style={styles.button_back_view}>
+                            <Button
+                                style={styles.voltarButton}
+                                onPress={() => navigation.goBack()}  // Navega para a página anterior
+                                icon={() => <Icon name="arrow-back" size={30} color="black" />}
+                            />  
+            </View>
             <View style={styles.detalhe__Container}>
                 <View style={styles.contentContainer}>
-                    <ScrollView contentContainerStyle={styles.scrollViewContent}>
-
-                        {/* fazer icon de voltar*/}
-                        
+                    <ScrollView contentContainerStyle={styles.scrollViewContent}>                      
                         <Text style={styles.detalhe__TituloLivro}>Título: {titulo}</Text>
-
-                        <View style={styles.containerDeleteEditButton }>
+                        {user?.isAdmin && (
+                            <View style={styles.containerDeleteEditButton }>
                             <Button 
                                 style={styles.buttonFunctions}
                                 onPress={() => navigation.navigate("editPage", {livroId, titulo, autor, resumo, categoria })}
@@ -63,8 +66,8 @@ export default function DetalheLivro() {
                                 onPress={() => deleteLivro(livroId)}
                             ><Icon name="trash-outline" size={30} color="black" /></Button>
                         </View>
-
-                        {/* imagem*/}
+                        )}
+                        
 
                         <Text style={styles.detalhe__Autor}>
                             <Text style={styles.boldText}>Autor: </Text>{autor}
@@ -167,4 +170,9 @@ const styles = StyleSheet.create({
         height: "50px",
         justifyContent: "center"
     },
+    button_back_view:{
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "flex-start"
+    }
 });
