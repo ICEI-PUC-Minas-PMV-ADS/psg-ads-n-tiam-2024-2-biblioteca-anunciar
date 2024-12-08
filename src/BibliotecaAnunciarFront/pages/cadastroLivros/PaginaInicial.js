@@ -1,17 +1,19 @@
 import { useNavigation } from "@react-navigation/native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
 import { Button } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 import CardLivro from "../../components/CardLivro/CardLivro";
 import Navbar from "../../components/navbar/navbar";
 import api from '../../Service/apiAxios';
+import { AuthContext } from "../../Context/UserAuthContext";
 
 export default function PaginaInicial() {
 
   const [livrosDb, setLivrosDb] = useState([]);
   const [livros, setLivros] = useState([]);
   const [pesquisa, setPesquisa] = useState('');
+  const { user } = useContext(AuthContext);
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -29,7 +31,7 @@ export default function PaginaInicial() {
   }, []);
 
   function filtrarLivro() {
-    if (pesquisa == '' || pesquisa == null) {
+    if (pesquisa === '' || pesquisa === null) {
       setLivros(livrosDb);
       return;
     }
@@ -58,15 +60,14 @@ export default function PaginaInicial() {
         {livros.map((livro) => (
           <TouchableOpacity
             key={livro.id}
-            onPress={() => navigation.navigate('detalheLivro',
-              {
-                livroId: livro.id,
-                titulo: livro.titulo,
-                autor: livro.autor,
-                resumo: livro.resumo,
-                descricao: livro.descricao,
-                disponivel: livro.disponivel
-              })}
+            onPress={() => navigation.navigate('detalheLivro', {
+              livroId: livro.id,
+              titulo: livro.titulo,
+              autor: livro.autor,
+              resumo: livro.resumo,
+              descricao: livro.descricao,
+              disponivel: livro.disponivel
+            })}
           >
             <CardLivro title={livro.titulo} />
           </TouchableOpacity>
@@ -75,6 +76,7 @@ export default function PaginaInicial() {
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

@@ -1,13 +1,14 @@
-import { Provider as PaperProvider } from 'react-native-paper';
+import React from 'react';
+import { PaperProvider } from 'react-native-paper';
+import { AuthProvider } from './Context/UserAuthContext';
 import AppNavigator from './routes/routes';
-import { UserProvider } from './Context/UserContext'
 
 export default function App() {
   return (
-    <PaperProvider>
-      <UserProvider>
+    <AuthProvider>
+      <PaperProvider>
         <AppNavigator />
-      </UserProvider>
-    </PaperProvider>
+      </PaperProvider>
+    </AuthProvider>
   );
 }

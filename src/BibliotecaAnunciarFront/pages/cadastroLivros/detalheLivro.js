@@ -5,7 +5,7 @@ import { Button } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 import Navbar from "../../components/navbar/navbar";
 import api from '../../Service/apiAxios';
-import { UserContext } from '../../Context/UserContext';
+import { AuthContext } from "../../Context/UserAuthContext";
 
 export default function DetalheLivro() {
 
@@ -14,12 +14,28 @@ export default function DetalheLivro() {
     const { livroId, titulo, autor, resumo, categoria, disponivel } = route.params;
     const [isDisabled, setIsDisabled] = useState(disponivel !== "S");
     const [favorito, setFavorito] = useState(false);
-    const { userId } = useContext(UserContext);
+    const { user } = useContext(AuthContext);
+    const useId = user.uid;
 
     async function alternarFavorito() {
         try {
             const resposta = await api.put(
-                `/livro/users/${userId}/favoritos/${livroId}`
+                `/livro/users/${useId}/favoritos/${livroId}`
+            );
+            const mensagem = resposta.data.mensagem;
+            Alert.alert("Sucesso", mensagem);
+            setFavorito((anterior) => !anterior);
+        } catch (erro) {
+            console.error("Erro ao atualizar favoritos:", erro.message);
+            Alert.alert("Erro", "Não foi possível atualizar os favoritos.");
+        }
+    }
+
+
+    async function reservarLivro(livroId) {
+        try {
+            const resposta = await api.put(
+                `/livro/users/${useId}/favoritos/${livroId}`
             );
             const mensagem = resposta.data.mensagem;
             Alert.alert("Sucesso", mensagem);
@@ -33,7 +49,7 @@ export default function DetalheLivro() {
     useEffect(() => {
         async function buscarFavorito() {
             try {
-                const resposta = await api.get(`/livro/users/${userId}`);
+                const resposta = await api.get(`/livro/users/${useId}`);
                 const favoritos = resposta.data.favoritos || [];
 
                 // Verifica se o livro está nos favoritos
@@ -43,10 +59,10 @@ export default function DetalheLivro() {
             }
         }
 
-        if (userId && livroId) {
+        if (useId && livroId) {
             buscarFavorito();
         }
-    }, [userId, livroId]);
+    }, [useId, livroId]);
 
     useEffect(() => {
         setIsDisabled(disponivel !== "S");
@@ -64,10 +80,10 @@ export default function DetalheLivro() {
     }
 
     useEffect(() => {
-        if (userId) {
-            console.log('UID atualizado:', userId);
+        if (user) {
+            console.log('UID atualizado:', useId);
         }
-    }, [userId]);
+    }, [useId]);
 
     useEffect(() => {
         if (livroId) {
@@ -90,6 +106,13 @@ export default function DetalheLivro() {
     return (
         <View style={styles.container}>
             <Navbar />
+            <View style={styles.button_back_view}>
+                <Button
+                    style={styles.voltarButton}
+                    onPress={() => navigation.goBack()}
+                    icon={() => <Icon name="arrow-back" size={30} color="black" />}
+                />
+            </View>
             <View style={styles.detalhe__Container}>
                 <TouchableOpacity
                     style={styles.detalhe__botaoVolta}
@@ -99,27 +122,42 @@ export default function DetalheLivro() {
                 </TouchableOpacity>
                 <View style={styles.contentContainer}>
                     <ScrollView contentContainerStyle={styles.scrollViewContent}>
-                        <Text style={styles.detalhe__TituloLivro}>{titulo}</Text>
+                        <Text style={styles.detalhe__TituloLivro}>Título: {titulo}</Text>
 
-                        <View style={styles.containerDeleteEditButton}>
-                            <Button
-                                style={styles.buttonFunctions}
-                                onPress={() => navigation.navigate("editPage", { livroId, titulo, autor, resumo, categoria })}
-                            ><Icon name="pencil-outline" size={30} color="black" /></Button>
-                            <Button
-                                style={styles.buttonFunctions}
-                                onPress={() => deleteLivro(livroId)}
-                            ><Icon name="trash-outline" size={30} color="black" /></Button>
-                        </View>
+                        {user?.isAdmin && (
+                            <View style={styles.containerDeleteEditButton}>
+                                <Button
+                                    style={styles.buttonFunctions}
+                                    onPress={() =>
+                                        navigation.navigate("editPage", {
+                                            livroId,
+                                            titulo,
+                                            autor,
+                                            resumo,
+                                            categoria,
+                                        })
+                                    }
+                                >
+                                    <Icon name="pencil-outline" size={30} color="black" />
+                                </Button>
+                                <Button
+                                    style={styles.buttonFunctions}
+                                    onPress={() => deleteLivro(livroId)}
+                                >
+                                    <Icon name="trash-outline" size={30} color="black" />
+                                </Button>
+                            </View>
+                        )}
 
                         <View style={styles.rowContainer}>
-
                             <View style={styles.columnContainer}>
                                 <Text style={styles.detalhe__Autor}>
-                                    <Text style={styles.boldText}>Autor: </Text>{autor}
+                                    <Text style={styles.boldText}>Autor: </Text>
+                                    {autor}
                                 </Text>
                                 <Text style={styles.detalhe__Descricao}>
-                                    <Text style={styles.boldText}>Categoria: </Text>{categoria}
+                                    <Text style={styles.boldText}>Categoria: </Text>
+                                    {categoria}
                                 </Text>
                             </View>
                             <Button
@@ -145,7 +183,7 @@ export default function DetalheLivro() {
                             <Button
                                 style={[
                                     styles.detalhe__BotaoReservar,
-                                    isDisabled && styles.detalhe__BotaoReservarDesabilitado
+                                    isDisabled && styles.detalhe__BotaoReservarDesabilitado,
                                 ]}
                                 mode="contained"
                                 labelStyle={{ color: isDisabled ? "gray" : "white" }}
@@ -154,11 +192,14 @@ export default function DetalheLivro() {
                             >
                                 Reservar
                             </Button>
-                            <Text style={styles.detalhe__StatusDisponivel}>{
-                                disponivel === "S" ? "Disponível para empréstimo" : "NÃO disponível para empréstimo"}</Text>
+                            <Text style={styles.detalhe__StatusDisponivel}>
+                                {disponivel === "S"
+                                    ? "Disponível para empréstimo"
+                                    : "NÃO disponível para empréstimo"}
+                            </Text>
                         </View>
-                        <Text style={styles.detalhe__Resumo}>Resumo: {resumo}</Text>
 
+                        <Text style={styles.detalhe__Resumo}>Resumo: {resumo}</Text>
                     </ScrollView>
                 </View>
             </View>
@@ -285,4 +326,9 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginBottom: 1,
     },
+    button_back_view: {
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "flex-start"
+    }
 });
