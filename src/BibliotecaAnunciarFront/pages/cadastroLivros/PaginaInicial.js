@@ -1,12 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
 import { Button } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 import CardLivro from "../../components/CardLivro/CardLivro";
 import Navbar from "../../components/navbar/navbar";
+import { AuthContext } from "../../context/UserAuthContext";
 import api from '../../Service/apiAxios';
-import { AuthContext } from "../../Context/UserAuthContext";
 
 export default function PaginaInicial() {
 
