@@ -83,9 +83,11 @@ Relacionamento código e requisito
 Pagina de Cadastro de Livros
 
 - Função de cadastro de livros (post) + validações.
-  
-![image](https://github.com/user-attachments/assets/7c7f5e34-ba05-478a-b2e1-fd25f80ba684)
-- Montagem da tela. 
+
+ ![image](https://github.com/user-attachments/assets/733fad1d-a038-421e-b023-3800be4ca2b5)
+
+- Montagem da tela.
+- 
 ![image](https://github.com/user-attachments/assets/be1089f0-21b1-439e-ae94-b90eb83a91b9)
 
 
