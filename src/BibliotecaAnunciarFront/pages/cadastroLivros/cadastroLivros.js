@@ -17,7 +17,6 @@ import Navbar from "../../components/navbar/navbar";
 import { AuthContext } from "../../context/UserAuthContext";
 import { postLivros } from "../../Service/apiService";
 
-
 export default function CadastroLivros() {
   const [titulo, setTitulo] = useState("");
   const [categoria, setCategoria] = useState("");
@@ -25,7 +24,6 @@ export default function CadastroLivros() {
   const [autor, setAutor] = useState("");
   const [imagem, setImagem] = useState(null);
   const { user } = useContext(AuthContext);
-  
 
   const escolherImagem = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -60,7 +58,7 @@ export default function CadastroLivros() {
       categoria,
       resumo,
       autor,
-      imagem, 
+      imagem,
       disponivel: "S",
     };
 
@@ -74,7 +72,7 @@ export default function CadastroLivros() {
         setCategoria("");
         setResumo("");
         setAutor("");
-        setImagem(null); 
+        setImagem(null);
       } else {
         Alert.alert("Erro", "Não foi possível cadastrar o livro.");
       }
@@ -107,80 +105,92 @@ export default function CadastroLivros() {
             </TouchableOpacity>
           </View>
         </View>
+        <MenuDeAcoes activeAction="addLivro" isAdmin={user?.isAdmin} />
 
-        <MenuDeAcoes activeAction="addLivro" />
-
-        <View style={styles.form}>
-          <TextInput
-            label="Titulo"
-            value={titulo}
-            onChangeText={(text) => setTitulo(text)}
-            mode="outlined"
-            outlineColor="#000000"
-            activeOutlineColor="#000000"
-            theme={{ colors: { background: "#ffffff" } }}
-            style={styles.input}
-          />
-          <View style={[styles.input, styles.pickerContainer]}>
-            <Picker
-              selectedValue={categoria}
-              onValueChange={(itemValue) => setCategoria(itemValue)}
-              style={styles.picker}
-              dropdownIconColor="#000"
-            >
-              <Picker.Item label="Selecione uma categoria" value="" />
-              <Picker.Item label="Bíblia" value="biblia" />
-              <Picker.Item label="Teologia" value="teologia" />
-              <Picker.Item label="Jovens e Adolescentes" value="devocional" />
-              <Picker.Item label="Estudo Bíblico" value="historia_da_igreja" />
-              <Picker.Item
-                label="Comentário Bíblico"
-                value="comentario_biblico"
+        {user?.isAdmin && (
+          <>
+            <View style={styles.form}>
+              <TextInput
+                label="Titulo"
+                value={titulo}
+                onChangeText={(text) => setTitulo(text)}
+                mode="outlined"
+                outlineColor="#000000"
+                activeOutlineColor="#000000"
+                theme={{ colors: { background: "#ffffff" } }}
+                style={styles.input}
               />
-            </Picker>
-          </View>
+              <View style={[styles.input, styles.pickerContainer]}>
+                <Picker
+                  selectedValue={categoria}
+                  onValueChange={(itemValue) => setCategoria(itemValue)}
+                  style={styles.picker}
+                  dropdownIconColor="#000"
+                >
+                  <Picker.Item label="Selecione uma categoria" value="" />
+                  <Picker.Item label="Bíblia" value="biblia" />
+                  <Picker.Item label="Teologia" value="teologia" />
+                  <Picker.Item
+                    label="Jovens e Adolescentes"
+                    value="devocional"
+                  />
+                  <Picker.Item
+                    label="Estudo Bíblico"
+                    value="historia_da_igreja"
+                  />
+                  <Picker.Item
+                    label="Comentário Bíblico"
+                    value="comentario_biblico"
+                  />
+                </Picker>
+              </View>
 
-          <TextInput
-            label="Resumo"
-            value={resumo}
-            onChangeText={(text) => setResumo(text)}
-            mode="outlined"
-            outlineColor="#000000"
-            activeOutlineColor="#000000"
-            theme={{ colors: { background: "#ffffff" } }}
-            style={styles.input}
-          />
-          <TextInput
-            label="Autor"
-            value={autor}
-            onChangeText={(text) => setAutor(text)}
-            mode="outlined"
-            outlineColor="#000000"
-            activeOutlineColor="#000000"
-            theme={{ colors: { background: "#ffffff" } }}
-            style={styles.input}
-          />
-          <View style={styles.imagemContainer}>
-            <TouchableOpacity
-              onPress={escolherImagem}
-              style={styles.botaoImagem}
-            >
-              <Text style={styles.botaoTexto}>Selecionar Imagem</Text>
-            </TouchableOpacity>
+              <TextInput
+                label="Resumo"
+                value={resumo}
+                onChangeText={(text) => setResumo(text)}
+                mode="outlined"
+                outlineColor="#000000"
+                activeOutlineColor="#000000"
+                theme={{ colors: { background: "#ffffff" } }}
+                style={styles.input}
+              />
+              <TextInput
+                label="Autor"
+                value={autor}
+                onChangeText={(text) => setAutor(text)}
+                mode="outlined"
+                outlineColor="#000000"
+                activeOutlineColor="#000000"
+                theme={{ colors: { background: "#ffffff" } }}
+                style={styles.input}
+              />
+              <View style={styles.imagemContainer}>
+                <TouchableOpacity
+                  onPress={escolherImagem}
+                  style={styles.botaoImagem}
+                >
+                  <Text style={styles.botaoTexto}>Selecionar Imagem</Text>
+                </TouchableOpacity>
 
-            {imagem && (
-              <Image source={{ uri: imagem }} style={styles.imagemPreview} />
-            )}
-          </View>
-          <Button
-            mode="contained"
-            onPress={handleEnviar}
-            style={styles.button}
-            labelStyle={{ color: "white" }}
-          >
-            Cadastrar Livro
-          </Button>
-        </View>
+                {imagem && (
+                  <Image
+                    source={{ uri: imagem }}
+                    style={styles.imagemPreview}
+                  />
+                )}
+              </View>
+              <Button
+                mode="contained"
+                onPress={handleEnviar}
+                style={styles.button}
+                labelStyle={{ color: "white" }}
+              >
+                Cadastrar Livro
+              </Button>
+            </View>
+          </>
+        )}
       </ScrollView>
       <Footer />
     </View>

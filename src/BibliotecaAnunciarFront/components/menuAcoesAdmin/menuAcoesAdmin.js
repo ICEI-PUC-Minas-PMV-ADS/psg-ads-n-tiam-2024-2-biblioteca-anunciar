@@ -2,29 +2,31 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 
-export default function MenuDeAcoes({ activeAction }) {
+export default function MenuDeAcoes({ activeAction, isAdmin }) {
   return (
     <View style={styles.iconHeader}>
-      <TouchableOpacity
-        style={[
-          styles.iconButton,
-          activeAction === "addLivro" && styles.activeButton,
-        ]}
-      >
-        <Icon
-          name="add-circle-outline"
-          size={24}
-          color={activeAction === "addLivro" ? "#fff" : "##004B49"}
-        />
-        <Text
+      {isAdmin && (
+        <TouchableOpacity
           style={[
-            styles.iconText,
-            activeAction === "addLivro" && styles.activeText,
+            styles.iconButton,
+            activeAction === "addLivro" && styles.activeButton,
           ]}
         >
-          ADD Livro
-        </Text>
-      </TouchableOpacity>
+          <Icon
+            name="add-circle-outline"
+            size={24}
+            color={activeAction === "addLivro" ? "#fff" : "#004B49"}
+          />
+          <Text
+            style={[
+              styles.iconText,
+              activeAction === "addLivro" && styles.activeText,
+            ]}
+          >
+            ADD Livro
+          </Text>
+        </TouchableOpacity>
+      )}
 
       <TouchableOpacity
         style={[
