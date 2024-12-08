@@ -2,7 +2,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useContext, useEffect, useState } from 'react';
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { auth } from '../../FirebaseConfig';
-import { AuthContext } from '../../context/UserAuthContext'; // Use AuthContext
+import { AuthContext } from '../../Context/UserAuthContext'; // Use AuthContext
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');

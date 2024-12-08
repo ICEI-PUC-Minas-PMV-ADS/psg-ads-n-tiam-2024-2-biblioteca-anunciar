@@ -1,11 +1,11 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useContext, useEffect, useState } from "react";
-import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TextInput, TouchableOpacity, View, Image } from "react-native";
 import { Button } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 import CardLivro from "../../components/CardLivro/CardLivro";
 import Navbar from "../../components/navbar/navbar";
-import { AuthContext } from "../../context/UserAuthContext";
+import { AuthContext } from "../../Context/UserAuthContext";
 import api from '../../Service/apiAxios';
 
 export default function PaginaInicial() {
@@ -66,7 +66,8 @@ export default function PaginaInicial() {
               autor: livro.autor,
               resumo: livro.resumo,
               descricao: livro.descricao,
-              disponivel: livro.disponivel
+              disponivel: livro.disponivel,
+              imagem: livro.imagem
             })}
           >
             <CardLivro title={livro.titulo} />
