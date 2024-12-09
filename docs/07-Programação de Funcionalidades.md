@@ -123,6 +123,19 @@ Pagina de Detalhes dos livros
 
 ![image](https://github.com/user-attachments/assets/d8c1a1c0-a827-477d-8ec5-fd35d11bf8ff)
 
+Pagina Home
+- Função de filtrar livros via Botões de categoria.
+![image](https://github.com/user-attachments/assets/443592e4-a8b0-4f58-9f2e-b8c248faee64)
+
+Pagina Detalhes
+- Funcionalidade Edit e delete Livro.
+![image](https://github.com/user-attachments/assets/c974f342-d9ee-4c9b-8e93-4d09d9feee92)
+![image](https://github.com/user-attachments/assets/4ae4a495-70f1-43ea-a8ad-7e24d87f7301)
+![image](https://github.com/user-attachments/assets/04f4937d-0917-442f-8a81-072ff46a3dbb)
+
+
+
+
 
 > **Links Úteis**:
 >
