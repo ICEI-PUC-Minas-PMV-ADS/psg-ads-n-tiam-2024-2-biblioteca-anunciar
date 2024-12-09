@@ -66,6 +66,15 @@ Esta documentação descreve o modelo do banco de dados de usuários e as implem
 - **Descrição:** Captura de tela da interface de detalhe livro, exibindo dados do livro, como titulo, autor e ressumo, além de sua disponibilidade. Um botão para fazer reserva.
 - **Objetivo:** Mostrar a aparência da tela de detalhe livro para referência visual, ajudando a identificar possíveis melhorias na experiência do usuário.
 
+## Código da Página Lista Favoritos
+![image](https://github.com/user-attachments/assets/12a9f771-ded0-4c12-bfa8-e0425086c7e9)
+
+## Print da Página Lista Favoritos
+![image](https://github.com/user-attachments/assets/78c73fa1-f4b1-454c-b7e8-9238e08ca370)
+
+- **Descrição:** Captura de tela da interface de lista livros, exibindo os livros favoritados
+- **Objetivo:** Mostrar a aparência da tela de detalhe livro para referência visual, ajudando a identificar possíveis melhorias na experiência do usuário.
+
 Modelo Banco Banco de dados ->  
 ![image](https://github.com/user-attachments/assets/dc887efc-9ed6-4cc1-853a-b8702bcd91f5)
 
