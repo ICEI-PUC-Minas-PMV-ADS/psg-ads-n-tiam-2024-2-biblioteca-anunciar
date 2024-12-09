@@ -8,8 +8,8 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Registro de
 
 ## Objetivo
 - Ajustar fluxo usuario, ao clicar em um card, redirecinar o usuario para página de detalhes do livro clicado.  
-![image](https://github.com/user-attachments/assets/f66789b0-32ec-4d3f-b85a-13e9221ad8b6)  
-![image](https://github.com/user-attachments/assets/2f73d906-995d-46e8-b9e1-f507d46e7c11)  
+![image](https://github.com/user-attachments/assets/80676603-7cca-4739-9133-405d7b20cf4d)
+ 
 
 - Input de pesquisa para ajudar o usuario a encontrar o livro, ao pesquisar um titulo, os livros devem ser filtrados pelo texto pesquisado.  
 ![image](https://github.com/user-attachments/assets/73ba524d-661f-4e98-8851-20ca5060fcd1)  
@@ -71,6 +71,12 @@ Testar a facilidade de uso da tela de Cadastro, incluindo clareza das instruçõ
    - **Resultado:** A mensagem "Usuário cadastrado com sucesso" foi exibida, e o redirecionamento funcionou conforme esperado.
    - **Feedback do Usuário:** Os participantes apreciaram a mensagem de confirmação e o redirecionamento automático.
 
+5. **Tela Detalhe Livro**
+![image](https://github.com/user-attachments/assets/f449ddb7-ecd4-4c54-8092-cec4653b9752)
+
+6. **Tela Lista Favoritos**
+![image](https://github.com/user-attachments/assets/bc3ec7a2-2202-4beb-99ab-caf69fb42f65)
+
 ### Observações
 - Sugerido destacar os campos das senhas ao mostrar mensagens de erro.
 - Melhorar o feedback de carregamento durante o processo de cadastro, especialmente quando a rede está lenta.
@@ -82,7 +88,8 @@ Testar a facilidade de uso da tela de Cadastro, incluindo clareza das instruçõ
 Os testes de usabilidade identificaram que as telas de Login e Cadastro possuem uma interface funcional e intuitiva, com mensagens de erro claras. Sugere-se implementar as seguintes melhorias para aprimorar a experiência do usuário:
 - **Destaque Visual de Erros:** Destacar visualmente os campos de entrada com erro, especialmente os campos de senha.
 - **Feedback de Carregamento:** Implementar um ícone de carregamento durante os processos de login e cadastro.
-![image](https://github.com/user-attachments/assets/33594d98-e348-49c5-8ee2-74a0ea02cc6e)
+![image](https://github.com/user-attachments/assets/44d43efb-35ca-48a0-9e09-11011a7095b4)
+
 
 ## Tela de Cadastro de livros
 
