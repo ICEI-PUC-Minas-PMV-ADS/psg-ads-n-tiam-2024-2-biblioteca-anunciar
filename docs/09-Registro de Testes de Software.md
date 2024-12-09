@@ -76,17 +76,26 @@ Este documento descreve os testes realizados na tela de cadastro e login, com um
 
 ---
 
-
+PÁGINA DETALHE DE LIVROS
 Cenário: Ao clicar em um livro no catálogo de livros o usuário deve ser direcionado para a tela detalhe de livro
 Caso o livro esteja disponível: deve aparecer a mensagem 'Disponível para empréstimo'
 e o botão empréstimo habilitado
 Caso o livro esteja indisponível: deve aparecer a mensagem 'NÃO Disponível para empréstimo' e o botão empréstimo desabilitado
+O icone de coração deve apareces vermelho quando o livro estiver favoritado
 
-![pag disponivel](https://github.com/user-attachments/assets/0833f943-5000-4de9-8c75-39efd5ae99c3) <br>
+![image](https://github.com/user-attachments/assets/ed164196-cb48-4aba-967f-29b4433316a8)
 Resultado: Mostra a mensagem de disponível e botão habilitado.
+Mostra livro desfavoritado
 
-![pag indisponivel](https://github.com/user-attachments/assets/72be7d68-f2cd-40d1-8536-53ed32337222)<br>
+![image](https://github.com/user-attachments/assets/24419019-b5a3-41e0-8de4-209d998c354c)
 Resultado: Mostra a mensagem de indisponivel e botão desabilitado.
+Mostra livro favoritado
+
+PÁGINA lIVROS FAVORITADOS
+Cenário quando um livro na página de detalhe de livros for favoritado, (o icone de coração vermelho) o livro deve aparecer na pagina livros favoritos
+
+![image](https://github.com/user-attachments/assets/b8f07dd6-2aca-4975-8ef6-1c172a8f1e2d)
+Resultado: Mostra lista de livros favoritados
 
 Tela de Cadastro de Livros
 
