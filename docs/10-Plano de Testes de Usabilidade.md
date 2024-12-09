@@ -6,6 +6,9 @@ O teste de usabilidade permite avaliar a qualidade da interface com o usuário d
 Com o desenvolvimento da tela nota-se que a tela do celular é pequena para manter o layout do topo da tela como está no prótotipo, pois a imagem fica muito pequena e os texto ao seu lado muito apertados.
 Para o restante da página o layout funcionou como no protótipo. 
 
+## Teste Tela Livros Favoritos:
+A tela poderia exibir algumas informações a mais dos livros e tbm deveria poder clicar em cada livro para levar para a pag de detalhe.
+
 ## Teste tela Principal
  - Ao clicar no botão de pesquisar, o software deve ser capaz de filtrar os livros com os textos digitados.
  - Ao clicar em um card, o usuario deve ser redirecionado à pagina de detalhes do livro.
