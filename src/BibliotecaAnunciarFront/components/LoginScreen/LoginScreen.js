@@ -34,7 +34,7 @@ const LoginScreen = () => {
       setUser({
         uid: userCredential.user.uid,
         email: userCredential.user.email,
-        nome: userCredential.user.displayName || "Usuário", 
+        nome: userCredential.user.displayName || "Usuário",
         isAdmin
       })
 
@@ -55,7 +55,7 @@ const LoginScreen = () => {
       }
     }
   };
-  
+
 
   useEffect(() => {
     if (user.nome) {

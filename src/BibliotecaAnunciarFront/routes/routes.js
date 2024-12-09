@@ -8,6 +8,7 @@ import CadastroLivros from "../pages/cadastroLivros/cadastroLivros";
 import PaginaInicial from "../pages/cadastroLivros/PaginaInicial";
 import DetalheLivro from "../pages/cadastroLivros/detalheLivro";
 import EditLivro from "../pages/EditLivro";
+import ListaFavoritos from "../pages/cadastroLivros/listaFavoritos";
 
 const Tela = createStackNavigator();
 
@@ -18,6 +19,11 @@ export default function AppNavigator() {
         <Tela.Screen
           name="Home"
           component={PaginaInicial}
+          options={{ headerShown: false }}
+        />
+        <Tela.Screen
+          name="ListaFavoritos"
+          component={ListaFavoritos}
           options={{ headerShown: false }}
         />
         <Tela.Screen

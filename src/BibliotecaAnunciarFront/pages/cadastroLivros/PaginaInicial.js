@@ -10,8 +10,8 @@ import {
 } from "react-native";
 import CardLivro from "../../components/CardLivro/CardLivro";
 import Navbar from "../../components/navbar/navbar";
-import { AuthContext } from "../../context/UserAuthContext";
-import api from "../../Service/apiAxios";
+import { AuthContext } from "../../Context/UserAuthContext";
+import api from '../../Service/apiAxios';
 
 export default function PaginaInicial() {
   const categorias = [
@@ -120,27 +120,27 @@ export default function PaginaInicial() {
         />
       </View>
       <ScrollView style={styles.viewContent}>
-  <View style={styles.cardsContainer}>
-    {livros.map((livro) => (
-      <TouchableOpacity
-        key={livro.id}
-        onPress={() =>
-          navigation.navigate("detalheLivro", {
-            livroId: livro.id,
-            titulo: livro.titulo,
-            autor: livro.autor,
-            resumo: livro.resumo,
-            descricao: livro.descricao,
-            disponivel: livro.disponivel,
-            imagem: livro.imagem,
-          })
-        }
-      >
-        <CardLivro title={livro.titulo} imagem={livro.imagem} />
-      </TouchableOpacity>
-    ))}
-  </View>
-</ScrollView>
+        <View style={styles.cardsContainer}>
+          {livros.map((livro) => (
+            <TouchableOpacity
+              key={livro.id}
+              onPress={() =>
+                navigation.navigate("detalheLivro", {
+                  livroId: livro.id,
+                  titulo: livro.titulo,
+                  autor: livro.autor,
+                  resumo: livro.resumo,
+                  descricao: livro.descricao,
+                  disponivel: livro.disponivel,
+                  imagem: livro.imagem,
+                })
+              }
+            >
+              <CardLivro title={livro.titulo} imagem={livro.imagem} />
+            </TouchableOpacity>
+          ))}
+        </View>
+      </ScrollView>
     </View>
   );
 }
@@ -216,15 +216,15 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 10,
   },
-  viewContent:{
+  viewContent: {
     marginTop: "10px"
   }, cardsContainer: {
     flexDirection: "row",
-    flexWrap: "wrap", 
-    justifyContent: "space-evenly", 
+    flexWrap: "wrap",
+    justifyContent: "space-evenly",
     marginTop: 20,
-  },cardItem: {
-    width: "48%", 
-    marginBottom: 20, 
+  }, cardItem: {
+    width: "48%",
+    marginBottom: 20,
   },
 });

@@ -14,7 +14,7 @@ import { Button, TextInput } from "react-native-paper";
 import Footer from "../../components/footer/Footer";
 import MenuDeAcoes from "../../components/menuAcoesAdmin/menuAcoesAdmin";
 import Navbar from "../../components/navbar/navbar";
-import { AuthContext } from "../../context/UserAuthContext";
+import { AuthContext } from "../../Context/UserAuthContext";
 import { postLivros } from "../../Service/apiService";
 import { useNavigation } from "@react-navigation/native";
 
