@@ -132,6 +132,17 @@ Cenário -> Quando o usuario clicar no botão de reservar livro, e ele estiver l
 
 ![image](https://github.com/user-attachments/assets/885915a9-3ead-476a-b1ac-c6ddfe0cd564)
 
+PÁGINA DE INICIAL, FILTRO
+
+-> Cenário: Ao clicar em um botão de categoria, o sistema deve filtrar os livros que possuem aquela categoria, como mostra a imagem.
+![image](https://github.com/user-attachments/assets/0a7148b6-8a56-4fcb-bd58-172a91413a55)
+
+PÁGINDE DE DETALHES, EDIT E DELETE
+
+-> Cenário: Ao clicar em editar o livro, um form deve aparecer com os dados iniciais do livro, após o a atuzalização ser concluída, os dados devem ser alterados conforme a atualização.
+![image](https://github.com/user-attachments/assets/a92f7c7c-c7dc-4a1e-8525-fd1e86f7f067)
+![image](https://github.com/user-attachments/assets/1ef989b5-06fb-44e7-ad65-1f2dead35c18)
+
 
 ## Avaliação
 
