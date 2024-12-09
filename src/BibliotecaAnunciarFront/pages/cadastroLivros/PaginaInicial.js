@@ -8,8 +8,6 @@ import {
   Text,
   ScrollView,
 } from "react-native";
-import { Button } from "react-native-paper";
-import Icon from "react-native-vector-icons/Ionicons";
 import CardLivro from "../../components/CardLivro/CardLivro";
 import Navbar from "../../components/navbar/navbar";
 import { AuthContext } from "../../context/UserAuthContext";
@@ -33,6 +31,12 @@ export default function PaginaInicial() {
   const navigation = useNavigation();
 
   useEffect(() => {
+    if (!user) {
+      navigation.navigate("Login");
+    }
+  }, [user]);
+
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await api.get("/livro");
@@ -51,7 +55,7 @@ export default function PaginaInicial() {
     let livrosFiltrados = livrosDb;
 
     if (selectedFilter !== null) {
-      const categoriaSelecionada = categorias[selectedFilter]; // Obtemos o nome da categoria
+      const categoriaSelecionada = categorias[selectedFilter];
       livrosFiltrados = livrosFiltrados.filter(
         (livro) =>
           livro.categoria.toLowerCase() === categoriaSelecionada.toLowerCase()

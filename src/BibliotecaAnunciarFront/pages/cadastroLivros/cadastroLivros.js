@@ -1,6 +1,6 @@
 import { Picker } from "@react-native-picker/picker";
 import * as ImagePicker from "expo-image-picker";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   Alert,
   Image,
@@ -16,6 +16,8 @@ import MenuDeAcoes from "../../components/menuAcoesAdmin/menuAcoesAdmin";
 import Navbar from "../../components/navbar/navbar";
 import { AuthContext } from "../../context/UserAuthContext";
 import { postLivros } from "../../Service/apiService";
+import { useNavigation } from "@react-navigation/native";
+
 
 export default function CadastroLivros() {
   const [titulo, setTitulo] = useState("");
@@ -24,6 +26,14 @@ export default function CadastroLivros() {
   const [autor, setAutor] = useState("");
   const [imagem, setImagem] = useState(null);
   const { user } = useContext(AuthContext);
+  const navigation = useNavigation();
+
+
+  useEffect(() => {
+    if (!user) {
+      navigation.navigate("Login");
+    }
+  }, [user]);
 
   const escolherImagem = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();

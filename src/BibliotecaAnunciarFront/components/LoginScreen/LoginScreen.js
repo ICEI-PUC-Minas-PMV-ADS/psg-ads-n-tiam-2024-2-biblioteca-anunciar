@@ -3,11 +3,21 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { auth } from '../../FirebaseConfig';
 import { AuthContext } from '../../context/UserAuthContext';
+import { useNavigation } from "@react-navigation/native";
+
 
 const LoginScreen = () => {
+  const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const { user, setUser } = useContext(AuthContext);  
+  const { user, setUser } = useContext(AuthContext); 
+
+  useEffect(() => {
+    if (user && user.uid) {
+      console.log("Usuário autenticado, navegando para Home...");
+      navigation.navigate("Home");
+    }
+  }, [user]);
 
   const handleLogin = async () => {
     if (!email || !senha) {
@@ -26,7 +36,7 @@ const LoginScreen = () => {
         email: userCredential.user.email,
         nome: userCredential.user.displayName || "Usuário", 
         isAdmin
-      });
+      })
 
       console.log('Login bem-sucedido');
     } catch (error) {
@@ -74,6 +84,11 @@ const LoginScreen = () => {
       />
       <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
         <Text style={styles.loginButtonText}>Entrar</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Singup")}>
+        <Text style={styles.signupText}>
+          Não tem uma conta? <Text style={styles.signupLink}>Cadastre-se.</Text>
+        </Text>
       </TouchableOpacity>
     </View>
   );

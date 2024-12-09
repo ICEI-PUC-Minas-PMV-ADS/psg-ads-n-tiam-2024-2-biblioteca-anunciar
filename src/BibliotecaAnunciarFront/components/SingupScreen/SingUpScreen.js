@@ -3,8 +3,11 @@ import { doc, setDoc } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { auth, db } from '../../FirebaseConfig';
+import { useNavigation } from "@react-navigation/native";
 
-const SignupScreen = ({ navigation }) => {
+
+const SignupScreen = () => {
+  const navigation = useNavigation();
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [telefone, setTelefone] = useState('');
@@ -99,7 +102,7 @@ const SignupScreen = ({ navigation }) => {
         <Text style={styles.signupButtonText}>Cadastrar</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
         <Text style={styles.link}>Voltar para Login</Text>
       </TouchableOpacity>
     </View>
