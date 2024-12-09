@@ -4,7 +4,8 @@ O teste de usabilidade permite avaliar a qualidade da interface com o usuário d
 
 ## Teste Tela Detalhe Livro:
 Com o desenvolvimento da tela nota-se que a tela do celular é pequena para manter o layout do topo da tela como está no prótotipo, pois a imagem fica muito pequena e os texto ao seu lado muito apertados.
-Para o restante da página o layout funcionou como no protótipo. 
+Para o restante da página o layout funcionou como no protótipo.
+Caso o usuário seja um adm, deve ser exibido funçoões de editar e deletar o livro selecioado.
 
 ## Teste Tela Livros Favoritos:
 A tela poderia exibir algumas informações a mais dos livros e tbm deveria poder clicar em cada livro para levar para a pag de detalhe.
@@ -18,6 +19,8 @@ A tela poderia exibir algumas informações a mais dos livros e tbm deveria pode
    - Caso tenha algum texto no input, o filtro deve ser aplicado com esse texto.
 2. **Clicar no card**
  - Caso o usuario clique no card do livro, ele é redirecionado à pagina de detalhes do livro clicado.
+3. **Clicar no filtro de categoria**
+ - Ao clicar no filtro de categoria, o sistema deve filtrar pela categoria selecionada.
 
 # Testes da Tela de Login (Administrador e Usuário Comum)
 
