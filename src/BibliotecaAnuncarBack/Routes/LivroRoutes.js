@@ -17,6 +17,9 @@ router.put("/:id/reservar", reservarLivro);
 
 router.put("/users/:userId/favoritos/:livroId", alternarFavorito);
 
+
 router.get("/users/:userId", buscarFavoritos);
+
+
 
 module.exports = router;

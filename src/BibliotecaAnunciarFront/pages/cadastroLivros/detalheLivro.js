@@ -4,7 +4,7 @@ import { Alert, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } fr
 import { Button } from "react-native-paper";
 import Icon from "react-native-vector-icons/Ionicons";
 import Navbar from "../../components/navbar/navbar";
-import { AuthContext } from "../../context/UserAuthContext";
+import { AuthContext } from "../../Context/UserAuthContext";
 import api from '../../Service/apiAxios';
 
 export default function DetalheLivro() {

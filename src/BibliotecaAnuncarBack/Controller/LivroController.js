@@ -26,13 +26,19 @@ async function getLivros(req, res) {
 async function getLivro(req, res) {
   try {
     const id = req.params.id;
+    console.log("Buscando livro com ID:", id); // Log para verificar o ID recebido
+
     const livro = await getLivroId(id);
-    if (livro) {
-      res.send(livro);
+    if (!livro) {
+      console.error("Livro não encontrado:", id);
+      return res.status(404).json({ message: "Livro não encontrado" });
     }
+
+    console.log("Livro encontrado:", livro); // Verifica se o livro foi encontrado
+    res.status(200).json(livro);
   } catch (error) {
-    res.status(500);
-    res.send(error.message);
+    console.error("Erro ao buscar livro:", error.message); // Log detalhado do erro
+    res.status(500).json({ error: "Erro interno ao buscar livro" });
   }
 }
 
@@ -154,11 +160,13 @@ async function buscarFavoritos(req, res) {
     }
 
     const favoritos = documentoUsuario.data().favoritos || [];
+
     res.status(200).send({ favoritos });
   } catch (erro) {
     res.status(500).send({ erro: erro.message });
   }
 }
+
 
 module.exports = {
   getLivros,
