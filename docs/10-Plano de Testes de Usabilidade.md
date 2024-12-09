@@ -19,6 +19,89 @@ A tela poderia exibir algumas informações a mais dos livros e tbm deveria pode
 2. **Clicar no card**
  - Caso o usuario clique no card do livro, ele é redirecionado à pagina de detalhes do livro clicado.
 
+# Testes da Tela de Login (Administrador e Usuário Comum)
+
+## Objetivo
+Avaliar a funcionalidade e a usabilidade da tela de Login, verificando se os administradores e usuários comuns conseguem acessar a aplicação com segurança e sem dificuldades, proporcionando uma boa experiência de uso.
+
+## Descrição
+A tela de Login permite que tanto administradores quanto usuários comuns insiram suas credenciais para acessar a aplicação. O sistema deve autenticar corretamente as informações de login e diferenciar os tipos de usuário, redirecionando-os adequadamente para a interface apropriada.
+
+### Tipos de Usuário:
+- **Administrador**: Acesso completo à administração do sistema.
+- **Usuário Comum**: Acesso restrito, permitindo apenas funcionalidades básicas.
+
+## Casos de Teste
+
+### 1. Verificação de Campos Obrigatórios
+
+**Descrição**: Verificar se a aplicação exibe uma mensagem de erro quando o usuário tenta fazer login sem preencher todos os campos obrigatórios.
+
+**Resultado Esperado**: Exibir o alerta "Todos os campos são obrigatórios" se algum campo (e-mail ou senha) estiver vazio.
+
+---
+
+### 2. Verificação de E-mail ou Senha Incorretos
+
+**Descrição**: Testar se o sistema exibe a mensagem de erro correta quando o usuário insere um e-mail ou senha incorretos.
+
+**Resultado Esperado**: Exibir o alerta "Erro no login, tente novamente" caso o e-mail ou a senha estejam incorretos.
+
+---
+
+### 3. Confirmação de Login Bem-sucedido para Usuário Comum
+
+**Descrição**: Verificar que o sistema redireciona corretamente um usuário comum para a tela inicial, após um login bem-sucedido.
+
+**Resultado Esperado**: Exibir o alerta "Login bem-sucedido" e redirecionar o usuário para a página inicial de usuário comum.
+
+---
+
+### 4. Confirmação de Login Bem-sucedido para Administrador
+
+**Descrição**: Verificar que o sistema redireciona corretamente um administrador para a tela de administração, após um login bem-sucedido.
+
+**Resultado Esperado**: Exibir o alerta "Login bem-sucedido" e redirecionar o usuário para a página de administração.
+
+---
+
+### 5. Validação de Formato de E-mail
+
+**Descrição**: Testar se o campo de e-mail aceita apenas formatos válidos de e-mail.
+
+**Resultado Esperado**: Exibir um alerta "Formato de e-mail inválido" quando o usuário inserir um e-mail em formato incorreto.
+
+---
+
+### 6. Recuperação de Senha (Caso de Esquecer Senha)
+
+**Descrição**: Verificar se o sistema permite ao usuário solicitar a recuperação da senha corretamente.
+
+**Resultado Esperado**: O usuário deverá ser redirecionado para uma tela de recuperação de senha, com instruções claras de como proceder para redefinir a senha.
+
+---
+
+## Observações
+
+### Pontos de Melhoria:
+1. **Layout Responsivo**: Melhorar a disposição dos campos de login e botões para evitar sobreposição em dispositivos móveis, garantindo uma boa experiência de uso.
+   
+2. **Validação de E-mail**: Certificar-se de que o campo de e-mail aceita apenas formatos válidos de e-mail.
+
+3. **Segurança**: Implementar um sistema de bloqueio temporário após múltiplas tentativas de login falhas para evitar ataques de força bruta.
+
+4. **Mensagens de Erro**: As mensagens de erro devem ser claras e distintas para diferenciar os tipos de falhas (campo vazio, e-mail/senha incorretos).
+
+---
+
+### Conclusão
+
+A funcionalidade de login, tanto para administradores quanto para usuários comuns, deve garantir a autenticidade dos usuários e um acesso eficiente e seguro. É fundamental que a interface seja intuitiva e fácil de usar, proporcionando uma boa experiência para todos os tipos de usuário.
+
+---
+
+**Requisito Funcional Cumprido:** RF-10 - A tela de login garante a diferenciação entre administradores e usuários comuns e realiza a validação das credenciais de forma eficaz.
+
 ## Testes da Tela de Login
 
 ### Objetivo
