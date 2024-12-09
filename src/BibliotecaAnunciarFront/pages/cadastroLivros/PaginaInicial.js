@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import CardLivro from "../../components/CardLivro/CardLivro";
 import Navbar from "../../components/navbar/navbar";
-import { AuthContext } from "../../Context/UserAuthContext";
+import { AuthContext } from "../../context/UserAuthContext";
 import api from '../../Service/apiAxios';
 
 export default function PaginaInicial() {

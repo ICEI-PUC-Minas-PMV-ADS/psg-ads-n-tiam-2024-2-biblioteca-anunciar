@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
-import { AuthContext } from "../../Context/UserAuthContext";
+import { AuthContext } from "../../context/UserAuthContext";
 import api from "../../Service/apiAxios";
 import Navbar from "../../components/navbar/navbar";
 
