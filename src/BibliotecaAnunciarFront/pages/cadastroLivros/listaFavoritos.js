@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
-import { AuthContext } from "../../context/UserAuthContext";
+import { AuthContext } from "../../context/userAuthContext";
 import api from "../../Service/apiAxios";
 import Navbar from "../../components/navbar/navbar";
 
 export default function ListaFavoritos() {
-    const { user } = useContext(AuthContext); // Obtém o usuário do contexto
-    const useId = user?.uid; // Verifica se `user` existe antes de acessar `uid`
-    const [favoritos, setFavoritos] = useState([]); // Estado para armazenar os favoritos
-    const [isLoading, setIsLoading] = useState(true); // Estado para controle de carregamento
-    const [error, setError] = useState(null); // Estado para controle de erros
+    const { user } = useContext(AuthContext);
+    const useId = user?.uid; 
+    const [favoritos, setFavoritos] = useState([]); 
+    const [isLoading, setIsLoading] = useState(true); 
+    const [error, setError] = useState(null); 
 
     useEffect(() => {
         const fetchFavoritosDetalhes = async () => {

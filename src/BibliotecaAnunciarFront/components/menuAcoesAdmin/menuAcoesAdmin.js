@@ -27,48 +27,6 @@ export default function MenuDeAcoes({ activeAction, isAdmin }) {
           </Text>
         </TouchableOpacity>
       )}
-
-      <TouchableOpacity
-        style={[
-          styles.iconButton,
-          activeAction === "favoritos" && styles.activeButton,
-        ]}
-      >
-        <Icon
-          name="bookmark-outline"
-          size={24}
-          color={activeAction === "favoritos" ? "#fff" : "#000"}
-        />
-        <Text
-          style={[
-            styles.iconText,
-            activeAction === "favoritos" && styles.activeText,
-          ]}
-        >
-          Favoritos
-        </Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={[
-          styles.iconButton,
-          activeAction === "notificacoes" && styles.activeButton,
-        ]}
-      >
-        <Icon
-          name="notifications-outline"
-          size={24}
-          color={activeAction === "notificacoes" ? "#fff" : "#000"}
-        />
-        <Text
-          style={[
-            styles.iconText,
-            activeAction === "notificacoes" && styles.activeText,
-          ]}
-        >
-          Notificações
-        </Text>
-      </TouchableOpacity>
     </View>
   );
 }

@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import CardLivro from "../../components/CardLivro/CardLivro";
 import Navbar from "../../components/navbar/navbar";
-import { AuthContext } from "../../context/UserAuthContext";
+import { AuthContext } from "../../context/userAuthContext";
 import api from '../../Service/apiAxios';
 
 export default function PaginaInicial() {
@@ -130,7 +130,7 @@ export default function PaginaInicial() {
                   titulo: livro.titulo,
                   autor: livro.autor,
                   resumo: livro.resumo,
-                  descricao: livro.descricao,
+                  categoria: livro.categoria,
                   disponivel: livro.disponivel,
                   imagem: livro.imagem,
                 })
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "flex-start",
-    paddingTop: 200,
+    paddingTop: 160,
   },
   viewInput: {
     width: "100%",
@@ -197,6 +197,7 @@ const styles = StyleSheet.create({
     borderColor: "#ccc",
     backgroundColor: "#fff",
     marginHorizontal: 5,
+    height: 50,
   },
   selectedButton: {
     borderColor: "#1e6f5c",

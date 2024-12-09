@@ -14,7 +14,7 @@ import { Button, TextInput } from "react-native-paper";
 import Footer from "../../components/footer/Footer";
 import MenuDeAcoes from "../../components/menuAcoesAdmin/menuAcoesAdmin";
 import Navbar from "../../components/navbar/navbar";
-import { AuthContext } from "../../context/UserAuthContext";
+import { AuthContext } from "../../context/userAuthContext";
 import { postLivros } from "../../Service/apiService";
 import { useNavigation } from "@react-navigation/native";
 
@@ -25,7 +25,7 @@ export default function CadastroLivros() {
   const [resumo, setResumo] = useState("");
   const [autor, setAutor] = useState("");
   const [imagem, setImagem] = useState(null);
-  const { user } = useContext(AuthContext);
+  const { user,setUser } = useContext(AuthContext);
   const navigation = useNavigation();
 
 
@@ -56,6 +56,11 @@ export default function CadastroLivros() {
       setImagem(resultado.assets[0].uri);
     }
   };
+
+  function logout(){
+    setUser("")
+    navigation.navigate("Login")
+  }
 
   const handleEnviar = async () => {
     if (!titulo || !categoria || !resumo || !autor || !imagem) {
@@ -109,9 +114,9 @@ export default function CadastroLivros() {
               <Text style={styles.email}>{user.email}</Text>
             </View>
             <TouchableOpacity
-              onPress={() => Alert.alert("Editar", "Funcionalidade de edição!")}
+              onPress={() => logout()}
             >
-              <Text style={styles.editText}>editar</Text>
+              <Text style={styles.editText}>LogOut</Text>
             </TouchableOpacity>
           </View>
         </View>

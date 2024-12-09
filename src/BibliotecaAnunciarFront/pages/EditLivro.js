@@ -4,6 +4,7 @@ import { Button, TextInput } from "react-native-paper";
 import Navbar from "../components/navbar/navbar";
 import api from '../../BibliotecaAnunciarFront/Service/apiAxios';
 import { useNavigation } from "@react-navigation/native";
+import { Picker } from "@react-native-picker/picker";
 
 export default function EditLivro({ route }) {
   const navigation = useNavigation();
@@ -60,21 +61,30 @@ export default function EditLivro({ route }) {
             }}
             style={styles.input}
           />
-          <TextInput
-            label="Categoria"
-            value={categoriaEdit}
-            onChangeText={(text) => setCategoria(text)}
-            mode="outlined"
-            outlineColor="#000000"
-            activeOutlineColor="#000000"
-            theme={{
-              colors: {
-                background: "#ffffff",
-                placeholder: "#000000", // Definindo a cor do texto como preta
-              },
-            }}
-            style={styles.input}
-          />
+           <View style={[styles.input, styles.pickerContainer]}>
+          <Picker
+                  selectedValue={categoriaEdit}
+                  onValueChange={(itemValue) => setCategoria(itemValue)}
+                  style={styles.picker}
+                  dropdownIconColor="#000"
+                >
+                  <Picker.Item label="Selecione uma categoria" value="" />
+                  <Picker.Item label="Bíblia" value="biblia" />
+                  <Picker.Item label="Teologia" value="teologia" />
+                  <Picker.Item
+                    label="Jovens e Adolescentes"
+                    value="devocional"
+                  />
+                  <Picker.Item
+                    label="Estudo Bíblico"
+                    value="historia_da_igreja"
+                  />
+                  <Picker.Item
+                    label="Comentário Bíblico"
+                    value="comentario_biblico"
+                  />
+          </Picker>
+          </View>
           <TextInput
             label="Resumo"
             value={resumoEdit}
@@ -190,5 +200,18 @@ const styles = StyleSheet.create({
     marginTop: 16,
     backgroundColor: "black",
     borderRadius: 10,
+  },
+  pickerContainer: {
+    borderWidth: 1,
+    borderColor: "black",
+    borderRadius: 5,
+    backgroundColor: "#ffffff",
+    paddingHorizontal: 10,
+    justifyContent: "center",
+    height: 50,
+  },
+  picker: {
+    color: "#000",
+    backgroundColor: "transparent",
   },
 });
