@@ -15,6 +15,81 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Registro de
 ![image](https://github.com/user-attachments/assets/73ba524d-661f-4e98-8851-20ca5060fcd1)  
 ![image](https://github.com/user-attachments/assets/8f27d37a-7a62-4341-a60a-b6a9b8efe82c)  
 
+# Testes da Tela de Login (Usuário e Administrador)
+
+## Objetivo do Teste
+Avaliar a experiência do usuário na tela de Login, incluindo a navegação, a clareza das mensagens de erro e a correta distinção entre os tipos de usuário (usuário comum e administrador) durante o processo de login. Além disso, verificar se os redirecionamentos para as páginas iniciais dos dois tipos de usuário estão funcionando conforme esperado, incluindo o redirecionamento com o token de administrador.
+
+## Resultados dos Casos de Teste
+
+### 1. Verificação de Login de Usuário Comum
+
+**Descrição do Teste**: Testar o login de um usuário comum e verificar se ele é redirecionado corretamente para a página inicial.
+
+**Resultado**: O sistema exibiu a mensagem "Login bem-sucedido" e redirecionou o usuário para a tela inicial de usuário comum.
+
+**Feedback do Usuário**: O processo de login foi considerado simples e rápido. O redirecionamento foi imediato e intuitivo.
+
+---
+
+### 2. Verificação de Login de Administrador
+
+**Descrição do Teste**: Testar o login de um administrador e verificar se ele é redirecionado corretamente para a página inicial de administrador com o token de admin.
+
+**Resultado**: O sistema exibiu a mensagem "Login bem-sucedido" e redirecionou o usuário para a página inicial do administrador, incluindo o token de autenticação para privilégios administrativos.
+
+**Feedback do Usuário**: O redirecionamento para a tela de administração foi rápido e intuitivo. No entanto, foi sugerido que o sistema fornecesse um feedback visual adicional sobre os privilégios administrativos do usuário (ex: ícone de admin ou mensagem de boas-vindas).
+
+---
+
+### 3. Verificação de Campos Obrigatórios
+
+**Descrição do Teste**: Testar a exibição de mensagem de erro ao tentar fazer login sem preencher todos os campos obrigatórios (e-mail ou senha).
+
+**Resultado**: A mensagem "Todos os campos são obrigatórios" foi exibida corretamente.
+
+**Feedback do Usuário**: A mensagem foi considerada clara, mas alguns usuários sugeriram destacar visualmente o campo vazio para melhorar a orientação do erro.
+
+---
+
+### 4. Verificação de E-mail ou Senha Incorretos
+
+**Descrição do Teste**: Testar a exibição de erro ao inserir e-mail ou senha incorretos.
+
+**Resultado**: A mensagem "Erro no login, tente novamente" foi exibida corretamente.
+
+**Feedback do Usuário**: A mensagem foi útil, mas alguns usuários sugeriram adicionar um indicador visual para destacar os campos incorretos, como a mudança de cor nos campos de e-mail ou senha.
+
+---
+
+### 5. Validação de Login com Token de Administrador
+
+**Descrição do Teste**: Testar se o token de administrador é enviado corretamente após o login de um administrador e garantir que ele tenha acesso a áreas restritas da aplicação.
+
+**Resultado**: Após o login, o administrador recebeu um token de autenticação e foi redirecionado para a página inicial de administrador. O token foi armazenado corretamente e usado para validar a autenticidade do acesso a áreas restritas de administração.
+
+**Feedback do Usuário**: O processo de autenticação e redirecionamento foi fluido, mas seria interessante exibir uma mensagem de confirmação sobre a autenticação de administrador, para aumentar a clareza do processo.
+
+---
+
+## Observações
+
+### Ajustes Recomendados:
+1. **Destaque Visual de Erros**: Melhorar a visibilidade dos campos vazios ou incorretos, utilizando indicadores visuais como bordas vermelhas ou ícones de erro ao lado dos campos de entrada.
+   
+2. **Feedback Visual de Carregamento**: Para casos em que o tempo de resposta do servidor é maior, sugerir a implementação de um indicador de carregamento, como um spinner ou barra de progresso, para melhorar a experiência do usuário.
+
+3. **Mensagem de Boas-vindas para Administradores**: Incluir uma mensagem de boas-vindas personalizada para administradores, indicando que ele possui privilégios administrativos.
+
+4. **Validação de Token de Administrador**: Garantir que o token de administrador seja validado corretamente em todas as páginas e funcionalidades restritas a administradores.
+
+---
+
+### Conclusão
+
+Os testes de login, tanto para usuários comuns quanto para administradores, mostram que o processo de autenticação está funcionando corretamente, com redirecionamento adequado para a tela inicial ou para a área de administração. Pequenos ajustes no feedback visual e na validação de erros podem melhorar ainda mais a experiência do usuário. O sistema também cumpre o requisito funcional RF-10, diferenciando claramente os privilégios de acesso entre os usuários e administradores.
+
+
 
 ## Tela de Login
 
