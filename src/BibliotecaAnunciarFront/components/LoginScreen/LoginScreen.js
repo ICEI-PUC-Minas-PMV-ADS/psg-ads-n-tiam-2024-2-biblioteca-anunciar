@@ -2,12 +2,12 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useContext, useEffect, useState } from 'react';
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { auth } from '../../FirebaseConfig';
-import { AuthContext } from '../../context/UserAuthContext';
+import { AuthContext } from '../../Context/UserAuthContext';
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const { user, setUser } = useContext(AuthContext);  
+  const { user, setUser } = useContext(AuthContext);
 
   const handleLogin = async () => {
     if (!email || !senha) {
@@ -24,7 +24,7 @@ const LoginScreen = () => {
       setUser({
         uid: userCredential.user.uid,
         email: userCredential.user.email,
-        nome: userCredential.user.displayName || "Usuário", 
+        nome: userCredential.user.displayName || "Usuário",
         isAdmin
       });
 
@@ -45,7 +45,7 @@ const LoginScreen = () => {
       }
     }
   };
-  
+
 
   useEffect(() => {
     if (user.nome) {

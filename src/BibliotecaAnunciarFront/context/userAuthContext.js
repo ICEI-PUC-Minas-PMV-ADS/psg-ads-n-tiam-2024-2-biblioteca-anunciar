@@ -8,8 +8,8 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{ user, setUser, isLoggedIn: user && user.uid }}>
-  {children}
-</AuthContext.Provider>
+      {children}
+    </AuthContext.Provider>
   );
 };
 
